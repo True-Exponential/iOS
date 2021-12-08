@@ -31,6 +31,8 @@
 		A634773C275CF5CE00AF3D6D /* AccountsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A634773B275CF5CE00AF3D6D /* AccountsTableVC.swift */; };
 		A634773F275D17B800AF3D6D /* account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A634773E275D17B800AF3D6D /* account.swift */; };
 		A6347741275D1F4B00AF3D6D /* AccountTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6347740275D1F4B00AF3D6D /* AccountTable.swift */; };
+		A66881EA2761069B00102E3D /* UserHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66881E92761069B00102E3D /* UserHandler.swift */; };
+		A66881EC2761092500102E3D /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66881EB2761092500102E3D /* NetworkHandler.swift */; };
 		A6DAF12C2753C63300747B14 /* globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DAF12B2753C63300747B14 /* globals.swift */; };
 		A6DAF1312753C6E600747B14 /* PlaidHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DAF1302753C6E600747B14 /* PlaidHandler.swift */; };
 		A6DAF1332753CA7000747B14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91035E561E3CA7C000A97B26 /* Main.storyboard */; };
@@ -79,6 +81,8 @@
 		A634773B275CF5CE00AF3D6D /* AccountsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsTableVC.swift; sourceTree = "<group>"; };
 		A634773E275D17B800AF3D6D /* account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = account.swift; sourceTree = "<group>"; };
 		A6347740275D1F4B00AF3D6D /* AccountTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTable.swift; sourceTree = "<group>"; };
+		A66881E92761069B00102E3D /* UserHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHandler.swift; sourceTree = "<group>"; };
+		A66881EB2761092500102E3D /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		A6DAF12B2753C63300747B14 /* globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globals.swift; sourceTree = "<group>"; };
 		A6DAF1302753C6E600747B14 /* PlaidHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaidHandler.swift; sourceTree = "<group>"; };
 		A6DAF14B2753E21D00747B14 /* LinkDemo-Swift copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "LinkDemo-Swift copy-Info.plist"; path = "/Users/Judas/Downloads/plaid-link-ios-master/exponential/LinkDemo-Swift copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -225,6 +229,8 @@
 			isa = PBXGroup;
 			children = (
 				A6DAF1302753C6E600747B14 /* PlaidHandler.swift */,
+				A66881E92761069B00102E3D /* UserHandler.swift */,
+				A66881EB2761092500102E3D /* NetworkHandler.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -315,6 +321,7 @@
 				A631B07F275E3E3200D490F7 /* payment.swift in Sources */,
 				A634773F275D17B800AF3D6D /* account.swift in Sources */,
 				7A92F55A25BF3CF800009CFD /* LinkKitSwiftUISupport.swift in Sources */,
+				A66881EA2761069B00102E3D /* UserHandler.swift in Sources */,
 				A6347734275CCADF00AF3D6D /* StartVC.swift in Sources */,
 				A631B07D275E3A7600D490F7 /* location.swift in Sources */,
 				A6347741275D1F4B00AF3D6D /* AccountTable.swift in Sources */,
@@ -324,6 +331,7 @@
 				91035E531E3CA7C000A97B26 /* AppDelegate.swift in Sources */,
 				A631B085275E4AC000D490F7 /* NumUtils.swift in Sources */,
 				91BB7745246D50C800BFD0CE /* ViewController+LinkToken.swift in Sources */,
+				A66881EC2761092500102E3D /* NetworkHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

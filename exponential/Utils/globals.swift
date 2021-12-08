@@ -9,6 +9,10 @@
 import Foundation
 
 struct Globals {
-    static var plaidHandler = PlaidHandler()
-    static var demoMode = false;
+    static private let serverAddress = "http://localhost:8080"
+    
+    static let plaidHandler = PlaidHandler()
+    static let plaidMode = true;
+    
+    public static func getServerAddr() -> String {return Globals.serverAddress;}
 }

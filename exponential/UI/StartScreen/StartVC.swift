@@ -25,17 +25,16 @@ class StartVC: UIViewController, LinkOAuthHandling {
     }
 
     @IBAction func didTapButton(_ sender: Any?) {
-        if (Globals.demoMode) {
+        if (Globals.plaidMode) {
+            presentPlaidLinkUsingLinkToken()
+        }
+        else {
             Globals.plaidHandler.retrieveAccounts(dispatch: nil)
             
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
 
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabCtrl")
             self.present(nextViewController, animated:true, completion:nil)
-            
-        }
-        else {
-            presentPlaidLinkUsingLinkToken()
         }
     }
 }
