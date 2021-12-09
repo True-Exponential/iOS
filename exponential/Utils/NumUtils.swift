@@ -16,4 +16,12 @@ struct NumUtils {
         
         return 0;
     }
+    
+    static public func unwrapFloat(value : Float?) -> Float {
+        if let val = value {
+            return val
+        }
+        
+        return 0;
+    }
 }
