@@ -10,34 +10,22 @@ import Foundation
 
 class UserHandler {
     
-    public static func login(dispatch : DispatchGroup) {
-      /*  let url = URL(string: Globals.getServerAddr() + "/login")!
-        
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        
-        let task = session.dataTask(with: url) { data, response, error in
-            
-            // ensure there is no error for this HTTP response
-            if error == nil {
-                // ensure there is data returned from this HTTP response
-                let content = data
-                
-                if content != nil {
-                    guard let json = (try? JSONSerialization.jsonObject(with: content!, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
-                        print("Not containing JSON")
-                        dispatch.leave()
-                        return
-                    }
-                    
-                    let accessToken = json["accessToken"] as String?
-                }
+    private func loginCallBack(json : [String: Any]?) {
+        if (json != nil) {
+            let isAccessToken = json!["isAccessToken"] as! Bool
+            let plaidToken = json!["plaidToken"] as! String
+            if (isAccessToken) {
+                Globals.plaidHandler.setAccessToken(accessToken: plaidToken)
             }
-            
-            dispatch.leave()
+            else {
+                Globals.plaidHandler.setAccessToken(accessToken: "")
+                Globals.plaidHandler.setLinkToken(linkToken: plaidToken)
+            }
         }
-        
-        task.resume()*/
+    }
+    
+    public func login(dispatch : DispatchGroup) {
+        NetworkHandler.sendPostRequest(dispatch: dispatch, url: "login", token: Globals.plaidHandler.getCurrAccessToken(), extraParams: nil, callback: self.loginCallBack)
     }
 }
 

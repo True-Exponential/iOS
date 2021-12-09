@@ -12,8 +12,10 @@ import LinkKit
 
 class PlaidHandler {
     
-    private var linkToken = ""
-    private var accessToken = ""
+    static private let ACCESS_TOKEN_KEY_NAME = "plaidAccessToken"
+    
+    private var m_linkToken = ""
+    private var m_accessToken = ""
     
     private var m_accounts: Array = [PlaidAccount]()
     private var m_transactions: Array = [Transaction]()
@@ -21,26 +23,18 @@ class PlaidHandler {
     
     private var dummyData = DummyData()
     
-    public func getAccount(index : Int) -> PlaidAccount {
-        return m_accounts[index]
+    func getLinkToken(dispatch : DispatchGroup) {
+        NetworkHandler.sendGetRequest(dispatch: dispatch, url: "plaidGetLinkToken", callback: self.getLinkTokenCallBack)
     }
     
-    public func getNumAccounts() -> Int {
-        return m_accounts.count;
-    }
-    
-    func getCurrLinkToken() -> String {
-        return self.linkToken
+    func getAccessToken(publicToken: String, dispatch : DispatchGroup) {
+        NetworkHandler.sendPostRequest(dispatch: dispatch, url: "plaidpublictoken2accesstoken", token: publicToken, extraParams: nil, callback: self.getAccessTokenCallBack)
     }
     
     private func getLinkTokenCallBack(json : [String: Any]?) {
         if (json != nil) {
-            self.linkToken = json!["token"] as! String
+            self.setLinkToken(linkToken: json!["token"] as! String)
         }
-    }
-    
-    func getLinkToken(dispatch : DispatchGroup) {
-        NetworkHandler.sendGetRequest(dispatch: dispatch, url: "plaidGetLinkToken", callback: self.getLinkTokenCallBack)
     }
     
     private func getTransactionsCallBack(json : [String: Any]?) {
@@ -74,18 +68,13 @@ class PlaidHandler {
     
     private func getAccessTokenCallBack(json : [String: Any]?) {
         if (json != nil) {
-            self.accessToken = json!["token"] as! String
+            self.setAccessToken(accessToken: json!["token"] as! String)
         }
-    }
-    
-    func getAccessToken(publicToken: String, dispatch : DispatchGroup) {
-        
-        NetworkHandler.sendPostRequest(dispatch: dispatch, url: "plaidpublictoken2accesstoken", token: publicToken, extraParams: nil, callback: self.getAccessTokenCallBack)
     }
     
     func retrieveAccounts(dispatch : DispatchGroup?) {
         if (Globals.plaidMode) {
-            NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetTransactions", token: self.accessToken,  extraParams:["startDate" : "2019-01-01", "endDate" : "2021-05-10"], callback: self.getTransactionsCallBack)
+            NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetTransactions", token: self.m_accessToken,  extraParams:["startDate" : "2019-01-01", "endDate" : "2021-05-10"], callback: self.getTransactionsCallBack)
         }
         else {
             let accounts = dummyData.accounts
@@ -103,5 +92,46 @@ class PlaidHandler {
             }
         }
     }
+    
+    public func getAccount(index : Int) -> PlaidAccount {
+        return m_accounts[index]
+    }
+    
+    public func getNumAccounts() -> Int {
+        return m_accounts.count;
+    }
+    
+    func getCurrLinkToken() -> String {
+        return self.m_linkToken
+    }
+    
+    func getCurrAccessToken() -> String {
+        if (self.m_accessToken.count > 0) {
+            return self.m_accessToken
+        }
+        else {
+            let defaults = UserDefaults.standard
+            
+            let storedAccessToken = defaults.string(forKey: PlaidHandler.ACCESS_TOKEN_KEY_NAME)
+            if let accessToken = storedAccessToken {
+                self.m_accessToken = accessToken
+            }
+        }
+        
+        return self.m_accessToken
+    }
+    
+    func setLinkToken(linkToken : String) {
+        self.m_linkToken = linkToken;
+    }
+    
+    func setAccessToken(accessToken : String) {
+        self.m_accessToken = accessToken;
+        
+        let defaults = UserDefaults.standard
+        defaults.set(self.m_accessToken, forKey: PlaidHandler.ACCESS_TOKEN_KEY_NAME)
+    }
+    
+    
     
 }

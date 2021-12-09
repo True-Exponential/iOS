@@ -19,14 +19,7 @@ extension StartVC {
             Globals.plaidHandler.getAccessToken(publicToken: success.publicToken, dispatch: dispatch)
             
             dispatch.notify(queue: .main) {
-                dispatch.enter()
-                Globals.plaidHandler.retrieveAccounts(dispatch: dispatch)
-                dispatch.notify(queue: .main) {
-                    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-
-                    let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabCtrl")
-                    self.present(nextViewController, animated:true, completion:nil)
-                }
+                self.getDataAndPresentUI()
             }
             
         }
@@ -39,27 +32,62 @@ extension StartVC {
         }
         return linkConfiguration
     }
-
+    
+    func getDataAndPresentUI() {
+        let dispatch = DispatchGroup()
+        dispatch.enter()
+        
+        Globals.plaidHandler.retrieveAccounts(dispatch: dispatch)
+        
+        dispatch.notify(queue: .main) {
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabCtrl")
+            self.present(nextViewController, animated:true, completion:nil)
+        }
+    }
+    
     func presentPlaidLinkUsingLinkToken() {
         
         let dispatch = DispatchGroup()
         dispatch.enter()
         
-        Globals.plaidHandler.getLinkToken(dispatch:dispatch)
+        Globals.userHandler.login(dispatch: dispatch)
         
         dispatch.notify(queue: .main) {
-            if (Globals.plaidHandler.getCurrLinkToken().count > 0) {
-                let linkConfiguration = self.createLinkConfig(linkToken: Globals.plaidHandler.getCurrLinkToken())
-                
-                let result = Plaid.create(linkConfiguration)
-                switch result {
-                case .failure(let error):
-                    print("Unable to create Plaid handler due to: \(error)")
-                case .success(let handler):
-                    handler.open(presentUsing: .viewController(self))
-                    self.linkHandler = handler
+            if (Globals.plaidHandler.getCurrAccessToken().count > 0) {
+                self.getDataAndPresentUI()
+            }
+            else {
+                if (Globals.plaidHandler.getCurrLinkToken().count > 0) {
+                    let linkConfiguration = self.createLinkConfig(linkToken: Globals.plaidHandler.getCurrLinkToken())
+                    
+                    let result = Plaid.create(linkConfiguration)
+                    switch result {
+                    case .failure(let error):
+                        print("Unable to create Plaid handler due to: \(error)")
+                    case .success(let handler):
+                        handler.open(presentUsing: .viewController(self))
+                        self.linkHandler = handler
+                    }
                 }
             }
+            /*Globals.plaidHandler.getLinkToken(dispatch:dispatch)
+            
+            dispatch.notify(queue: .main) {
+                if (Globals.plaidHandler.getCurrLinkToken().count > 0) {
+                    let linkConfiguration = self.createLinkConfig(linkToken: Globals.plaidHandler.getCurrLinkToken())
+                    
+                    let result = Plaid.create(linkConfiguration)
+                    switch result {
+                    case .failure(let error):
+                        print("Unable to create Plaid handler due to: \(error)")
+                    case .success(let handler):
+                        handler.open(presentUsing: .viewController(self))
+                        self.linkHandler = handler
+                    }
+                }
+            }*/
         }
     }
 }
