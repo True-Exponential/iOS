@@ -38,6 +38,10 @@
 		A6DAF12C2753C63300747B14 /* globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DAF12B2753C63300747B14 /* globals.swift */; };
 		A6DAF1312753C6E600747B14 /* PlaidHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DAF1302753C6E600747B14 /* PlaidHandler.swift */; };
 		A6DAF1332753CA7000747B14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91035E561E3CA7C000A97B26 /* Main.storyboard */; };
+		A6E2185C2765F3FD004F9BEC /* accounttype.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E2185B2765F3FD004F9BEC /* accounttype.swift */; };
+		A6E2185E2765F63B004F9BEC /* CreditAccountSubType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E2185D2765F63B004F9BEC /* CreditAccountSubType.swift */; };
+		A6E218602765F67B004F9BEC /* DepositAccountSubType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E2185F2765F67B004F9BEC /* DepositAccountSubType.swift */; };
+		A6E218622765F6AF004F9BEC /* LoanAccountSubType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E218612765F6AF004F9BEC /* LoanAccountSubType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,6 +94,10 @@
 		A6DAF12B2753C63300747B14 /* globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globals.swift; sourceTree = "<group>"; };
 		A6DAF1302753C6E600747B14 /* PlaidHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaidHandler.swift; sourceTree = "<group>"; };
 		A6DAF14B2753E21D00747B14 /* LinkDemo-Swift copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "LinkDemo-Swift copy-Info.plist"; path = "/Users/Judas/Downloads/plaid-link-ios-master/exponential/LinkDemo-Swift copy-Info.plist"; sourceTree = "<absolute>"; };
+		A6E2185B2765F3FD004F9BEC /* accounttype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accounttype.swift; sourceTree = "<group>"; };
+		A6E2185D2765F63B004F9BEC /* CreditAccountSubType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditAccountSubType.swift; sourceTree = "<group>"; };
+		A6E2185F2765F67B004F9BEC /* DepositAccountSubType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositAccountSubType.swift; sourceTree = "<group>"; };
+		A6E218612765F6AF004F9BEC /* LoanAccountSubType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanAccountSubType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +207,7 @@
 		A6DAF12A2753C61B00747B14 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A6E2185A2765F3C5004F9BEC /* enums */,
 				A631B075275E0CB000D490F7 /* DummyData */,
 				A634773D275D17A900AF3D6D /* DS */,
 				A6DAF12F2753C6C500747B14 /* Handlers */,
@@ -239,6 +248,17 @@
 				A66881EB2761092500102E3D /* NetworkHandler.swift */,
 			);
 			path = Handlers;
+			sourceTree = "<group>";
+		};
+		A6E2185A2765F3C5004F9BEC /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				A6E2185B2765F3FD004F9BEC /* accounttype.swift */,
+				A6E2185D2765F63B004F9BEC /* CreditAccountSubType.swift */,
+				A6E2185F2765F67B004F9BEC /* DepositAccountSubType.swift */,
+				A6E218612765F6AF004F9BEC /* LoanAccountSubType.swift */,
+			);
+			path = enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A631B079275E0CF200D490F7 /* DummyData.swift in Sources */,
+				A6E2185E2765F63B004F9BEC /* CreditAccountSubType.swift in Sources */,
 				91035E551E3CA7C000A97B26 /* ViewController.swift in Sources */,
 				A631B077275E0CC600D490F7 /* AccountsDummy.swift in Sources */,
 				A6DAF1312753C6E600747B14 /* PlaidHandler.swift in Sources */,
@@ -322,6 +343,7 @@
 				913AF7CA251D3C04007CC064 /* ViewController+PublicKey.swift in Sources */,
 				91974B0B246D6D4200182D9B /* AppDelegate+OAuthSupport.swift in Sources */,
 				7A92F55E25BF40FB00009CFD /* ViewController+SwiftUI.swift in Sources */,
+				A6E218602765F67B004F9BEC /* DepositAccountSubType.swift in Sources */,
 				A6DAF12C2753C63300747B14 /* globals.swift in Sources */,
 				A66881F02762730C00102E3D /* Holding.swift in Sources */,
 				A631B083275E469500D490F7 /* transaction.swift in Sources */,
@@ -330,6 +352,7 @@
 				7A92F55A25BF3CF800009CFD /* LinkKitSwiftUISupport.swift in Sources */,
 				A66881EE27626BF000102E3D /* Security.swift in Sources */,
 				A66881EA2761069B00102E3D /* UserHandler.swift in Sources */,
+				A6E2185C2765F3FD004F9BEC /* accounttype.swift in Sources */,
 				A6347734275CCADF00AF3D6D /* StartVC.swift in Sources */,
 				A631B07D275E3A7600D490F7 /* location.swift in Sources */,
 				A6347741275D1F4B00AF3D6D /* AccountTable.swift in Sources */,
@@ -339,6 +362,7 @@
 				91035E531E3CA7C000A97B26 /* AppDelegate.swift in Sources */,
 				A631B085275E4AC000D490F7 /* NumUtils.swift in Sources */,
 				91BB7745246D50C800BFD0CE /* ViewController+LinkToken.swift in Sources */,
+				A6E218622765F6AF004F9BEC /* LoanAccountSubType.swift in Sources */,
 				A66881EC2761092500102E3D /* NetworkHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

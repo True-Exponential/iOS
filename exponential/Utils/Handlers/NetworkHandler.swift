@@ -12,7 +12,7 @@ class NetworkHandler {
     
     static public func defaultCallback(response: [String: Any]?) {}
     
-    static public func getDefaultReq(relUrl : String, token: String?, extraParams: [String:String]?) -> URLRequest? {
+    static public func getDefaultReq(relUrl : String, token: String?, extraParams: [String:Any]?) -> URLRequest? {
         let url = URL(string: Globals.getServerAddr() + "/" + relUrl)!
         
         var parameters = [String : Any]()
@@ -41,7 +41,7 @@ class NetworkHandler {
         return request;
     }
     
-    static public func sendPostRequest(dispatch : DispatchGroup,url: String, token: String?,extraParams: [String:String]?,
+    static public func sendPostRequest(dispatch : DispatchGroup,url: String, token: String?,extraParams: [String:Any]?,
      callback: @escaping (_ response : [String: Any]?) ->Void) {
 
         let config = URLSessionConfiguration.default

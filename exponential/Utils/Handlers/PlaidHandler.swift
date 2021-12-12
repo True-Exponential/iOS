@@ -19,7 +19,7 @@ class PlaidHandler {
     
     private var m_accounts: Array = [PlaidAccount]()
     private var m_transactions: Array = [Transaction]()
-    private var m_accountTransactions = [String: [Transaction]]()
+    private var m_securities: Array = [PlaidSecurity]()
     
     private var dummyData = DummyData()
     
@@ -37,7 +37,7 @@ class PlaidHandler {
         }
     }
     
-    private func getTransactionsCallBack(json : [String: Any]?) {
+    private func getAccountsCallBack(json : [String: Any]?) {
         if (json != nil) {
             let accounts = json!["accounts"]! as? Array<Any>
             
@@ -47,20 +47,74 @@ class PlaidHandler {
                     self.m_accounts.append(pldAccount)
                 }
             }
-            
+        }
+    }
+    
+    private func getTransactionsCallBack(json : [String: Any]?) {
+        if (json != nil) {
             let transactions = json!["transactions"]! as? Array<Any>
             if (transactions != nil) {
+                var accountTransactions = [String: [Transaction]]()
+                
                 for transaction in transactions! {
                     let pldTransaction = Transaction(transaction:transaction as! NSDictionary)
-                    let account = self.m_accountTransactions[pldTransaction.getAccountId()]
+                    
+                    let accountId = pldTransaction.getAccountId()
+                    let account = accountTransactions[accountId]
                     
                     if (account == nil) {
-                        self.m_accountTransactions[pldTransaction.getAccountId()] = [Transaction]()
+                        accountTransactions[accountId] = [Transaction]()
                     }
                     
-                    self.m_accountTransactions[pldTransaction.getAccountId()]?.append(pldTransaction)
+                    accountTransactions[accountId]?.append(pldTransaction)
                     
                     self.m_transactions.append(pldTransaction)
+                }
+                
+                for transactions in accountTransactions {
+                    let account = self.getAccountById(id: transactions.key)
+                    if var _account = account {
+                        _account.setTransactions(transactions : transactions.value)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func getHoldingsCallBack(json : [String: Any]?) {
+        if (json != nil) {
+            let securities = json!["securities"]! as? Array<Any>
+            if (securities != nil) {
+                m_securities.removeAll()
+                
+                for secutiry in securities! {
+                    let pldSecutiry = PlaidSecurity(security:secutiry as! NSDictionary)
+                    m_securities.append(pldSecutiry)
+                }
+            }
+            
+            let holdings = json!["holdings"]! as? Array<Any>
+            if (holdings != nil) {
+                var accountHoldings = [String: [PlaidHolding]]()
+                
+                for holding in holdings! {
+                    let pldHolding = PlaidHolding(holding:holding as! NSDictionary)
+                    
+                    let accountId = pldHolding.getAccountId()
+                    let account = accountHoldings[accountId]
+                    
+                    if (account == nil) {
+                        accountHoldings[accountId] = [PlaidHolding]()
+                    }
+                    
+                    accountHoldings[accountId]?.append(pldHolding)
+                }
+                
+                for holdings in accountHoldings {
+                    let account = self.getAccountById(id: holdings.key)
+                    if var _account = account {
+                        _account.setHoldings(holdings: holdings.value)
+                    }
                 }
             }
         }
@@ -74,7 +128,13 @@ class PlaidHandler {
     
     func retrieveAccounts(dispatch : DispatchGroup?) {
         if (Globals.plaidMode) {
-            NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetTransactions", token: self.m_accessToken,  extraParams:["startDate" : "2019-01-01", "endDate" : "2021-05-10"], callback: self.getTransactionsCallBack)
+            NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetAccounts", token: self.m_accessToken,  extraParams:nil, callback: self.getAccountsCallBack)
+            
+            /*NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetTransactions", token: self.m_accessToken,  extraParams:["startDate" : "2019-01-01", "endDate" : "2021-05-10", "account_ids": ["MeoKpvMlvlU3eQPzzz37Iry3r9xog3u94LwLl"]], callback: self.getTransactionsCallBack)*/
+            
+            NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetHoldings", token: self.m_accessToken,  extraParams:["account_ids": ["gekm4KVpKpUAX7pyyyABIpGWpyoLdWtgLEaEZ"]], callback: self.getHoldingsCallBack)
+            
+            /*NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetHoldings", token: self.m_accessToken,  extraParams:nil, callback: self.getHoldingsCallBack)*/
         }
         else {
             let accounts = dummyData.accounts
@@ -91,6 +151,26 @@ class PlaidHandler {
                 self.m_transactions.append(pldTransaction)
             }
         }
+    }
+    
+    public func getAccountById(id : String) -> PlaidAccount? {
+        for account in m_accounts {
+            if (account.getId() == id) {
+                return account
+            }
+        }
+        
+        return nil
+    }
+    
+    public func getSecutiryById(id : String) -> PlaidSecurity? {
+        for security in m_securities {
+            if (security.getId() == id) {
+                return security
+            }
+        }
+        
+        return nil
     }
     
     public func getAccount(index : Int) -> PlaidAccount {

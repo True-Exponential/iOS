@@ -38,17 +38,31 @@ struct PlaidAccount {
     private var m_fullName : String?
     private var m_mask : String?
     private var m_id : String?
-    private var m_type : String?
-    private var m_subType : String?
+    private var m_type : AccountType  = AccountType.Other
+    private var m_subType : Int?
+    private var m_typeDesc : String?
+    private var m_subTypeDesc : String?
     private var m_balances : AccountBalance
+    
+    private var m_transactions = [Transaction]()
+    private var m_holdings = [PlaidHolding]()
     
     init(account: NSDictionary) {
         m_name = account["name"] as? String
         m_fullName = account["official_name"] as? String
-        m_id = account["account_id"] as? String
+        m_id = account["id"] as? String
         m_mask = account["mask"] as? String
-        m_type = account["type"] as? String
-        m_subType = account["subtype"] as? String
+        m_subType = account["subtype"] as? Int
+        
+        let intType = account["type"] as? Int
+        if let type = intType {
+            if let type = AccountType(rawValue: type) {
+                m_type = type
+            }
+        }
+        
+        m_typeDesc = account["typeDesc"] as? String
+        m_subTypeDesc = account["subTypeDesc"] as? String
         
         let balances = account["balances"] as! NSDictionary
         m_balances = AccountBalance(balances:balances)
@@ -66,15 +80,31 @@ struct PlaidAccount {
         return StrUtils.unwrapString(value:m_id);
     }
     
-    public func getType() -> String {
-        return StrUtils.unwrapString(value:m_type);
+    public func getType() -> AccountType {
+        return self.m_type
     }
     
-    public func getSubType() -> String {
-        return StrUtils.unwrapString(value:m_subType);
+    public func getSubType() -> Int {
+        return NumUtils.unwrapInt(value:m_subType);
+    }
+    
+    public func getTypeDesc() -> String {
+        return StrUtils.unwrapString(value:m_typeDesc);
+    }
+    
+    public func getSubTypeDesc() -> String {
+        return StrUtils.unwrapString(value:m_typeDesc);
     }
     
     public func getSubType() -> AccountBalance {
         return m_balances
+    }
+    
+    public mutating func setTransactions(transactions : [Transaction]) {
+        self.m_transactions = transactions
+    }
+    
+    public mutating func setHoldings(holdings : [PlaidHolding]) {
+        self.m_holdings = holdings
     }
 }

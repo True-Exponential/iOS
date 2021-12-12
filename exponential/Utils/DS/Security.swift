@@ -19,7 +19,7 @@ struct PlaidSecurity {
     private var m_currencyCode : String?
     private var m_unofficialCurrencyCode : String?
     private var m_proxySecurityId : String?
-    private var m_securityId : String?
+    private var m_id : String?
     private var m_sedol : String?
     private var m_tickerSymbol : String?
     private var m_type : String?
@@ -38,7 +38,7 @@ struct PlaidSecurity {
         m_currencyCode = security["iso_currency_code"] as? String
         m_unofficialCurrencyCode = security["unofficial_currency_code"] as? String
         m_proxySecurityId = security["proxy_security_id"] as? String
-        m_securityId = security["security_id"] as? String
+        m_id = security["security_id"] as? String
         m_sedol = security["sedol"] as? String
         m_tickerSymbol = security["ticker_symbol"] as? String
         m_type = security["type"] as? String
@@ -83,8 +83,8 @@ struct PlaidSecurity {
         return StrUtils.unwrapString(value: m_proxySecurityId);
     }
     
-    public func getSecurityId() -> String {
-        return StrUtils.unwrapString(value: m_securityId);
+    public func getId() -> String {
+        return StrUtils.unwrapString(value: m_id);
     }
     
     public func getSedol() -> String {

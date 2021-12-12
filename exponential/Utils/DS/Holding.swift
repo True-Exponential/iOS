@@ -21,18 +21,18 @@ struct PlaidHolding {
     private var m_institutionValue :Float?
     private var m_quantity :Float?
     
-    init(security: NSDictionary) {
+    init(holding: NSDictionary) {
         
-        m_accountId = security["account_id"] as? String
-        m_securityId = security["security_id"] as? String
-        m_currencyCode = security["iso_currency_code"] as? String
-        m_unofficialCurrencyCode = security["unofficial_currency_code"] as? String
-        m_institutionPriceAsOf = security["institution_price_as_of"] as? String
+        m_accountId = holding["account_id"] as? String
+        m_securityId = holding["security_id"] as? String
+        m_currencyCode = holding["iso_currency_code"] as? String
+        m_unofficialCurrencyCode = holding["unofficial_currency_code"] as? String
+        m_institutionPriceAsOf = holding["institution_price_as_of"] as? String
 
-        m_costBasis = security["cost_basis"] as? Float
-        m_institutionPrice = security["institution_price"] as? Float
-        m_institutionValue = security["institution_value"] as? Float
-        m_quantity = security["quantity"] as? Float
+        m_costBasis = holding["cost_basis"] as? Float
+        m_institutionPrice = holding["institution_price"] as? Float
+        m_institutionValue = holding["institution_value"] as? Float
+        m_quantity = holding["quantity"] as? Float
     }
     
     public func getAccountId() -> String {
