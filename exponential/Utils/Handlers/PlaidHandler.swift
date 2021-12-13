@@ -20,6 +20,7 @@ class PlaidHandler {
     private var m_accounts: Array = [PlaidAccount]()
     private var m_transactions: Array = [Transaction]()
     private var m_securities: Array = [PlaidSecurity]()
+    private var m_liablities : Liablities?
     
     private var dummyData = DummyData()
     
@@ -81,6 +82,109 @@ class PlaidHandler {
         }
     }
     
+    private func getLiabilitiesCallBack(json : [String: Any]?) {
+        if (json != nil) {
+            let liablities = json!["liabilities"]! as? NSDictionary
+            if (liablities != nil) {
+                m_liablities = Liablities(liablities: liablities!)
+                
+                if let liablities = m_liablities {
+                    let creditLoans = liablities.getCreditLoans()
+                    
+                    var creditLoansByAccount = [String: [CreditLoan]]()
+                    
+                    for creditLoan in creditLoans {
+                        let accountId = creditLoan.getAccountId()
+                        let account = creditLoansByAccount[accountId]
+                        
+                        if (account == nil) {
+                            creditLoansByAccount[accountId] = [CreditLoan]()
+                        }
+                        
+                        creditLoansByAccount[accountId]?.append(creditLoan)
+                    }
+                    
+                    for creditLoan in creditLoansByAccount {
+                        let account = self.getAccountById(id: creditLoan.key)
+                        if var _account = account {
+                            _account.setCreditLoans(creditLoans: creditLoan.value)
+                        }
+                    }
+                    
+                    let mortgages = liablities.getMortgages()
+                    
+                    var mortgagesByAccount = [String: [Mortgage]]()
+                    
+                    for mortgage in mortgages {
+                        let accountId = mortgage.getAccountId()
+                        let account = mortgagesByAccount[accountId]
+                        
+                        if (account == nil) {
+                            mortgagesByAccount[accountId] = [Mortgage]()
+                        }
+                        
+                        mortgagesByAccount[accountId]?.append(mortgage)
+                    }
+                    
+                    for mortgage in mortgagesByAccount {
+                        let account = self.getAccountById(id: mortgage.key)
+                        if var _account = account {
+                            _account.setMortgages(mortgages:mortgage.value)
+                        }
+                    }
+                    
+                    let studentLoans = liablities.getStudentLoans()
+                    
+                    var studentLoansByAccount = [String: [StudentLoan]]()
+                    
+                    for studentLoan in studentLoans {
+                        let accountId = studentLoan.getAccountId()
+                        let account = studentLoansByAccount[accountId]
+                        
+                        if (account == nil) {
+                            studentLoansByAccount[accountId] = [StudentLoan]()
+                        }
+                        
+                        studentLoansByAccount[accountId]?.append(studentLoan)
+                    }
+                    
+                    for studentLoan in studentLoansByAccount {
+                        let account = self.getAccountById(id: studentLoan.key)
+                        if var _account = account {
+                            _account.setStudentLoans(studentLoans:studentLoan.value)
+                        }
+                    }
+                }
+                
+            }
+            
+            
+            /*if (holdings != nil) {
+                var accountHoldings = [String: [PlaidHolding]]()
+                
+                for holding in holdings! {
+                    let pldHolding = PlaidHolding(holding:holding as! NSDictionary)
+                    
+                    let accountId = pldHolding.getAccountId()
+                    let account = accountHoldings[accountId]
+                    
+                    if (account == nil) {
+                        accountHoldings[accountId] = [PlaidHolding]()
+                    }
+                    
+                    accountHoldings[accountId]?.append(pldHolding)
+                }
+                
+                for holdings in accountHoldings {
+                    let account = self.getAccountById(id: holdings.key)
+                    if var _account = account {
+                        _account.setHoldings(holdings: holdings.value)
+                    }
+                }
+            }*/
+        }
+    }
+    
     private func getHoldingsCallBack(json : [String: Any]?) {
         if (json != nil) {
             let securities = json!["securities"]! as? Array<Any>
@@ -132,9 +236,13 @@ class PlaidHandler {
             
             /*NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetTransactions", token: self.m_accessToken,  extraParams:["startDate" : "2019-01-01", "endDate" : "2021-05-10", "account_ids": ["MeoKpvMlvlU3eQPzzz37Iry3r9xog3u94LwLl"]], callback: self.getTransactionsCallBack)*/
             
-            NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetHoldings", token: self.m_accessToken,  extraParams:["account_ids": ["gekm4KVpKpUAX7pyyyABIpGWpyoLdWtgLEaEZ"]], callback: self.getHoldingsCallBack)
+            /*NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetHoldings", token: self.m_accessToken,  extraParams:["account_ids": ["gekm4KVpKpUAX7pyyyABIpGWpyoLdWtgLEaEZ"]], callback: self.getHoldingsCallBack)*/
             
             /*NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetHoldings", token: self.m_accessToken,  extraParams:nil, callback: self.getHoldingsCallBack)*/
+            
+            NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetLiabilities", token: self.m_accessToken,  extraParams:nil, callback: self.getLiabilitiesCallBack)
+            
+            /*NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetLiabilities", token: self.m_accessToken,  extraParams:["account_ids": ["gekm4KVpKpUAX7pyyyABIpGWpyoLdWtgLEaEZ"]], callback: self.getHoldingsCallBack)*/
         }
         else {
             let accounts = dummyData.accounts

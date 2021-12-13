@@ -46,6 +46,9 @@ struct PlaidAccount {
     
     private var m_transactions = [Transaction]()
     private var m_holdings = [PlaidHolding]()
+    private var m_creditLoans = [CreditLoan]()
+    private var m_mortgages = [Mortgage]()
+    private var m_studentLoans = [StudentLoan]()
     
     init(account: NSDictionary) {
         m_name = account["name"] as? String
@@ -106,5 +109,37 @@ struct PlaidAccount {
     
     public mutating func setHoldings(holdings : [PlaidHolding]) {
         self.m_holdings = holdings
+    }
+    
+    public mutating func setCreditLoans(creditLoans : [CreditLoan]) {
+        self.m_creditLoans = creditLoans
+    }
+    
+    public mutating func setMortgages(mortgages : [Mortgage]) {
+        self.m_mortgages = mortgages
+    }
+    
+    public mutating func setStudentLoans(studentLoans : [StudentLoan]) {
+        m_studentLoans = studentLoans
+    }
+    
+    public func getTransactions() -> [Transaction] {
+        return m_transactions;
+    }
+    
+    public func getHoldings() -> [PlaidHolding] {
+        return m_holdings;
+    }
+    
+    public func getCreditLoans() -> [CreditLoan] {
+        return m_creditLoans;
+    }
+    
+    public func getMortgages() -> [Mortgage] {
+        return m_mortgages;
+    }
+    
+    public func getStudentLoans() -> [StudentLoan] {
+        return m_studentLoans;
     }
 }

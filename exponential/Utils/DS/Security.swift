@@ -25,7 +25,7 @@ struct PlaidSecurity {
     private var m_type : String?
     
     private var m_isCashEquivalent : Bool?
-    private var m_closePrice :Float?
+    private var m_closePrice :Double?
     
     init(security: NSDictionary) {
         
@@ -44,7 +44,7 @@ struct PlaidSecurity {
         m_type = security["type"] as? String
         
         m_isCashEquivalent = security["is_cash_equivalent"] as? Bool
-        m_closePrice = security["close_price"] as? Float
+        m_closePrice = security["close_price"] as? Double
     }
     
     public func getName() -> String {
@@ -107,7 +107,7 @@ struct PlaidSecurity {
         return false;
     }
     
-    public func getClosePrice() -> Float {
-        return NumUtils.unwrapFloat(value:m_closePrice);
+    public func getClosePrice() -> Double {
+        return NumUtils.unwrapDouble(value:m_closePrice);
     }
 }

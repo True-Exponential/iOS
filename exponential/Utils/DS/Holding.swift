@@ -16,10 +16,10 @@ struct PlaidHolding {
     private var m_unofficialCurrencyCode : String?
     private var m_institutionPriceAsOf : String?
     
-    private var m_costBasis :Float?
-    private var m_institutionPrice :Float?
-    private var m_institutionValue :Float?
-    private var m_quantity :Float?
+    private var m_costBasis :Double?
+    private var m_institutionPrice :Double?
+    private var m_institutionValue :Double?
+    private var m_quantity :Double?
     
     init(holding: NSDictionary) {
         
@@ -29,10 +29,10 @@ struct PlaidHolding {
         m_unofficialCurrencyCode = holding["unofficial_currency_code"] as? String
         m_institutionPriceAsOf = holding["institution_price_as_of"] as? String
 
-        m_costBasis = holding["cost_basis"] as? Float
-        m_institutionPrice = holding["institution_price"] as? Float
-        m_institutionValue = holding["institution_value"] as? Float
-        m_quantity = holding["quantity"] as? Float
+        m_costBasis = holding["cost_basis"] as? Double
+        m_institutionPrice = holding["institution_price"] as? Double
+        m_institutionValue = holding["institution_value"] as? Double
+        m_quantity = holding["quantity"] as? Double
     }
     
     public func getAccountId() -> String {
@@ -55,19 +55,19 @@ struct PlaidHolding {
         return StrUtils.unwrapString(value: m_institutionPriceAsOf);
     }
     
-    public func getCostBasis() -> Float {
-        return NumUtils.unwrapFloat(value: m_costBasis);
+    public func getCostBasis() -> Double {
+        return NumUtils.unwrapDouble(value: m_costBasis);
     }
     
-    public func getInstitutionPrice() -> Float {
-        return NumUtils.unwrapFloat(value: m_institutionPrice);
+    public func getInstitutionPrice() -> Double {
+        return NumUtils.unwrapDouble(value: m_institutionPrice);
     }
     
-    public func getInstitutionValue() -> Float {
-        return NumUtils.unwrapFloat(value: m_institutionValue);
+    public func getInstitutionValue() -> Double {
+        return NumUtils.unwrapDouble(value: m_institutionValue);
     }
     
-    public func getQuantity() -> Float {
-        return NumUtils.unwrapFloat(value: m_quantity);
+    public func getQuantity() -> Double {
+        return NumUtils.unwrapDouble(value: m_quantity);
     }
 }
