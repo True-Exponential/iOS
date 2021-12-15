@@ -12,10 +12,7 @@ import LinkKit
 
 class PlaidHandler {
     
-    static private let ACCESS_TOKEN_KEY_NAME = "plaidAccessToken"
-    
     private var m_linkToken = ""
-    private var m_accessToken = ""
     
     private var m_accounts: Array = [PlaidAccount]()
     private var m_transactions: Array = [Transaction]()
@@ -29,12 +26,13 @@ class PlaidHandler {
     }
     
     func getAccessToken(publicToken: String, dispatch : DispatchGroup) {
-        NetworkHandler.sendPostRequest(dispatch: dispatch, url: "plaidpublictoken2accesstoken", token: publicToken, extraParams: nil, callback: self.getAccessTokenCallBack)
+        NetworkHandler.sendPostRequest(dispatch: dispatch, url: "plaidpublictoken2accesstoken", token: Globals.userHandler.getUserToken(),
+                                       extraParams: ["plaidPublicToken":publicToken], callback: self.getAccessTokenCallBack)
     }
     
     private func getLinkTokenCallBack(json : [String: Any]?) {
         if (json != nil) {
-            self.setLinkToken(linkToken: json!["token"] as! String)
+            self.setLinkToken(token: json!["token"] as! String)
         }
     }
     
@@ -157,31 +155,6 @@ class PlaidHandler {
                 }
                 
             }
-            
-            
-            /*if (holdings != nil) {
-                var accountHoldings = [String: [PlaidHolding]]()
-                
-                for holding in holdings! {
-                    let pldHolding = PlaidHolding(holding:holding as! NSDictionary)
-                    
-                    let accountId = pldHolding.getAccountId()
-                    let account = accountHoldings[accountId]
-                    
-                    if (account == nil) {
-                        accountHoldings[accountId] = [PlaidHolding]()
-                    }
-                    
-                    accountHoldings[accountId]?.append(pldHolding)
-                }
-                
-                for holdings in accountHoldings {
-                    let account = self.getAccountById(id: holdings.key)
-                    if var _account = account {
-                        _account.setHoldings(holdings: holdings.value)
-                    }
-                }
-            }*/
         }
     }
     
@@ -225,24 +198,25 @@ class PlaidHandler {
     }
     
     private func getAccessTokenCallBack(json : [String: Any]?) {
-        if (json != nil) {
-            self.setAccessToken(accessToken: json!["token"] as! String)
-        }
+        // Needs to test here if the call was succssful or not
+        /*if (json != nil) {
+            Globals.userHandler.setUserToken(userToken: json!["token"] as! String)
+        }*/
     }
     
     func retrieveAccounts(dispatch : DispatchGroup?) {
         if (Globals.plaidMode) {
-            NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetAccounts", token: self.m_accessToken,  extraParams:nil, callback: self.getAccountsCallBack)
+            NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetAccounts", token: Globals.userHandler.getUserToken(),  extraParams:nil, callback: self.getAccountsCallBack)
             
-            /*NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetTransactions", token: self.m_accessToken,  extraParams:["startDate" : "2019-01-01", "endDate" : "2021-05-10", "account_ids": ["MeoKpvMlvlU3eQPzzz37Iry3r9xog3u94LwLl"]], callback: self.getTransactionsCallBack)*/
+            /*NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetTransactions", token: globals.userHandler.getUserToken(),  extraParams:["startDate" : "2019-01-01", "endDate" : "2021-05-10", "account_ids": ["MeoKpvMlvlU3eQPzzz37Iry3r9xog3u94LwLl"]], callback: self.getTransactionsCallBack)*/
             
-            /*NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetHoldings", token: self.m_accessToken,  extraParams:["account_ids": ["gekm4KVpKpUAX7pyyyABIpGWpyoLdWtgLEaEZ"]], callback: self.getHoldingsCallBack)*/
+            /*NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetHoldings", token: globals.userHandler.getUserToken(),  extraParams:["account_ids": ["gekm4KVpKpUAX7pyyyABIpGWpyoLdWtgLEaEZ"]], callback: self.getHoldingsCallBack)*/
             
-            /*NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetHoldings", token: self.m_accessToken,  extraParams:nil, callback: self.getHoldingsCallBack)*/
+            /*NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetHoldings", token: globals.userHandler.getUserToken(),  extraParams:nil, callback: self.getHoldingsCallBack)*/
             
-            NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetLiabilities", token: self.m_accessToken,  extraParams:nil, callback: self.getLiabilitiesCallBack)
+            /*NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetLiabilities", token: Globals.userHandler.getUserToken(),  extraParams:nil, callback: self.getLiabilitiesCallBack)*/
             
-            /*NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetLiabilities", token: self.m_accessToken,  extraParams:["account_ids": ["gekm4KVpKpUAX7pyyyABIpGWpyoLdWtgLEaEZ"]], callback: self.getHoldingsCallBack)*/
+            /*NetworkHandler.sendPostRequest(dispatch: dispatch!, url: "GetLiabilities", token: globals.userHandler.getUserToken(),  extraParams:["account_ids": ["gekm4KVpKpUAX7pyyyABIpGWpyoLdWtgLEaEZ"]], callback: self.getHoldingsCallBack)*/
         }
         else {
             let accounts = dummyData.accounts
@@ -293,33 +267,9 @@ class PlaidHandler {
         return self.m_linkToken
     }
     
-    func getCurrAccessToken() -> String {
-        if (self.m_accessToken.count > 0) {
-            return self.m_accessToken
-        }
-        else {
-            let defaults = UserDefaults.standard
-            
-            let storedAccessToken = defaults.string(forKey: PlaidHandler.ACCESS_TOKEN_KEY_NAME)
-            if let accessToken = storedAccessToken {
-                self.m_accessToken = accessToken
-            }
-        }
-        
-        return self.m_accessToken
+    func setLinkToken(token : String) {
+        self.m_linkToken = token;
     }
-    
-    func setLinkToken(linkToken : String) {
-        self.m_linkToken = linkToken;
-    }
-    
-    func setAccessToken(accessToken : String) {
-        self.m_accessToken = accessToken;
-        
-        let defaults = UserDefaults.standard
-        defaults.set(self.m_accessToken, forKey: PlaidHandler.ACCESS_TOKEN_KEY_NAME)
-    }
-    
     
     
 }

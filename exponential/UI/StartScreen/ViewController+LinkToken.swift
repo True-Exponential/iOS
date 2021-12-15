@@ -55,7 +55,9 @@ extension StartVC {
         Globals.userHandler.login(dispatch: dispatch)
         
         dispatch.notify(queue: .main) {
-            if (Globals.plaidHandler.getCurrAccessToken().count > 0) {
+            let canAccessPlaid = Globals.plaidHandler.getCurrLinkToken().count == 0
+            
+            if (canAccessPlaid) {
                 self.getDataAndPresentUI()
             }
             else {
