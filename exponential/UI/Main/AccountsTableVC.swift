@@ -31,15 +31,18 @@ class AccountsTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Globals.plaidHandler.getNumAccounts()
+        return Globals.accounts.getCount()
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        let plaidAccount = Globals.plaidHandler.getAccount(index: indexPath.row);
-        cell.textLabel!.text = plaidAccount.getName()
+        let plaidAccount = Globals.accounts.get(index: indexPath.row);
+        if let _plaidAccount = plaidAccount {
+            cell.textLabel!.text = _plaidAccount.getName()
+        }
+
 
         // Configure the cell...
 

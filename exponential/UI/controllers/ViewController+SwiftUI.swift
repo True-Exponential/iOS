@@ -11,7 +11,7 @@ extension StartVC {
         Globals.plaidHandler.getLinkToken(dispatch:dispatch)
         
         dispatch.notify(queue: .main) {
-            let configuration = self.createLinkConfig(linkToken: Globals.plaidHandler.getCurrLinkToken())
+            let configuration = self.createLinkConfig(linkToken: Globals.plaidHandler.getLinkToken())
             self.presentLink(with: .linkToken(configuration))
         }
     }

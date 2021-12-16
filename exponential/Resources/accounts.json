@@ -1,0 +1,156 @@
+
+[
+    {
+        "typeDesc": "depository",
+        "subTypeDesc": "checking",
+        "balances": {
+            "current": 110,
+            "iso_currency_code": "USD",
+            "unofficial_currency_code": null,
+            "limit": null,
+            "available": 100
+        },
+        "official_name": "Plaid Gold Standard 0% Interest Checking",
+        "subtype": 0,
+        "name": "Plaid Checking",
+        "id": "MeoKpvMlvlU3eQPzzz37Iry3r9xog3u94LwLl",
+        "type": 1,
+        "mask": "0000"
+    },
+    {
+        "typeDesc": "depository",
+        "subTypeDesc": "savings",
+        "balances": {
+            "current": 210,
+            "iso_currency_code": "USD",
+            "unofficial_currency_code": null,
+            "limit": null,
+            "available": 200
+        },
+        "official_name": "Plaid Silver Standard 0.1% Interest Saving",
+        "subtype": 1,
+        "name": "Plaid Saving",
+        "id": "1jm9bdpJdJhLbEB666LruLA4L5jne4i5qpLp7",
+        "type": 1,
+        "mask": "1111"
+    },
+    {
+        "typeDesc": "depository",
+        "subTypeDesc": "cd",
+        "balances": {
+            "current": 1000,
+            "iso_currency_code": "USD",
+            "unofficial_currency_code": null,
+            "limit": null,
+            "available": null
+        },
+        "official_name": "Plaid Bronze Standard 0.2% Interest CD",
+        "subtype": 3,
+        "name": "Plaid CD",
+        "id": "L7oqLvZMvMSBrzPXXXBys5a75b8Bp7SPekvkM",
+        "type": 1,
+        "mask": "2222"
+    },
+    {
+        "typeDesc": "credit",
+        "subTypeDesc": "credit card",
+        "balances": {
+            "current": 410,
+            "iso_currency_code": "USD",
+            "unofficial_currency_code": null,
+            "limit": 2000,
+            "available": null
+        },
+        "official_name": "Plaid Diamond 12.5% APR Interest Credit Card",
+        "subtype": 0,
+        "name": "Plaid Credit Card",
+        "id": "p89W1NVgNgHAwXQgggAGIWyGWbZedGfLJpypd",
+        "type": 0,
+        "mask": "3333"
+    },
+    {
+        "typeDesc": "depository",
+        "subTypeDesc": "money market",
+        "balances": {
+            "current": 43200,
+            "iso_currency_code": "USD",
+            "unofficial_currency_code": null,
+            "limit": null,
+            "available": 43200
+        },
+        "official_name": "Plaid Platinum Standard 1.85% Interest Money Market",
+        "subtype": 4,
+        "name": "Plaid Money Market",
+        "id": "og9wM4Vb4bImQgV999mjhEj3ELdWp3iRpoxoP",
+        "type": 1,
+        "mask": "4444"
+    },
+    {
+        "typeDesc": "investment",
+        "subTypeDesc": "ira",
+        "balances": {
+            "current": 320,
+            "iso_currency_code": "USD",
+            "unofficial_currency_code": null,
+            "limit": null,
+            "available": null
+        },
+        "official_name": null,
+        "subtype": 0,
+        "name": "Plaid IRA",
+        "id": "gekm4KVpKpUAX7pyyyABIpGWpyoLdWtgLEaEZ",
+        "type": 3,
+        "mask": "5555"
+    },
+    {
+        "typeDesc": "investment",
+        "subTypeDesc": "401k",
+        "balances": {
+            "current": 23631,
+            "iso_currency_code": "USD",
+            "unofficial_currency_code": null,
+            "limit": null,
+            "available": null
+        },
+        "official_name": null,
+        "subtype": 0,
+        "name": "Plaid 401k",
+        "id": "8Lq9leG6e6I9x1mLLL9vTBbMBjJ6GMFwZW4Wv",
+        "type": 3,
+        "mask": "6666"
+    },
+    {
+        "typeDesc": "loan",
+        "subTypeDesc": "student",
+        "balances": {
+            "current": 65262,
+            "iso_currency_code": "USD",
+            "unofficial_currency_code": null,
+            "limit": null,
+            "available": null
+        },
+        "official_name": null,
+        "subtype": 10,
+        "name": "Plaid Student Loan",
+        "id": "ExvkjG47G7hAW1z777AbINakNZBn9kuXg4v4j",
+        "type": 2,
+        "mask": "7777"
+    },
+    {
+        "typeDesc": "loan",
+        "subTypeDesc": "mortgage",
+        "balances": {
+            "current": 56302,
+            "iso_currency_code": "USD",
+            "unofficial_currency_code": null,
+            "limit": null,
+            "available": null
+        },
+        "official_name": null,
+        "subtype": 7,
+        "name": "Plaid Mortgage",
+        "id": "WEzPmvGJvJcQjVr888QBIZKnZWALgnflP6A6l",
+        "type": 2,
+        "mask": "8888"
+    }
+]

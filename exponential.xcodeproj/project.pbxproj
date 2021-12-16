@@ -16,9 +16,21 @@
 		913AF7CA251D3C04007CC064 /* ViewController+PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913AF7C9251D3C04007CC064 /* ViewController+PublicKey.swift */; };
 		91974B0B246D6D4200182D9B /* AppDelegate+OAuthSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91974B0A246D6D4200182D9B /* AppDelegate+OAuthSupport.swift */; };
 		91BB7745246D50C800BFD0CE /* ViewController+LinkToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BB7744246D50C800BFD0CE /* ViewController+LinkToken.swift */; };
-		A631B077275E0CC600D490F7 /* AccountsDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631B076275E0CC600D490F7 /* AccountsDummy.swift */; };
-		A631B079275E0CF200D490F7 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631B078275E0CF200D490F7 /* DummyData.swift */; };
-		A631B07B275E396B00D490F7 /* TransactionDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631B07A275E396B00D490F7 /* TransactionDummy.swift */; };
+		A6101E87276B3C2C0092EE75 /* accounts.json in Resources */ = {isa = PBXBuildFile; fileRef = A6101E86276B3C2C0092EE75 /* accounts.json */; };
+		A6101E89276B3C7E0092EE75 /* AccountBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6101E88276B3C7E0092EE75 /* AccountBalance.swift */; };
+		A6101E8D276B44320092EE75 /* Finance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6101E8C276B44320092EE75 /* Finance.swift */; };
+		A6101E90276B45080092EE75 /* accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6101E8F276B45080092EE75 /* accounts.swift */; };
+		A6101E92276B719C0092EE75 /* PlaidDemoHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6101E91276B719C0092EE75 /* PlaidDemoHandler.swift */; };
+		A6101E94276B7E3A0092EE75 /* AccountEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6101E93276B7E3A0092EE75 /* AccountEx.swift */; };
+		A6101E96276B86FF0092EE75 /* transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6101E95276B86FF0092EE75 /* transactions.swift */; };
+		A6101E98276B8A9B0092EE75 /* transactions.json in Resources */ = {isa = PBXBuildFile; fileRef = A6101E97276B8A9B0092EE75 /* transactions.json */; };
+		A6101E9A276BA0040092EE75 /* securities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6101E99276BA0040092EE75 /* securities.swift */; };
+		A6101E9C276BA7130092EE75 /* securities.json in Resources */ = {isa = PBXBuildFile; fileRef = A6101E9B276BA7130092EE75 /* securities.json */; };
+		A6101E9E276BB2C80092EE75 /* holdings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6101E9D276BB2C80092EE75 /* holdings.swift */; };
+		A6101EA0276BB70B0092EE75 /* holdings.json in Resources */ = {isa = PBXBuildFile; fileRef = A6101E9F276BB70B0092EE75 /* holdings.json */; };
+		A6101EA4276BBEAB0092EE75 /* creditloans.json in Resources */ = {isa = PBXBuildFile; fileRef = A6101EA1276BBEAB0092EE75 /* creditloans.json */; };
+		A6101EA5276BBEAB0092EE75 /* mortgages.json in Resources */ = {isa = PBXBuildFile; fileRef = A6101EA2276BBEAB0092EE75 /* mortgages.json */; };
+		A6101EA6276BBEAB0092EE75 /* studentloans.json in Resources */ = {isa = PBXBuildFile; fileRef = A6101EA3276BBEAB0092EE75 /* studentloans.json */; };
 		A631B07D275E3A7600D490F7 /* location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631B07C275E3A7600D490F7 /* location.swift */; };
 		A631B07F275E3E3200D490F7 /* payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631B07E275E3E3200D490F7 /* payment.swift */; };
 		A631B081275E41D900D490F7 /* StrUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631B080275E41D900D490F7 /* StrUtils.swift */; };
@@ -82,9 +94,21 @@
 		91648DDD24A47EF3002BED1F /* exponential.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = exponential.entitlements; sourceTree = "<group>"; };
 		91974B0A246D6D4200182D9B /* AppDelegate+OAuthSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+OAuthSupport.swift"; sourceTree = "<group>"; };
 		91BB7744246D50C800BFD0CE /* ViewController+LinkToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+LinkToken.swift"; sourceTree = "<group>"; };
-		A631B076275E0CC600D490F7 /* AccountsDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsDummy.swift; sourceTree = "<group>"; };
-		A631B078275E0CF200D490F7 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
-		A631B07A275E396B00D490F7 /* TransactionDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDummy.swift; sourceTree = "<group>"; };
+		A6101E86276B3C2C0092EE75 /* accounts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = accounts.json; sourceTree = "<group>"; };
+		A6101E88276B3C7E0092EE75 /* AccountBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBalance.swift; sourceTree = "<group>"; };
+		A6101E8C276B44320092EE75 /* Finance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finance.swift; sourceTree = "<group>"; };
+		A6101E8F276B45080092EE75 /* accounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accounts.swift; sourceTree = "<group>"; };
+		A6101E91276B719C0092EE75 /* PlaidDemoHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaidDemoHandler.swift; sourceTree = "<group>"; };
+		A6101E93276B7E3A0092EE75 /* AccountEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEx.swift; sourceTree = "<group>"; };
+		A6101E95276B86FF0092EE75 /* transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = transactions.swift; sourceTree = "<group>"; };
+		A6101E97276B8A9B0092EE75 /* transactions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transactions.json; sourceTree = "<group>"; };
+		A6101E99276BA0040092EE75 /* securities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = securities.swift; sourceTree = "<group>"; };
+		A6101E9B276BA7130092EE75 /* securities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = securities.json; sourceTree = "<group>"; };
+		A6101E9D276BB2C80092EE75 /* holdings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = holdings.swift; sourceTree = "<group>"; };
+		A6101E9F276BB70B0092EE75 /* holdings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = holdings.json; sourceTree = "<group>"; };
+		A6101EA1276BBEAB0092EE75 /* creditloans.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = creditloans.json; sourceTree = "<group>"; };
+		A6101EA2276BBEAB0092EE75 /* mortgages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mortgages.json; sourceTree = "<group>"; };
+		A6101EA3276BBEAB0092EE75 /* studentloans.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = studentloans.json; sourceTree = "<group>"; };
 		A631B07C275E3A7600D490F7 /* location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = location.swift; sourceTree = "<group>"; };
 		A631B07E275E3E3200D490F7 /* payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = payment.swift; sourceTree = "<group>"; };
 		A631B080275E41D900D490F7 /* StrUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrUtils.swift; sourceTree = "<group>"; };
@@ -154,8 +178,10 @@
 		91035E511E3CA7C000A97B26 /* exponential */ = {
 			isa = PBXGroup;
 			children = (
+				A6101E85276B3B420092EE75 /* Model */,
 				A6DAF12D2753C66500747B14 /* UI */,
 				A6DAF12A2753C61B00747B14 /* Utils */,
+				A6101E8A276B3DFF0092EE75 /* Resources */,
 				91648DDD24A47EF3002BED1F /* exponential.entitlements */,
 				91035E561E3CA7C000A97B26 /* Main.storyboard */,
 				91035E5B1E3CA7C000A97B26 /* LaunchScreen.storyboard */,
@@ -173,14 +199,64 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A631B075275E0CB000D490F7 /* DummyData */ = {
+		A6101E85276B3B420092EE75 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A631B076275E0CC600D490F7 /* AccountsDummy.swift */,
-				A631B078275E0CF200D490F7 /* DummyData.swift */,
-				A631B07A275E396B00D490F7 /* TransactionDummy.swift */,
+				A634773E275D17B800AF3D6D /* account.swift */,
+				A631B07C275E3A7600D490F7 /* location.swift */,
+				A631B07E275E3E3200D490F7 /* payment.swift */,
+				A631B082275E469500D490F7 /* transaction.swift */,
+				A66881ED27626BF000102E3D /* Security.swift */,
+				A66881EF2762730C00102E3D /* Holding.swift */,
+				A6E21865276793D2004F9BEC /* CreditLoan.swift */,
+				A6E218672767945B004F9BEC /* Mortgage.swift */,
+				A6E21869276794B8004F9BEC /* StudentLoan.swift */,
+				A6E2186B27679FD3004F9BEC /* Apr.swift */,
+				A6E2186D2767A8EF004F9BEC /* Address.swift */,
+				A6E2186F2767AA3F004F9BEC /* InterestRate.swift */,
+				A6E218712767B448004F9BEC /* LoanStatus.swift */,
+				A6E218732767B667004F9BEC /* RepaymentPlan.swift */,
+				A6E218752767B98B004F9BEC /* PslfStatus.swift */,
+				A6101E88276B3C7E0092EE75 /* AccountBalance.swift */,
 			);
-			path = DummyData;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A6101E8A276B3DFF0092EE75 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A6101EA1276BBEAB0092EE75 /* creditloans.json */,
+				A6101EA2276BBEAB0092EE75 /* mortgages.json */,
+				A6101EA3276BBEAB0092EE75 /* studentloans.json */,
+				A6101E9F276BB70B0092EE75 /* holdings.json */,
+				A6101E9B276BA7130092EE75 /* securities.json */,
+				A6101E97276B8A9B0092EE75 /* transactions.json */,
+				A6101E86276B3C2C0092EE75 /* accounts.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A6101E8B276B43190092EE75 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A6101E8C276B44320092EE75 /* Finance.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A6101E8E276B44F10092EE75 /* Plaid */ = {
+			isa = PBXGroup;
+			children = (
+				A6E218632767937C004F9BEC /* Liablities.swift */,
+				A6DAF1302753C6E600747B14 /* PlaidHandler.swift */,
+				A6101E8F276B45080092EE75 /* accounts.swift */,
+				A6101E91276B719C0092EE75 /* PlaidDemoHandler.swift */,
+				A6101E93276B7E3A0092EE75 /* AccountEx.swift */,
+				A6101E95276B86FF0092EE75 /* transactions.swift */,
+				A6101E99276BA0040092EE75 /* securities.swift */,
+				A6101E9D276BB2C80092EE75 /* holdings.swift */,
+			);
+			path = Plaid;
 			sourceTree = "<group>";
 		};
 		A6347730275CC9EE00AF3D6D /* StartScreen */ = {
@@ -211,35 +287,12 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		A634773D275D17A900AF3D6D /* DS */ = {
-			isa = PBXGroup;
-			children = (
-				A634773E275D17B800AF3D6D /* account.swift */,
-				A631B07C275E3A7600D490F7 /* location.swift */,
-				A631B07E275E3E3200D490F7 /* payment.swift */,
-				A631B082275E469500D490F7 /* transaction.swift */,
-				A66881ED27626BF000102E3D /* Security.swift */,
-				A66881EF2762730C00102E3D /* Holding.swift */,
-				A6E218632767937C004F9BEC /* Liablities.swift */,
-				A6E21865276793D2004F9BEC /* CreditLoan.swift */,
-				A6E218672767945B004F9BEC /* Mortgage.swift */,
-				A6E21869276794B8004F9BEC /* StudentLoan.swift */,
-				A6E2186B27679FD3004F9BEC /* Apr.swift */,
-				A6E2186D2767A8EF004F9BEC /* Address.swift */,
-				A6E2186F2767AA3F004F9BEC /* InterestRate.swift */,
-				A6E218712767B448004F9BEC /* LoanStatus.swift */,
-				A6E218732767B667004F9BEC /* RepaymentPlan.swift */,
-				A6E218752767B98B004F9BEC /* PslfStatus.swift */,
-			);
-			path = DS;
-			sourceTree = "<group>";
-		};
 		A6DAF12A2753C61B00747B14 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A6101E8E276B44F10092EE75 /* Plaid */,
+				A6101E8B276B43190092EE75 /* Protocols */,
 				A6E2185A2765F3C5004F9BEC /* enums */,
-				A631B075275E0CB000D490F7 /* DummyData */,
-				A634773D275D17A900AF3D6D /* DS */,
 				A6DAF12F2753C6C500747B14 /* Handlers */,
 				A6DAF12B2753C63300747B14 /* globals.swift */,
 				A631B080275E41D900D490F7 /* StrUtils.swift */,
@@ -273,7 +326,6 @@
 		A6DAF12F2753C6C500747B14 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
-				A6DAF1302753C6E600747B14 /* PlaidHandler.swift */,
 				A66881E92761069B00102E3D /* UserHandler.swift */,
 				A66881EB2761092500102E3D /* NetworkHandler.swift */,
 			);
@@ -351,9 +403,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6101EA4276BBEAB0092EE75 /* creditloans.json in Resources */,
 				A6DAF1332753CA7000747B14 /* Main.storyboard in Resources */,
+				A6101EA5276BBEAB0092EE75 /* mortgages.json in Resources */,
+				A6101E98276B8A9B0092EE75 /* transactions.json in Resources */,
+				A6101E87276B3C2C0092EE75 /* accounts.json in Resources */,
+				A6101EA0276BB70B0092EE75 /* holdings.json in Resources */,
 				91035E5D1E3CA7C000A97B26 /* LaunchScreen.storyboard in Resources */,
+				A6101EA6276BBEAB0092EE75 /* studentloans.json in Resources */,
 				91035E5A1E3CA7C000A97B26 /* Assets.xcassets in Resources */,
+				A6101E9C276BA7130092EE75 /* securities.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,21 +423,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A631B079275E0CF200D490F7 /* DummyData.swift in Sources */,
+				A6101E90276B45080092EE75 /* accounts.swift in Sources */,
+				A6101E92276B719C0092EE75 /* PlaidDemoHandler.swift in Sources */,
 				A6E2185E2765F63B004F9BEC /* CreditAccountSubType.swift in Sources */,
 				A6E218702767AA3F004F9BEC /* InterestRate.swift in Sources */,
 				91035E551E3CA7C000A97B26 /* ViewController.swift in Sources */,
+				A6101E8D276B44320092EE75 /* Finance.swift in Sources */,
+				A6101E96276B86FF0092EE75 /* transactions.swift in Sources */,
 				A6E218682767945B004F9BEC /* Mortgage.swift in Sources */,
-				A631B077275E0CC600D490F7 /* AccountsDummy.swift in Sources */,
 				A6DAF1312753C6E600747B14 /* PlaidHandler.swift in Sources */,
 				A634773A275CF06800AF3D6D /* Main.swift in Sources */,
 				A6E218642767937C004F9BEC /* Liablities.swift in Sources */,
 				A6E2186C27679FD3004F9BEC /* Apr.swift in Sources */,
 				913AF7CA251D3C04007CC064 /* ViewController+PublicKey.swift in Sources */,
+				A6101E9E276BB2C80092EE75 /* holdings.swift in Sources */,
 				A6E218722767B448004F9BEC /* LoanStatus.swift in Sources */,
 				91974B0B246D6D4200182D9B /* AppDelegate+OAuthSupport.swift in Sources */,
 				7A92F55E25BF40FB00009CFD /* ViewController+SwiftUI.swift in Sources */,
 				A6E218602765F67B004F9BEC /* DepositAccountSubType.swift in Sources */,
+				A6101E89276B3C7E0092EE75 /* AccountBalance.swift in Sources */,
 				A6DAF12C2753C63300747B14 /* globals.swift in Sources */,
 				A6E218742767B667004F9BEC /* RepaymentPlan.swift in Sources */,
 				A6E2186A276794B8004F9BEC /* StudentLoan.swift in Sources */,
@@ -387,16 +450,17 @@
 				A6E21866276793D2004F9BEC /* CreditLoan.swift in Sources */,
 				A6E2186E2767A8EF004F9BEC /* Address.swift in Sources */,
 				A631B07F275E3E3200D490F7 /* payment.swift in Sources */,
+				A6101E94276B7E3A0092EE75 /* AccountEx.swift in Sources */,
 				A634773F275D17B800AF3D6D /* account.swift in Sources */,
 				7A92F55A25BF3CF800009CFD /* LinkKitSwiftUISupport.swift in Sources */,
 				A66881EE27626BF000102E3D /* Security.swift in Sources */,
 				A66881EA2761069B00102E3D /* UserHandler.swift in Sources */,
 				A6E2185C2765F3FD004F9BEC /* accounttype.swift in Sources */,
+				A6101E9A276BA0040092EE75 /* securities.swift in Sources */,
 				A6347734275CCADF00AF3D6D /* StartVC.swift in Sources */,
 				A631B07D275E3A7600D490F7 /* location.swift in Sources */,
 				A6347741275D1F4B00AF3D6D /* AccountTable.swift in Sources */,
 				A631B081275E41D900D490F7 /* StrUtils.swift in Sources */,
-				A631B07B275E396B00D490F7 /* TransactionDummy.swift in Sources */,
 				A634773C275CF5CE00AF3D6D /* AccountsTableVC.swift in Sources */,
 				91035E531E3CA7C000A97B26 /* AppDelegate.swift in Sources */,
 				A631B085275E4AC000D490F7 /* NumUtils.swift in Sources */,

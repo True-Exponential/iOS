@@ -8,22 +8,22 @@
 
 import Foundation
 
-struct RepaymentPlan {
-    
-    private var m_description : String?
-    private var m_type : String?
+struct RepaymentPlan : Codable{
     
     init(repaymentPlanInfo : NSDictionary) {
         
-        m_description = repaymentPlanInfo["description"] as? String
-        m_type = repaymentPlanInfo["type"] as? String
+        description = repaymentPlanInfo["description"] as? String
+        type = repaymentPlanInfo["type"] as? String
     }
     
     public func getType() -> String {
-        StrUtils.unwrapString(value: m_type)
+        StrUtils.unwrapString(value: type)
     }
     
     public func m_getDescription() -> String {
-        StrUtils.unwrapString(value: m_description)
+        StrUtils.unwrapString(value: description)
     }
+    
+    private var description : String?
+    private var type : String?
 }

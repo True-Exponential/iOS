@@ -8,22 +8,22 @@
 
 import Foundation
 
-struct LoanStatus {
-    
-    private var m_endDate : String?
-    private var m_type : String?
+struct LoanStatus : Codable{
     
     init(loanStatusInfo : NSDictionary) {
         
-        m_endDate = loanStatusInfo["end_date"] as? String
-        m_type = loanStatusInfo["type"] as? String
+        end_date = loanStatusInfo["end_date"] as? String
+        type = loanStatusInfo["type"] as? String
     }
     
     public func getType() -> String {
-        StrUtils.unwrapString(value: m_type)
+        StrUtils.unwrapString(value: type)
     }
     
     public func getEndDate() -> String {
-        StrUtils.unwrapString(value: m_endDate)
+        StrUtils.unwrapString(value: end_date)
     }
+    
+    private var end_date : String?
+    private var type : String?
 }

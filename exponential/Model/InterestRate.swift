@@ -8,22 +8,22 @@
 
 import Foundation
 
-struct InterestRate {
-    
-    private var m_percentage : Double?
-    private var m_type : String?
+struct InterestRate : Codable {
     
     init(interestRate: NSDictionary) {
-        m_percentage = interestRate["percentage"] as? Double
-        m_type = interestRate["type"] as? String
+        percentage = interestRate["percentage"] as? Double
+        type = interestRate["type"] as? String
     }
     
     public func getType() -> String {
-        StrUtils.unwrapString(value: m_type)
+        StrUtils.unwrapString(value: type)
     }
     
     public func getStreet() -> Double {
-        NumUtils.unwrapDouble(value: m_percentage)
+        NumUtils.unwrapDouble(value: percentage)
     }
+    
+    private var percentage : Double?
+    private var type : String?
     
 }

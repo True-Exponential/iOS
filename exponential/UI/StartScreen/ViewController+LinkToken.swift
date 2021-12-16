@@ -37,8 +37,8 @@ extension StartVC {
         let dispatch = DispatchGroup()
         dispatch.enter()
         
-        Globals.plaidHandler.retrieveAccounts(dispatch: dispatch)
-        
+        Globals.plaidHandler.loadAccounts(dispatch: dispatch)
+                        
         dispatch.notify(queue: .main) {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             
@@ -55,14 +55,14 @@ extension StartVC {
         Globals.userHandler.login(dispatch: dispatch)
         
         dispatch.notify(queue: .main) {
-            let canAccessPlaid = Globals.plaidHandler.getCurrLinkToken().count == 0
+            let canAccessPlaid = Globals.plaidHandler.getLinkToken().count == 0
             
             if (canAccessPlaid) {
                 self.getDataAndPresentUI()
             }
             else {
-                if (Globals.plaidHandler.getCurrLinkToken().count > 0) {
-                    let linkConfiguration = self.createLinkConfig(linkToken: Globals.plaidHandler.getCurrLinkToken())
+                if (Globals.plaidHandler.getLinkToken().count > 0) {
+                    let linkConfiguration = self.createLinkConfig(linkToken: Globals.plaidHandler.getLinkToken())
                     
                     let result = Plaid.create(linkConfiguration)
                     switch result {
@@ -74,22 +74,6 @@ extension StartVC {
                     }
                 }
             }
-            /*Globals.plaidHandler.getLinkToken(dispatch:dispatch)
-            
-            dispatch.notify(queue: .main) {
-                if (Globals.plaidHandler.getCurrLinkToken().count > 0) {
-                    let linkConfiguration = self.createLinkConfig(linkToken: Globals.plaidHandler.getCurrLinkToken())
-                    
-                    let result = Plaid.create(linkConfiguration)
-                    switch result {
-                    case .failure(let error):
-                        print("Unable to create Plaid handler due to: \(error)")
-                    case .success(let handler):
-                        handler.open(presentUsing: .viewController(self))
-                        self.linkHandler = handler
-                    }
-                }
-            }*/
         }
     }
 }

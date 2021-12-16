@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum AccountType : Int{
+enum AccountType : Int, Codable{
     case Credit = 0
     case Deposit
     case Loan
