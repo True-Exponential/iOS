@@ -10,7 +10,7 @@ import Foundation
 
 class AccountEx : Account {
     
-    public func setTransactions(transactions : [Transaction]) {
+    public func setTransactions(transactions : [TransactionEx]) {
         self.m_transactions = transactions
     }
     
@@ -30,7 +30,7 @@ class AccountEx : Account {
         m_studentLoans = studentLoans
     }
     
-    public func getTransactions() -> [Transaction] {
+    public func getTransactions() -> [TransactionEx] {
         return m_transactions;
     }
     
@@ -49,12 +49,26 @@ class AccountEx : Account {
     public func getStudentLoans() -> [StudentLoan] {
         return m_studentLoans;
     }
-
     
-    private var m_transactions = [Transaction]()
+    public func getBalance() -> String {
+        var retBalance = ""
+        if (getBalances().getAvailable() == 0) {
+            retBalance = StrUtils.showNumberWithCurrency(number: getBalances().getCurrent(), currencyCode: getBalances().getCurrencyCode())
+        }
+        else {
+            retBalance = StrUtils.showNumberWithCurrency(number: getBalances().getCurrent(), currencyCode: getBalances().getCurrencyCode())
+        }
+    
+        return retBalance
+    }
+    
+    public func getLimit() -> String {
+        return StrUtils.showNumberWithCurrency(number: getBalances().getLimit(), currencyCode: getBalances().getCurrencyCode())
+    }
+    
+    private var m_transactions = [TransactionEx]()
     private var m_holdings = [Holding]()
     private var m_creditLoans = [CreditLoan]()
     private var m_mortgages = [Mortgage]()
     private var m_studentLoans = [StudentLoan]()
-    
 }

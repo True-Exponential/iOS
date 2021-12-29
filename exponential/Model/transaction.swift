@@ -8,14 +8,43 @@
 
 import Foundation
 
-struct Transaction :  Codable {
+class Transaction :  Codable {
+    
+    init(transaction : Transaction) {
+        accountId = transaction.getAccountId()
+        accountOwner = transaction.getAccountOwner()
+        authorizedDate = transaction.getAuthorizedDate()
+        authorizedTime = transaction.getAuthorizedTime()
+        category_id = transaction.getCategoryId()
+        checkNumber = transaction.getCheckNumber()
+        currencyCode = transaction.getCurrencyCode()
+        merchantName = transaction.getMerchantName()
+        name = transaction.getName()
+        date = transaction.getDate()
+        dateTime = transaction.getDateTime()
+        pendingTransactionId = transaction.getPendingTransactionId()
+        personalFinanceCategory = transaction.getPersonalFinanceCategory()
+        transactionCode = transaction.getTransactionCode()
+        transactionId = transaction.getTransactionId()
+        transactionType = transaction.getTransactionType()
+        channel = transaction.getChannel()
+        
+        categories = transaction.getCategories()
+        
+        amount = transaction.getAmount()
+        pending = transaction.getIsPending()
+        
+        payment = transaction.getPayment()
+        
+        location = transaction.getLocation()
+    }
     
     init(transaction : NSDictionary) {
         accountId = transaction["accountId"] as? String
         accountOwner = transaction["accountOwner"] as? String
         authorizedDate = transaction["authorizedDate"] as? String
         authorizedTime = transaction["authorizedTime"] as? String
-        categoryId = transaction["categoryId"] as? String
+        category_id = transaction["category_id"] as? String
         checkNumber = transaction["checkNumber"] as? String
         currencyCode = transaction["currencyCode"] as? String
         merchantName = transaction["merchantName"] as? String
@@ -45,6 +74,10 @@ struct Transaction :  Codable {
         return StrUtils.unwrapString(value:accountId);
     }
     
+    public func getTransactionType() -> String {
+        return StrUtils.unwrapString(value:transactionType);
+    }
+    
     public func getAccountOwner() -> String {
         return StrUtils.unwrapString(value:accountOwner);
     }
@@ -58,7 +91,7 @@ struct Transaction :  Codable {
     }
     
     public func getCategoryId() -> String {
-        return StrUtils.unwrapString(value:categoryId);
+        return StrUtils.unwrapString(value:category_id);
     }
     
     public func getCheckNumber() -> String {
@@ -114,7 +147,7 @@ struct Transaction :  Codable {
         return false;
     }
     
-    public func getIsAmount() -> Int {
+    public func getAmount() -> Int {
         return NumUtils.unwrapInt(value: amount)
     }
     
@@ -126,11 +159,15 @@ struct Transaction :  Codable {
         return location;
     }
     
+    public func getCategories() -> [String] {
+        return categories;
+    }
+    
     private var accountId  : String?
     private var accountOwner : String?
     private var authorizedDate : String?
     private var authorizedTime : String?
-    private var categoryId : String?
+    private var category_id : String?
     private var checkNumber : String?
     private var currencyCode : String?
     private var date : String?
@@ -152,7 +189,5 @@ struct Transaction :  Codable {
     private var payment : Payment
     private var location : Location
     
-    private var categories : [String]
-    
-    
+    private var categories : [String]    
 }

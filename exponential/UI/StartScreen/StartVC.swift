@@ -22,6 +22,8 @@ class StartVC: UIViewController, LinkOAuthHandling {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        presentPlaidLinkUsingLinkToken()
+        
     }
 
     @IBAction func didTapButton(_ sender: Any?) {

@@ -9,9 +9,10 @@
 import Foundation
 
 enum AccountType : Int, Codable{
-    case Credit = 0
-    case Deposit
+    case Deposit = 0
+    case Credit
     case Loan
     case Investment
+    case Brokerage
     case Other
-}
+} 

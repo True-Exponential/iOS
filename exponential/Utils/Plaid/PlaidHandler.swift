@@ -42,6 +42,16 @@ class PlaidHandler : Finance {
     private func loadTransactionsCallBack(json : [String: Any]?) {
         Globals.transactions = Transactions(json: json)
     }
+
+    
+    func loadCategories(dispatch : DispatchGroup) {
+        NetworkHandler.sendPostRequest(dispatch: dispatch, url: "GetCategories", token: Globals.userHandler.getUserToken(),  extraParams:nil, callback: self.loadCategoriesCallBack)
+    }
+    
+    private func loadCategoriesCallBack(json : [String: Any]?) {
+        Globals.categories = Categories(json: json)
+    }
+    
     
     public func loadHoldings(dispatch : DispatchGroup, accountIds: [String]?) {
         var extraParams : [String: Any]? = nil

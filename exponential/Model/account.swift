@@ -79,7 +79,6 @@ class Account : Codable {
         return balances
     }
     
-    
     private var name : String?
     private var official_name : String?
     private var mask : String?
@@ -88,5 +87,5 @@ class Account : Codable {
     private var subType : Int?
     private var typeDesc : String?
     private var subTypeDesc : String?
-    private var balances : AccountBalance
+    var balances : AccountBalance
 }

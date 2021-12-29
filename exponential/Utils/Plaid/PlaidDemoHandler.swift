@@ -24,6 +24,13 @@ struct PlaidDemoHandler : Finance {
         dispatch.leave()
     }
     
+    func loadCategories(dispatch : DispatchGroup) {
+        let categories : [Category] = load("categories.json")
+        Globals.categories = Categories(categories:categories)
+        
+        dispatch.leave()
+    }
+    
     public func loadHoldings(dispatch : DispatchGroup, accountIds: [String]?) {
         
         let securities : [Security] = load("securities.json")

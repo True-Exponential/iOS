@@ -8,83 +8,81 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
 class AccountsTableVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        return Globals.accounts.getNumAccountTypes()
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return Globals.accounts.getAccountGroupCaption(order: section)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return Globals.accounts.getCount()
+        return Globals.accounts.getNumAccountType(order: section)
     }
-
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
+    {
+        let header:UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        
+        if let label = header.textLabel {
+            label.textColor = UIColor.blue
+            label.font = UIFont.boldSystemFont(ofSize: 18)
+            label.frame = header.frame
+            //label.textAlignment = NSTextAlignment.center
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let plaidAccount = Globals.accounts.get(order: indexPath.section, index: indexPath.row)
+        
+        if(plaidAccount != nil) {
+            if (plaidAccount!.getTransactions().count == 0) {
+                let dispatch = DispatchGroup()
+                dispatch.enter()
+                
+                Globals.plaidHandler.loadTransactions(dispatch: dispatch, accountIds: [plaidAccount!.getId()])
+                
+                dispatch.notify(queue: .main) {
+                    TransactionsTableVC.account = plaidAccount
+                    self.performSegue(withIdentifier: "switchToTransactionsView", sender: plaidAccount)
+                }
+            }
+            else {
+                TransactionsTableVC.account = plaidAccount
+                self.performSegue(withIdentifier: "switchToTransactionsView", sender: plaidAccount)
+            }
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        var cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        if cell.detailTextLabel == nil {
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
+        }
         
-        let plaidAccount = Globals.accounts.get(index: indexPath.row);
+        let plaidAccount = Globals.accounts.get(order: indexPath.section, index: indexPath.row);
+        
         if let _plaidAccount = plaidAccount {
             cell.textLabel!.text = _plaidAccount.getName()
+            cell.textLabel!.font = UIFont.boldSystemFont(ofSize: 18)
+            cell.detailTextLabel!.text = "Balance: " + _plaidAccount.getBalance()
         }
-
-
-        // Configure the cell...
-
+        
         return cell
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     /*
     // MARK: - Navigation
 

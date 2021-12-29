@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import SwiftUI
+
+let accountTitles = ["Deposit Accounts","Credit Cards","Loans","Investments","Brokerage","Other"]
 
 struct Accounts {
     
@@ -18,9 +21,10 @@ struct Accounts {
             
             if (accounts != nil) {
                 for account in accounts! {
-                    let pldAccount = AccountEx(account:account as! NSDictionary)
-                    m_accounts.append(pldAccount)
+                    let accountEx = AccountEx(account:account as! NSDictionary)
+                    m_accounts.append(accountEx)
                 }
+                self.sortAccounts()
             }
         }
     }
@@ -28,12 +32,69 @@ struct Accounts {
     init(accounts : [Account]) {
         for account in accounts {
             let accountEx = AccountEx(account: account)
-            
             m_accounts.append(accountEx)
+        }
+        
+        self.sortAccounts()
+    }
+    
+    private mutating func sortAccounts() {
+        
+        for account in m_accounts {
+            switch(account.getType()) {
+            case .Deposit:
+                m_depositAccounts.append(account)
+            case .Credit:
+                m_creditAccounts.append(account)
+            case .Loan:
+                m_loanAccounts.append(account)
+            case .Investment:
+                m_investmentsAccounts.append(account)
+            case .Brokerage:
+                m_brokerageAccounts.append(account)
+            case .Other:
+                m_otherAccounts.append(account)
+            }
+        }
+        
+        if (m_depositAccounts.count != 0) {
+            m_groupedAccounts.append(m_depositAccounts)
+        }
+        
+        if (m_creditAccounts.count != 0) {
+            m_groupedAccounts.append(m_creditAccounts)
+        }
+        
+        if (m_loanAccounts.count != 0) {
+            m_groupedAccounts.append(m_loanAccounts)
+        }
+        
+        if (m_investmentsAccounts.count != 0) {
+            m_groupedAccounts.append(m_investmentsAccounts)
+        }
+        
+        if (m_brokerageAccounts.count != 0) {
+            m_groupedAccounts.append(m_brokerageAccounts)
+        }
+        
+        if (m_otherAccounts.count != 0) {
+            m_groupedAccounts.append(m_otherAccounts)
         }
     }
     
-    public func appendTransactionsToAccounts(accountTransactions: [String: [Transaction]]){
+    public func getNumAccountTypes() -> Int {
+        return m_groupedAccounts.count
+    }
+    
+    public func getNumAccountType(order : Int) -> Int {
+        return m_groupedAccounts[order].count
+    }
+    
+    public func getAccountGroupCaption( order : Int) -> String {
+        return accountTitles[m_groupedAccounts[order][0].getType().rawValue]
+    }
+    
+    public func appendTransactionsToAccounts(accountTransactions: [String: [TransactionEx]]){
         for transactions in accountTransactions {
             let account = get(id: transactions.key)
             if let _account = account {
@@ -98,9 +159,32 @@ struct Accounts {
         return retAccount
     }
     
+    public func get(order: Int, index : Int) -> AccountEx? {
+        var retAccount : AccountEx?
+        
+        if (order < m_groupedAccounts.count) {
+            let groupedAccounts = m_groupedAccounts[order]
+            
+            if (index < groupedAccounts.count) {
+                retAccount = groupedAccounts[index]
+            }
+        }
+        
+        return retAccount
+    }
+    
     public func getCount() -> Int {
         return m_accounts.count;
     }
     
     private var m_accounts: Array = [AccountEx]()
+    
+    private var m_groupedAccounts: Array = [[AccountEx]]()
+    
+    private var m_depositAccounts: Array = [AccountEx]()
+    private var m_creditAccounts: Array = [AccountEx]()
+    private var m_loanAccounts: Array = [AccountEx]()
+    private var m_investmentsAccounts: Array = [AccountEx]()
+    private var m_brokerageAccounts: Array = [AccountEx]()
+    private var m_otherAccounts: Array = [AccountEx]()
 }

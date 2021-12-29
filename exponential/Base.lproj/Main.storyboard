@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0BW-6f-BQs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0BW-6f-BQs">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -60,9 +60,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wM2-SH-Zdc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6071" y="-3219"/>
+            <point key="canvasLocation" x="-15222" y="-4981"/>
         </scene>
-        <!--Save Money-->
+        <!--Monthly-->
         <scene sceneID="DBa-Nb-SnE">
             <objects>
                 <viewController id="N6w-YH-fwC" sceneMemberID="viewController">
@@ -84,11 +84,70 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Save Money" id="ba3-kn-xBS"/>
+                    <tabBarItem key="tabBarItem" title="Monthly" image="list.bullet.rectangle.portrait.fill" catalog="system" id="ba3-kn-xBS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbR-Vk-m2W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5774" y="-2469"/>
+            <point key="canvasLocation" x="-13670" y="-4878"/>
+        </scene>
+        <!--Save-->
+        <scene sceneID="ia2-9S-Nwb">
+            <objects>
+                <tableViewController id="sIS-4p-yv2" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="LxH-HE-m2O">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2Id-fb-84c">
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="375" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Id-fb-84c" id="EnQ-IU-dBz">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sIS-4p-yv2" id="ehF-6G-2IL"/>
+                            <outlet property="delegate" destination="sIS-4p-yv2" id="1jz-D1-gJs"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Save" id="UcI-h6-FnB"/>
+                    <navigationItem key="navigationItem" id="wLJ-5D-7M6"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g9X-JC-EPi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-12591" y="-4870"/>
+        </scene>
+        <!--Transactions TableVC-->
+        <scene sceneID="hlK-c5-evJ">
+            <objects>
+                <tableViewController storyboardIdentifier="TransactionsTable" id="BvL-Mr-4EG" customClass="TransactionsTableVC" customModule="Exponential" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ZGc-2k-zPi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sRX-6O-XrT">
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="375" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sRX-6O-XrT" id="tfA-V4-2q7">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="BvL-Mr-4EG" id="j5u-rb-ndy"/>
+                            <outlet property="delegate" destination="BvL-Mr-4EG" id="AlT-xU-zmF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="JPY-X8-yES"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4km-wa-O8L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-11703" y="-5662"/>
         </scene>
         <!--Accounts TableVC-->
         <scene sceneID="T37-CH-CLI">
@@ -115,10 +174,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ora-zN-FpN"/>
+                    <connections>
+                        <segue destination="BvL-Mr-4EG" kind="show" identifier="switchToTransactionsView" id="8nx-68-qEc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="60b-py-7kV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3522" y="-3253"/>
+            <point key="canvasLocation" x="-12463" y="-5662"/>
         </scene>
         <!--Main-->
         <scene sceneID="gjS-TC-mLx">
@@ -132,17 +194,18 @@
                     <connections>
                         <segue destination="vpb-Jh-IMf" kind="relationship" relationship="viewControllers" id="THM-ht-rsY"/>
                         <segue destination="N6w-YH-fwC" kind="relationship" relationship="viewControllers" id="2BN-Tp-FYl"/>
+                        <segue destination="sIS-4p-yv2" kind="relationship" relationship="viewControllers" id="gDg-JN-aMs"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Yi-B5-Hlh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5198" y="-3252"/>
+            <point key="canvasLocation" x="-14002" y="-5688"/>
         </scene>
         <!--Overview-->
         <scene sceneID="ZWB-Hp-t71">
             <objects>
                 <navigationController storyboardIdentifier="NavCtrl" automaticallyAdjustsScrollViewInsets="NO" id="vpb-Jh-IMf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Overview" id="8fo-Ul-SP6"/>
+                    <tabBarItem key="tabBarItem" title="Overview" image="list.bullet.rectangle" catalog="system" id="8fo-Ul-SP6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4nF-GX-DVA">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -156,10 +219,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Olp-wg-xWE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4383" y="-3253"/>
+            <point key="canvasLocation" x="-13167" y="-5663"/>
         </scene>
     </scenes>
     <resources>
+        <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
+        <image name="list.bullet.rectangle.portrait.fill" catalog="system" width="115" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

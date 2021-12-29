@@ -14,6 +14,7 @@ protocol Finance {
     func loadTransactions(dispatch : DispatchGroup, accountIds: [String]?)
     func loadHoldings(dispatch : DispatchGroup, accountIds: [String]?)
     func loadLiabilities(dispatch : DispatchGroup, accountIds: [String]?)
+    func loadCategories(dispatch : DispatchGroup)
     
     func getLinkToken(dispatch : DispatchGroup)
     func getLinkToken() -> String

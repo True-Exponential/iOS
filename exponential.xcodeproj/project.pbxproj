@@ -47,6 +47,7 @@
 		A66881EC2761092500102E3D /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66881EB2761092500102E3D /* NetworkHandler.swift */; };
 		A66881EE27626BF000102E3D /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66881ED27626BF000102E3D /* Security.swift */; };
 		A66881F02762730C00102E3D /* Holding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66881EF2762730C00102E3D /* Holding.swift */; };
+		A688F1A4277B65A300621BCB /* TransactionsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688F1A3277B65A300621BCB /* TransactionsTableVC.swift */; };
 		A6DAF12C2753C63300747B14 /* globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DAF12B2753C63300747B14 /* globals.swift */; };
 		A6DAF1312753C6E600747B14 /* PlaidHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DAF1302753C6E600747B14 /* PlaidHandler.swift */; };
 		A6DAF1332753CA7000747B14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91035E561E3CA7C000A97B26 /* Main.storyboard */; };
@@ -64,6 +65,10 @@
 		A6E218722767B448004F9BEC /* LoanStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E218712767B448004F9BEC /* LoanStatus.swift */; };
 		A6E218742767B667004F9BEC /* RepaymentPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E218732767B667004F9BEC /* RepaymentPlan.swift */; };
 		A6E218762767B98B004F9BEC /* PslfStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E218752767B98B004F9BEC /* PslfStatus.swift */; };
+		A6ECEC99277CB5CD007F4944 /* category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ECEC98277CB5CD007F4944 /* category.swift */; };
+		A6ECEC9B277CB7C1007F4944 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ECEC9A277CB7C1007F4944 /* Categories.swift */; };
+		A6ECEC9D277CBAA2007F4944 /* categories.json in Resources */ = {isa = PBXBuildFile; fileRef = A6ECEC9C277CBAA2007F4944 /* categories.json */; };
+		A6ECEC9F277CC192007F4944 /* TransactionEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ECEC9E277CC192007F4944 /* TransactionEx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -125,6 +130,7 @@
 		A66881EB2761092500102E3D /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		A66881ED27626BF000102E3D /* Security.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
 		A66881EF2762730C00102E3D /* Holding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holding.swift; sourceTree = "<group>"; };
+		A688F1A3277B65A300621BCB /* TransactionsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsTableVC.swift; sourceTree = "<group>"; };
 		A6DAF12B2753C63300747B14 /* globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globals.swift; sourceTree = "<group>"; };
 		A6DAF1302753C6E600747B14 /* PlaidHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaidHandler.swift; sourceTree = "<group>"; };
 		A6DAF14B2753E21D00747B14 /* LinkDemo-Swift copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "LinkDemo-Swift copy-Info.plist"; path = "/Users/Judas/Downloads/plaid-link-ios-master/exponential/LinkDemo-Swift copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -142,6 +148,10 @@
 		A6E218712767B448004F9BEC /* LoanStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanStatus.swift; sourceTree = "<group>"; };
 		A6E218732767B667004F9BEC /* RepaymentPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepaymentPlan.swift; sourceTree = "<group>"; };
 		A6E218752767B98B004F9BEC /* PslfStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PslfStatus.swift; sourceTree = "<group>"; };
+		A6ECEC98277CB5CD007F4944 /* category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = category.swift; sourceTree = "<group>"; };
+		A6ECEC9A277CB7C1007F4944 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		A6ECEC9C277CBAA2007F4944 /* categories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = categories.json; sourceTree = "<group>"; };
+		A6ECEC9E277CC192007F4944 /* TransactionEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionEx.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,21 +213,22 @@
 			isa = PBXGroup;
 			children = (
 				A634773E275D17B800AF3D6D /* account.swift */,
-				A631B07C275E3A7600D490F7 /* location.swift */,
-				A631B07E275E3E3200D490F7 /* payment.swift */,
-				A631B082275E469500D490F7 /* transaction.swift */,
-				A66881ED27626BF000102E3D /* Security.swift */,
-				A66881EF2762730C00102E3D /* Holding.swift */,
-				A6E21865276793D2004F9BEC /* CreditLoan.swift */,
-				A6E218672767945B004F9BEC /* Mortgage.swift */,
-				A6E21869276794B8004F9BEC /* StudentLoan.swift */,
-				A6E2186B27679FD3004F9BEC /* Apr.swift */,
+				A6101E88276B3C7E0092EE75 /* AccountBalance.swift */,
 				A6E2186D2767A8EF004F9BEC /* Address.swift */,
+				A6E2186B27679FD3004F9BEC /* Apr.swift */,
+				A6ECEC98277CB5CD007F4944 /* category.swift */,
+				A6E21865276793D2004F9BEC /* CreditLoan.swift */,
+				A66881EF2762730C00102E3D /* Holding.swift */,
 				A6E2186F2767AA3F004F9BEC /* InterestRate.swift */,
 				A6E218712767B448004F9BEC /* LoanStatus.swift */,
-				A6E218732767B667004F9BEC /* RepaymentPlan.swift */,
+				A631B07C275E3A7600D490F7 /* location.swift */,
+				A6E218672767945B004F9BEC /* Mortgage.swift */,
+				A631B07E275E3E3200D490F7 /* payment.swift */,
 				A6E218752767B98B004F9BEC /* PslfStatus.swift */,
-				A6101E88276B3C7E0092EE75 /* AccountBalance.swift */,
+				A6E218732767B667004F9BEC /* RepaymentPlan.swift */,
+				A66881ED27626BF000102E3D /* Security.swift */,
+				A6E21869276794B8004F9BEC /* StudentLoan.swift */,
+				A631B082275E469500D490F7 /* transaction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -225,13 +236,14 @@
 		A6101E8A276B3DFF0092EE75 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A6101EA1276BBEAB0092EE75 /* creditloans.json */,
-				A6101EA2276BBEAB0092EE75 /* mortgages.json */,
-				A6101EA3276BBEAB0092EE75 /* studentloans.json */,
-				A6101E9F276BB70B0092EE75 /* holdings.json */,
-				A6101E9B276BA7130092EE75 /* securities.json */,
-				A6101E97276B8A9B0092EE75 /* transactions.json */,
 				A6101E86276B3C2C0092EE75 /* accounts.json */,
+				A6ECEC9C277CBAA2007F4944 /* categories.json */,
+				A6101EA1276BBEAB0092EE75 /* creditloans.json */,
+				A6101E9F276BB70B0092EE75 /* holdings.json */,
+				A6101EA2276BBEAB0092EE75 /* mortgages.json */,
+				A6101E9B276BA7130092EE75 /* securities.json */,
+				A6101EA3276BBEAB0092EE75 /* studentloans.json */,
+				A6101E97276B8A9B0092EE75 /* transactions.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -247,14 +259,16 @@
 		A6101E8E276B44F10092EE75 /* Plaid */ = {
 			isa = PBXGroup;
 			children = (
-				A6E218632767937C004F9BEC /* Liablities.swift */,
-				A6DAF1302753C6E600747B14 /* PlaidHandler.swift */,
-				A6101E8F276B45080092EE75 /* accounts.swift */,
-				A6101E91276B719C0092EE75 /* PlaidDemoHandler.swift */,
 				A6101E93276B7E3A0092EE75 /* AccountEx.swift */,
-				A6101E95276B86FF0092EE75 /* transactions.swift */,
-				A6101E99276BA0040092EE75 /* securities.swift */,
+				A6101E8F276B45080092EE75 /* accounts.swift */,
+				A6ECEC9A277CB7C1007F4944 /* Categories.swift */,
 				A6101E9D276BB2C80092EE75 /* holdings.swift */,
+				A6E218632767937C004F9BEC /* Liablities.swift */,
+				A6101E91276B719C0092EE75 /* PlaidDemoHandler.swift */,
+				A6DAF1302753C6E600747B14 /* PlaidHandler.swift */,
+				A6101E99276BA0040092EE75 /* securities.swift */,
+				A6ECEC9E277CC192007F4944 /* TransactionEx.swift */,
+				A6101E95276B86FF0092EE75 /* transactions.swift */,
 			);
 			path = Plaid;
 			sourceTree = "<group>";
@@ -283,6 +297,7 @@
 				A6347739275CF06800AF3D6D /* Main.swift */,
 				A634773B275CF5CE00AF3D6D /* AccountsTableVC.swift */,
 				A6347740275D1F4B00AF3D6D /* AccountTable.swift */,
+				A688F1A3277B65A300621BCB /* TransactionsTableVC.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -413,6 +428,7 @@
 				A6101EA6276BBEAB0092EE75 /* studentloans.json in Resources */,
 				91035E5A1E3CA7C000A97B26 /* Assets.xcassets in Resources */,
 				A6101E9C276BA7130092EE75 /* securities.json in Resources */,
+				A6ECEC9D277CBAA2007F4944 /* categories.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +439,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A688F1A4277B65A300621BCB /* TransactionsTableVC.swift in Sources */,
 				A6101E90276B45080092EE75 /* accounts.swift in Sources */,
 				A6101E92276B719C0092EE75 /* PlaidDemoHandler.swift in Sources */,
 				A6E2185E2765F63B004F9BEC /* CreditAccountSubType.swift in Sources */,
@@ -438,7 +455,10 @@
 				913AF7CA251D3C04007CC064 /* ViewController+PublicKey.swift in Sources */,
 				A6101E9E276BB2C80092EE75 /* holdings.swift in Sources */,
 				A6E218722767B448004F9BEC /* LoanStatus.swift in Sources */,
+				A6ECEC99277CB5CD007F4944 /* category.swift in Sources */,
+				A6ECEC9B277CB7C1007F4944 /* Categories.swift in Sources */,
 				91974B0B246D6D4200182D9B /* AppDelegate+OAuthSupport.swift in Sources */,
+				A6ECEC9F277CC192007F4944 /* TransactionEx.swift in Sources */,
 				7A92F55E25BF40FB00009CFD /* ViewController+SwiftUI.swift in Sources */,
 				A6E218602765F67B004F9BEC /* DepositAccountSubType.swift in Sources */,
 				A6101E89276B3C7E0092EE75 /* AccountBalance.swift in Sources */,
