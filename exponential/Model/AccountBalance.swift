@@ -19,23 +19,23 @@ struct AccountBalance :  Codable {
     }
     
     public func getCurrent() -> Int {
-        return NumUtils.unwrapInt(value: current)
+        return OptUtils.unwrap(current)
     }
     
     public func getAvailable() -> Int {
-        return NumUtils.unwrapInt(value: available)
+        return OptUtils.unwrap(available)
     }
     
     public func getLimit() -> Int {
-        return NumUtils.unwrapInt(value: limit)
+        return OptUtils.unwrap(limit)
     }
     
     public func getCurrencyCode() -> String {
-        return StrUtils.unwrapString(value: iso_currency_code)
+        return OptUtils.unwrap(iso_currency_code)
     }
     
     public func getUnofficialCurrencyCode() -> String {
-        return StrUtils.unwrapString(value: unofficial_currency_code)
+        return OptUtils.unwrap(unofficial_currency_code)
     }
     
     private var iso_currency_code: String?

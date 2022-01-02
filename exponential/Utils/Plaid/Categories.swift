@@ -12,19 +12,19 @@ struct Categories {
     
     init() {}
     
-    init(categories : [Category]) {
+    init(_ categories : [Category]) {
         for category in categories {
             self.categories[category.getId()] = category
         }
     }
     
-    init(json : [String: Any]?) {
+    init(_ json : [String: Any]?) {
     
         self.categories = [String: Category]()
         
-        if (json != nil) {
+        if json != nil {
             let categories = json!["categories"]! as? Array<Any>
-            if (categories != nil) {
+            if categories != nil {
                 for category in categories! {
                     let newCategory = Category(category: category as! NSDictionary)
                     self.categories[newCategory.getId()] = newCategory
@@ -33,10 +33,10 @@ struct Categories {
         }
     }
     
-    func get(id : String) -> Category {
+    func get(_ id : String) -> Category {
         let category = categories[id]
         
-        if (category == nil) {
+        if category == nil {
             return Category()
         }
         

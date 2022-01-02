@@ -19,23 +19,23 @@ struct Address : Codable{
     }
     
     public func getCity() -> String {
-        StrUtils.unwrapString(value: city)
+        OptUtils.unwrap(city)
     }
     
     public func getStreet() -> String {
-        StrUtils.unwrapString(value: street)
+        OptUtils.unwrap(street)
     }
     
     public func getCountry() -> String {
-        StrUtils.unwrapString(value: country)
+        OptUtils.unwrap(country)
     }
     
     public func getPostalCode() -> String {
-        StrUtils.unwrapString(value: postal_code)
+        OptUtils.unwrap(postal_code)
     }
     
     public func getRegion() -> String {
-        StrUtils.unwrapString(value: region)
+        OptUtils.unwrap(region)
     }
     
     private var city : String?

@@ -15,7 +15,7 @@ class UserHandler {
     private var m_userToken : String = ""
     
     public func getUserToken() -> String {
-        if (self.m_userToken.count > 0) {
+        if self.m_userToken.count > 0 {
             return self.m_userToken
         }
         else {
@@ -30,33 +30,32 @@ class UserHandler {
         return self.m_userToken
     }
     
-    public func setUserToken(token : String) {
-        self.m_userToken = token;
+    public func setUserToken(_ token : String) {
+        self.m_userToken = token
         
         let defaults = UserDefaults.standard
         defaults.set(self.m_userToken, forKey: UserHandler.USER_TOKEN_KEY_NAME)
     }
     
-    private func loginCallBack(json : [String: Any]?) {
-        if (json != nil) {
+    private func loginCallBack(_ json : [String: Any]?) {
+        if json != nil {
             let userToken = json!["exponentialToken"] as? String?
             if let _userToken = userToken {
-                self.setUserToken(token:_userToken!)
+                self.setUserToken(_userToken!)
                 
                 let shouldLoginToPlaid = json!["shouldLoginToPlaid"] as! Bool
-                if (shouldLoginToPlaid) {
+                if shouldLoginToPlaid {
                     let linkToken = json!["plaidLinkToken"] as? String?
                     if let linkToken = linkToken {
-                        Globals.plaidHandler.setLinkToken(token: linkToken!)
+                        Globals.plaidHandler.setLinkToken(linkToken!)
                     }
                 }
             }
         }
     }
     
-    public func login(dispatch : DispatchGroup) {
-        NetworkHandler.sendPostRequest(dispatch: dispatch, url: "login", token: self.getUserToken(),
-                                       extraParams: nil, callback: self.loginCallBack)
+    public func login(_ dispatch : DispatchGroup) {
+        NetworkHandler.sendPostRequest(dispatch, "login", self.getUserToken(),nil, self.loginCallBack)
     }
 }
 

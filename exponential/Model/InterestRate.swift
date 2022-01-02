@@ -16,11 +16,11 @@ struct InterestRate : Codable {
     }
     
     public func getType() -> String {
-        StrUtils.unwrapString(value: type)
+        OptUtils.unwrap(type)
     }
     
     public func getStreet() -> Double {
-        NumUtils.unwrapDouble(value: percentage)
+        OptUtils.unwrap(percentage)
     }
     
     private var percentage : Double?

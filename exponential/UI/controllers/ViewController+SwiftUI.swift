@@ -8,7 +8,7 @@ extension StartVC {
     
         dispatch.enter()
         
-        Globals.plaidHandler.getLinkToken(dispatch:dispatch)
+        Globals.plaidHandler.getLinkToken(dispatch)
         
         dispatch.notify(queue: .main) {
             let configuration = self.createLinkConfig(linkToken: Globals.plaidHandler.getLinkToken())

@@ -11,20 +11,20 @@ import Foundation
 struct Holdings {
     init() {}
     
-    init(holdings : [Holding]) {
+    init(_ holdings : [Holding]) {
         self.holdings = holdings
         self.appendHoldingsToAccounts()
     }
     
-    init(json : [String: Any]?) {
+    init(_ json : [String: Any]?) {
         
         self.holdings = [Holding]()
     
-        if (json != nil) {
-            Globals.securities = Securities(json: json)
+        if json != nil {
+            Globals.securities = Securities(json)
             
             let holdings = json!["holdings"]! as? Array<Any>
-            if (holdings != nil) {
+            if holdings != nil {
                 for holding in holdings! {
                     let newHolding = Holding(holding:holding as! NSDictionary)
                     self.holdings.append(newHolding)
@@ -43,14 +43,14 @@ struct Holdings {
             let accountId = holding.getAccountId()
             let account = accountHoldings[accountId]
             
-            if (account == nil) {
+            if account == nil {
                 accountHoldings[accountId] = [Holding]()
             }
             
             accountHoldings[accountId]?.append(holding)
         }
         
-        Globals.accounts.appendHoldingsToAccounts(accountHoldings: accountHoldings)
+        Globals.accounts.appendHoldingsToAccounts(accountHoldings)
     }
     
     private var holdings: Array = [Holding]()

@@ -10,51 +10,51 @@ import Foundation
 
 struct PlaidDemoHandler : Finance {
     
-    func loadAccounts(dispatch : DispatchGroup) {
+    func loadAccounts(_ dispatch : DispatchGroup) {
         let accounts : [Account] = load("accounts.json")
-        Globals.accounts = Accounts(accounts:accounts)
+        Globals.accounts = Accounts(accounts)
         
         dispatch.leave()
     }
     
-    func loadTransactions(dispatch : DispatchGroup, accountIds: [String]?) {
+    func loadTransactions(_ dispatch : DispatchGroup,_ accountIds: [String]?) {
         let transactions : [Transaction] = load("transactions.json")
-        Globals.transactions = Transactions(transactions:transactions)
+        Globals.transactions = Transactions(transactions)
         
         dispatch.leave()
     }
     
-    func loadCategories(dispatch : DispatchGroup) {
+    func loadCategories(_ dispatch : DispatchGroup) {
         let categories : [Category] = load("categories.json")
-        Globals.categories = Categories(categories:categories)
+        Globals.categories = Categories(categories)
         
         dispatch.leave()
     }
     
-    public func loadHoldings(dispatch : DispatchGroup, accountIds: [String]?) {
+    public func loadHoldings(_ dispatch : DispatchGroup, _ accountIds: [String]?) {
         
         let securities : [Security] = load("securities.json")
-        Globals.securities = Securities(securities:securities)
+        Globals.securities = Securities(securities)
         
         let holdings : [Holding] = load("holdings.json")
-        Globals.holdings = Holdings(holdings:holdings)
+        Globals.holdings = Holdings(holdings)
         
         dispatch.leave()
     }
     
-    public func loadLiabilities(dispatch : DispatchGroup, accountIds: [String]?) {
+    public func loadLiabilities(_ dispatch : DispatchGroup,_  accountIds: [String]?) {
         let mortgages : [Mortgage] = load("mortgages.json")
         let creditLoans : [CreditLoan]  = load("creditloans.json")
         let studentLoans : [StudentLoan]  = load("studentloans.json")
         
-        Globals.liablities = Liablities(mortgages:mortgages, creditLoans:creditLoans, studentLoans:studentLoans)
+        Globals.liablities = Liablities(mortgages, creditLoans, studentLoans)
     }
     
     func getLinkToken() -> String {return ""}
-    func setLinkToken(token : String) {}
+    func setLinkToken(_ token : String) {}
     
-    func getLinkToken(dispatch : DispatchGroup){}
-    func getAccessToken(publicToken: String, dispatch : DispatchGroup) {}
+    func getLinkToken(_ dispatch : DispatchGroup){}
+    func getAccessToken(_ publicToken: String,_ dispatch : DispatchGroup) {}
     
 }
 

@@ -10,7 +10,7 @@ import Foundation
 
 enum LoanAccountSubType : Int {
 
-    case auto = 0
+    case auto
     case business
     case commercial
     case construction

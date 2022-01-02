@@ -12,15 +12,15 @@ class NetworkHandler {
     
     static public func defaultCallback(response: [String: Any]?) {}
     
-    static public func getDefaultReq(relUrl : String, token: String?, extraParams: [String:Any]?) -> URLRequest? {
+    static public func getDefaultReq(_ relUrl : String, _ token: String?, _ extraParams: [String:Any]?) -> URLRequest? {
         let url = URL(string: Globals.getServerAddr() + "/" + relUrl)!
         
         var parameters = [String : Any]()
-        if (token != nil) {
+        if token != nil {
             parameters = ["token": token! as String]
         }
         
-        if (extraParams != nil) {
+        if extraParams != nil {
             for param in extraParams! {
                 parameters[param.key] = param.value
             }
@@ -31,25 +31,25 @@ class NetworkHandler {
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to data object and set it as request body
         } catch  {
-            return nil;
+            return nil
         }
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.httpMethod = "POST"
         
-        return request;
+        return request
     }
     
-    static public func sendPostRequest(dispatch : DispatchGroup,url: String, token: String?,extraParams: [String:Any]?,
-     callback: @escaping (_ response : [String: Any]?) ->Void) {
+    static public func sendPostRequest(_ dispatch : DispatchGroup,_ url: String, _ token: String?,_ extraParams: [String:Any]?,
+     _ callback: @escaping (_ response : [String: Any]?) ->Void) {
 
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
-        let request = NetworkHandler.getDefaultReq(relUrl: url, token: token,extraParams:extraParams)
+        let request = NetworkHandler.getDefaultReq(url, token,extraParams)
         
-        if (request != nil) {
+        if request != nil {
             let task = session.dataTask(with: request!) { data, response, error in
                 
                 // ensure there is no error for this HTTP response
@@ -64,7 +64,7 @@ class NetworkHandler {
                             return
                         }
                         
-                        callback(json);
+                        callback(json)
                     }
                 }
                 
@@ -78,7 +78,7 @@ class NetworkHandler {
         }
     }
     
-    static public func sendGetRequest(dispatch : DispatchGroup, url: String, callback: @escaping (_ response : [String: Any]?) ->Void) {
+    static public func sendGetRequest(_ dispatch : DispatchGroup,_  url: String,_  callback: @escaping (_ response : [String: Any]?) ->Void) {
         let url = URL(string: Globals.getServerAddr() + "/" + url)!
         
         let config = URLSessionConfiguration.default

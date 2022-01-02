@@ -71,96 +71,91 @@ class Transaction :  Codable {
     }
     
     public func getAccountId() -> String {
-        return StrUtils.unwrapString(value:accountId);
+        return OptUtils.unwrap(accountId)
     }
     
     public func getTransactionType() -> String {
-        return StrUtils.unwrapString(value:transactionType);
+        return OptUtils.unwrap(transactionType)
     }
     
     public func getAccountOwner() -> String {
-        return StrUtils.unwrapString(value:accountOwner);
+        return OptUtils.unwrap(accountOwner)
     }
     
     public func getAuthorizedDate() -> String {
-        return StrUtils.unwrapString(value:authorizedDate);
+        return OptUtils.unwrap(authorizedDate)
     }
     
     public func getAuthorizedTime() -> String {
-        return StrUtils.unwrapString(value:authorizedTime);
+        return OptUtils.unwrap(authorizedTime)
     }
     
     public func getCategoryId() -> String {
-        return StrUtils.unwrapString(value:category_id);
+        return OptUtils.unwrap(category_id)
     }
     
     public func getCheckNumber() -> String {
-        return StrUtils.unwrapString(value:checkNumber);
+        return OptUtils.unwrap(checkNumber)
     }
     
     public func getCurrencyCode() -> String {
-        return StrUtils.unwrapString(value:currencyCode);
+        return OptUtils.unwrap(currencyCode)
     }
     
     public func getName() -> String {
-        return StrUtils.unwrapString(value:name);
+        return OptUtils.unwrap(name)
     }
     
     public func getDate() -> String {
-        return StrUtils.unwrapString(value:date);
+        return OptUtils.unwrap(date)
     }
     
     public func getDateTime() -> String {
-        return StrUtils.unwrapString(value:dateTime);
+        return OptUtils.unwrap(dateTime)
     }
     
     public func getPendingTransactionId() -> String {
-        return StrUtils.unwrapString(value:pendingTransactionId);
+        return OptUtils.unwrap(pendingTransactionId)
     }
     
     public func getPersonalFinanceCategory() -> String {
-        return StrUtils.unwrapString(value:personalFinanceCategory);
+        return OptUtils.unwrap(personalFinanceCategory)
     }
     
     public func getTransactionCode() -> String {
-        return StrUtils.unwrapString(value:transactionCode);
+        return OptUtils.unwrap(transactionCode)
     }
     
     public func getTransactionId() -> String {
-        return StrUtils.unwrapString(value:transactionId);
+        return OptUtils.unwrap(transactionId)
     }
     
     public func getMerchantName() -> String {
-        return StrUtils.unwrapString(value:merchantName);
+        return OptUtils.unwrap(merchantName)
     }
     
     public func getChannel() -> String {
-        return StrUtils.unwrapString(value:channel);
+        return OptUtils.unwrap(channel)
     }
     
     public func getIsPending() -> Bool {
-        
-        if let val = pending {
-            return val
-        }
-        
-        return false;
+        return OptUtils.unwrap(pending)
     }
     
     public func getAmount() -> Int {
-        return NumUtils.unwrapInt(value: amount)
+        return OptUtils.unwrap( amount)
     }
     
     public func getPayment() -> Payment {
-        return payment;
+        return payment
     }
     
     public func getLocation() -> Location {
-        return location;
+        return location
     }
     
     public func getCategories() -> [String] {
-        return categories;
+        return categories
     }
     
     private var accountId  : String?

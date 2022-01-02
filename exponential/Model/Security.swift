@@ -31,67 +31,63 @@ struct Security : Codable {
     }
     
     public func getName() -> String {
-        return StrUtils.unwrapString(value: name);
+        return OptUtils.unwrap(name)
     }
     
     public func getCloseDate() -> String {
-        return StrUtils.unwrapString(value: close_price_as_of);
+        return OptUtils.unwrap(close_price_as_of)
     }
     
     public func getCusip() -> String {
-        return StrUtils.unwrapString(value: cusip);
+        return OptUtils.unwrap(cusip)
     }
     
     public func getInstitutionId() -> String {
-        return StrUtils.unwrapString(value: institution_id);
+        return OptUtils.unwrap(institution_id)
     }
     
     public func getInstitutionSecurityId() -> String {
-        return StrUtils.unwrapString(value: institution_security_id);
+        return OptUtils.unwrap(institution_security_id)
     }
     
     public func getIsin() -> String {
-        return StrUtils.unwrapString(value: isin);
+        return OptUtils.unwrap(isin)
     }
     
     public func getCurrencyCode() -> String {
-        return StrUtils.unwrapString(value: iso_currency_code);
+        return OptUtils.unwrap(iso_currency_code)
     }
     
     public func getUnofficialCurrencyCode() -> String {
-        return StrUtils.unwrapString(value: unofficial_currency_code);
+        return OptUtils.unwrap(unofficial_currency_code)
     }
     
     public func getProxySecurityId() -> String {
-        return StrUtils.unwrapString(value: proxy_security_id);
+        return OptUtils.unwrap(proxy_security_id)
     }
     
     public func getId() -> String {
-        return StrUtils.unwrapString(value: security_id);
+        return OptUtils.unwrap(security_id)
     }
     
     public func getSedol() -> String {
-        return StrUtils.unwrapString(value: sedol);
+        return OptUtils.unwrap(sedol)
     }
     
     public func getTickerSymbol() -> String {
-        return StrUtils.unwrapString(value: ticker_symbol);
+        return OptUtils.unwrap(ticker_symbol)
     }
     
     public func getType() -> String {
-        return StrUtils.unwrapString(value: type);
+        return OptUtils.unwrap(type)
     }
     
     public func getIsCashEquivalent() -> Bool {
-        if let isCashEquivalent = is_cash_equivalent {
-            return isCashEquivalent;
-        }
-        
-        return false;
+        return OptUtils.unwrap(is_cash_equivalent)
     }
     
     public func getClosePrice() -> Double {
-        return NumUtils.unwrapDouble(value:close_price);
+        return OptUtils.unwrap(close_price)
     }
     
     private var name : String?

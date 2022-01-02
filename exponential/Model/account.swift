@@ -29,11 +29,8 @@ class Account : Codable {
         mask = account["mask"] as? String
         subType = account["subtype"] as? Int
         
-        let intType = account["type"] as? Int
-        if let type = intType {
-            if let _type = AccountType(rawValue: type) {
-                self.type = _type
-            }
+        if let type = account["type"] as? Int, let _type = AccountType(rawValue: type) {
+            self.type = _type
         }
         
         typeDesc = account["typeDesc"] as? String
@@ -44,15 +41,15 @@ class Account : Codable {
     }
     
     public func getName() -> String {
-        return StrUtils.unwrapString(value: name);
+        return OptUtils.unwrap(name)
     }
     
     public func getOfficialName() -> String {
-        return StrUtils.unwrapString(value:official_name);
+        return OptUtils.unwrap(official_name)
     }
     
     public func getId() -> String {
-        return StrUtils.unwrapString(value:id);
+        return OptUtils.unwrap(id)
     }
     
     public func getType() -> AccountType {
@@ -64,22 +61,22 @@ class Account : Codable {
     }
     
     public func getSubType() -> Int {
-        return NumUtils.unwrapInt(value:subType)
+        return OptUtils.unwrap(subType)
     }
     
     public func getTypeDesc() -> String {
-        return StrUtils.unwrapString(value:typeDesc);
+        return OptUtils.unwrap(typeDesc)
     }
     
     public func getSubTypeDesc() -> String {
-        return StrUtils.unwrapString(value:subTypeDesc);
+        return OptUtils.unwrap(subTypeDesc)
     }
     
     public func getBalances() -> AccountBalance {
         return balances
     }
     
-    private var name : String?
+    private var name : String? 
     private var official_name : String?
     private var mask : String?
     private var id : String?
@@ -87,5 +84,5 @@ class Account : Codable {
     private var subType : Int?
     private var typeDesc : String?
     private var subTypeDesc : String?
-    var balances : AccountBalance
+    private var balances : AccountBalance
 }

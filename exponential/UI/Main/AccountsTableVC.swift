@@ -20,15 +20,15 @@ class AccountsTableVC: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return Globals.accounts.getNumAccountTypes()
+        return Globals.accounts.NumAccountTypes
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return Globals.accounts.getAccountGroupCaption(order: section)
+        return Globals.accounts.getAccountGroupCaption(section)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Globals.accounts.getNumAccountType(order: section)
+        return Globals.accounts.getNumAccountType(section)
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
@@ -45,18 +45,20 @@ class AccountsTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let plaidAccount = Globals.accounts.get(order: indexPath.section, index: indexPath.row)
+        let plaidAccount = Globals.accounts.get(indexPath.section, indexPath.row)
         
         if(plaidAccount != nil) {
-            if (plaidAccount!.getTransactions().count == 0) {
+            if plaidAccount!.getTransactions().count == 0 {
                 let dispatch = DispatchGroup()
                 dispatch.enter()
                 
-                Globals.plaidHandler.loadTransactions(dispatch: dispatch, accountIds: [plaidAccount!.getId()])
+                Globals.plaidHandler.loadTransactions(dispatch, [plaidAccount!.getId()])
                 
                 dispatch.notify(queue: .main) {
                     TransactionsTableVC.account = plaidAccount
-                    self.performSegue(withIdentifier: "switchToTransactionsView", sender: plaidAccount)
+                    if plaidAccount!.getTransactions().count != 0 {
+                        self.performSegue(withIdentifier: "switchToTransactionsView", sender: plaidAccount)
+                    }
                 }
             }
             else {
@@ -72,7 +74,7 @@ class AccountsTableVC: UITableViewController {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
         }
         
-        let plaidAccount = Globals.accounts.get(order: indexPath.section, index: indexPath.row);
+        let plaidAccount = Globals.accounts.get(indexPath.section, indexPath.row)
         
         if let _plaidAccount = plaidAccount {
             cell.textLabel!.text = _plaidAccount.getName()

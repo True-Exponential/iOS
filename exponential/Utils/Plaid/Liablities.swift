@@ -12,21 +12,21 @@ struct Liablities  {
     
     init(){}
     
-    init (mortgages : [Mortgage], creditLoans: [CreditLoan],studentLoans:[StudentLoan] ) {
+    init (_ mortgages : [Mortgage],_ creditLoans: [CreditLoan],_ studentLoans:[StudentLoan] ) {
         self.m_mortgages = mortgages
         self.m_studentLoans = studentLoans
         self.m_creditLoans = creditLoans
         
-        self.appendMortgagesToAccounts();
-        self.appendStudentLoansToAccounts();
-        self.appendCreditLoansToAccounts();
+        self.appendMortgagesToAccounts()
+        self.appendStudentLoansToAccounts()
+        self.appendCreditLoansToAccounts()
     }
     
-    init(json : [String: Any]?) {
+    init(_ json : [String: Any]?) {
         
-        if (json != nil) {
+        if json != nil {
             let liablities = json!["liabilities"]! as? NSDictionary
-            if (liablities != nil) {
+            if liablities != nil {
                 let creditLoans = liablities!["credit"]! as? Array<NSDictionary>
                 if let _creditLoans = creditLoans {
                     for credirLoanInfo in _creditLoans {
@@ -45,7 +45,7 @@ struct Liablities  {
                     }
                 }
                 
-                self.appendMortgagesToAccounts();
+                self.appendMortgagesToAccounts()
                 
                 let studentLoans = liablities!["student"]! as? Array<NSDictionary>
                 if let _studentLoans = studentLoans {
@@ -55,7 +55,7 @@ struct Liablities  {
                     }
                 }
                 
-                self.appendStudentLoansToAccounts();
+                self.appendStudentLoansToAccounts()
             }
         }
     }
@@ -67,14 +67,14 @@ struct Liablities  {
             let accountId = studentLoan.getAccountId()
             let account = studentLoansByAccount[accountId]
             
-            if (account == nil) {
+            if account == nil {
                 studentLoansByAccount[accountId] = [StudentLoan]()
             }
             
             studentLoansByAccount[accountId]?.append(studentLoan)
         }
         
-        Globals.accounts.appeendStudentLoansToAccounts(studentLoansByAccount: studentLoansByAccount)
+        Globals.accounts.appeendStudentLoansToAccounts(studentLoansByAccount)
     }
     
     private func appendMortgagesToAccounts() {
@@ -84,14 +84,14 @@ struct Liablities  {
             let accountId = mortgage.getAccountId()
             let account = mortgagesByAccount[accountId]
             
-            if (account == nil) {
+            if account == nil {
                 mortgagesByAccount[accountId] = [Mortgage]()
             }
             
             mortgagesByAccount[accountId]?.append(mortgage)
         }
         
-        Globals.accounts.appeendMortgagesToAccounts(mortgagesByAccount: mortgagesByAccount)
+        Globals.accounts.appeendMortgagesToAccounts(mortgagesByAccount)
     }
     
     private func appendCreditLoansToAccounts() {
@@ -101,14 +101,14 @@ struct Liablities  {
             let accountId = creditLoan.getAccountId()
             let account = creditLoansByAccount[accountId]
             
-            if (account == nil) {
+            if account == nil {
                 creditLoansByAccount[accountId] = [CreditLoan]()
             }
             
             creditLoansByAccount[accountId]?.append(creditLoan)
         }
         
-        Globals.accounts.appeendCreditLoansToAccounts(creditLoansByAccount: creditLoansByAccount)
+        Globals.accounts.appeendCreditLoansToAccounts(creditLoansByAccount)
     }
     
     public func getCreditLoans() -> [CreditLoan] {

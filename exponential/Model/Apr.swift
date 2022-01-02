@@ -20,19 +20,19 @@ struct Apr : Codable {
     }
     
     public func getAprType() -> String {
-        return StrUtils.unwrapString(value: apr_type)
+        return OptUtils.unwrap(apr_type)
     }
     
     public func getAprPercentage() -> Double {
-        return NumUtils.unwrapDouble(value: apr_percentage)
+        return OptUtils.unwrap(apr_percentage)
     }
     
     public func getBalanceSubjectToApr() -> Double {
-        return NumUtils.unwrapDouble(value: balance_subject_to_apr)
+        return OptUtils.unwrap(balance_subject_to_apr)
     }
     
     public func getInterestChargeAmount() -> Double {
-        return NumUtils.unwrapDouble(value: interest_charge_amount)
+        return OptUtils.unwrap(interest_charge_amount)
     }
     
     private var apr_type : String?

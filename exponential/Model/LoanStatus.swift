@@ -17,11 +17,11 @@ struct LoanStatus : Codable{
     }
     
     public func getType() -> String {
-        StrUtils.unwrapString(value: type)
+        OptUtils.unwrap(type)
     }
     
     public func getEndDate() -> String {
-        StrUtils.unwrapString(value: end_date)
+        OptUtils.unwrap(end_date)
     }
     
     private var end_date : String?

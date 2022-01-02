@@ -9,7 +9,7 @@
 import Foundation
 
 enum CreditAccountSubType  : Int {
-    case credit_card = 0
+    case credit_card
     case paypal
     case other
 }

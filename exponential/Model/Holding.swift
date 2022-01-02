@@ -25,39 +25,39 @@ struct Holding : Codable{
     }
     
     public func getAccountId() -> String {
-        return StrUtils.unwrapString(value: account_id);
+        return OptUtils.unwrap(account_id)
     }
     
     public func getSecurityId() -> String {
-        return StrUtils.unwrapString(value: security_id);
+        return OptUtils.unwrap(security_id)
     }
     
     public func getCurrencyCode() -> String {
-        return StrUtils.unwrapString(value: iso_currency_code);
+        return OptUtils.unwrap(iso_currency_code)
     }
     
     public func getUnofficialCurrencyCode() -> String {
-        return StrUtils.unwrapString(value: unofficial_currency_code);
+        return OptUtils.unwrap(unofficial_currency_code)
     }
     
     public func getInstitutionPriceAsOf() -> String {
-        return StrUtils.unwrapString(value: institution_price_as_of);
+        return OptUtils.unwrap(institution_price_as_of)
     }
     
     public func getCostBasis() -> Double {
-        return NumUtils.unwrapDouble(value: cost_basis);
+        return OptUtils.unwrap(cost_basis)
     }
     
     public func getInstitutionPrice() -> Double {
-        return NumUtils.unwrapDouble(value: institution_price);
+        return OptUtils.unwrap(institution_price)
     }
     
     public func getInstitutionValue() -> Double {
-        return NumUtils.unwrapDouble(value: institution_value);
+        return OptUtils.unwrap(institution_value)
     }
     
     public func getQuantity() -> Double {
-        return NumUtils.unwrapDouble(value: quantity);
+        return OptUtils.unwrap(quantity)
     }
     
     private var account_id : String?

@@ -61,86 +61,81 @@ struct StudentLoan : Codable {
     }
     
     public func getAccountId() -> String {
-        StrUtils.unwrapString(value: account_id)
+        OptUtils.unwrap(account_id)
     }
     
     public func getAccountNumber() -> String {
-        StrUtils.unwrapString(value: account_number)
+        OptUtils.unwrap(account_number)
     }
     
     public func getExpectedPayoffDate() -> String {
-        StrUtils.unwrapString(value: expected_payoff_date)
+        OptUtils.unwrap(expected_payoff_date)
     }
     
     public func getLastPaymentDate() -> String {
-        StrUtils.unwrapString(value: last_payment_date)
+        OptUtils.unwrap(last_payment_date)
     }
     
     public func getLastStatementIssueDate() -> String {
-        StrUtils.unwrapString(value: last_statement_issue_date)
+        OptUtils.unwrap(last_statement_issue_date)
     }
     public func getGuarantor() -> String {
-        StrUtils.unwrapString(value: guarantor)
+        OptUtils.unwrap(guarantor)
     }
     public func getNextPaymentDueDate() -> String {
-        StrUtils.unwrapString(value: next_payment_due_date)
+        OptUtils.unwrap(next_payment_due_date)
     }
     
     public func getOriginationDate() -> String {
-        StrUtils.unwrapString(value: origination_date)
+        OptUtils.unwrap(origination_date)
     }
     
     public func getPaymentReferenceNumber() -> String {
-        StrUtils.unwrapString(value: payment_reference_number)
+        OptUtils.unwrap(payment_reference_number)
     }
     
     public func getLoanName() -> String {
-        StrUtils.unwrapString(value: loan_name)
+        OptUtils.unwrap(loan_name)
     }
     
     public func getSequenceNumber() -> String {
-        StrUtils.unwrapString(value: sequence_number)
+        OptUtils.unwrap(sequence_number)
     }
     
     public func getInterestRatePercentage() -> Double {
-        NumUtils.unwrapDouble(value: interest_rate_percentage)
+        OptUtils.unwrap(interest_rate_percentage)
     }
     
     public func getLastPaymentAmount() -> Double {
-        NumUtils.unwrapDouble(value: last_payment_amount)
+        OptUtils.unwrap(last_payment_amount)
     }
     
     public func getLastStatementBalance() -> Double {
-        NumUtils.unwrapDouble(value: last_statement_balance)
+        OptUtils.unwrap(last_statement_balance)
     }
     
     public func getMinimumPaymentAmount() -> Double {
-        NumUtils.unwrapDouble(value: minimum_payment_amount)
+        OptUtils.unwrap(minimum_payment_amount)
     }
     
     public func getOriginationPrincipalAmount() -> Double {
-        NumUtils.unwrapDouble(value: origination_principal_amount)
+        OptUtils.unwrap(origination_principal_amount)
     }
     
     public func getOutstandingInterestAmount() -> Double {
-        NumUtils.unwrapDouble(value: outstanding_interest_amount)
+        OptUtils.unwrap(outstanding_interest_amount)
     }
     
     public func getYtdInterestPaid() -> Double {
-        NumUtils.unwrapDouble(value: ytd_interest_paid)
+        OptUtils.unwrap(ytd_interest_paid)
     }
     
     public func getYtdPrincipalPaid() -> Double {
-        NumUtils.unwrapDouble(value: ytd_principal_paid)
+        OptUtils.unwrap(ytd_principal_paid)
     }
     
     public func getIsOverdue() -> Bool {
-        
-        if let isOverdue = is_overdue {
-            return isOverdue
-        }
-        
-        return false;
+        return OptUtils.unwrap(is_overdue)
     }
     
     public func getLoanStatus() -> LoanStatus? {

@@ -19,15 +19,15 @@ struct PslfStatus : Codable {
     }
     
     public func getEstimatedEligibilityDate() -> String {
-        StrUtils.unwrapString(value: estimated_eligibility_date)
+        OptUtils.unwrap(estimated_eligibility_date)
     }
     
     public func getPaymentsMade() -> Double {
-        NumUtils.unwrapDouble(value: payments_made)
+        OptUtils.unwrap(payments_made)
     }
     
     public func getPaymentsRemaining() -> Double {
-        NumUtils.unwrapDouble(value: payments_remaining)
+        OptUtils.unwrap(payments_remaining)
     }
     
     private var estimated_eligibility_date : String?

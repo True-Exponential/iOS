@@ -22,35 +22,35 @@ struct Location :  Codable {
     }
     
     public func getAddress() -> String {
-        return StrUtils.unwrapString(value:address);
+        return OptUtils.unwrap(address)
     }
     
     public func getCity() -> String {
-        return StrUtils.unwrapString(value:city);
+        return OptUtils.unwrap(city)
     }
     
     public func getCountry() -> String {
-        return StrUtils.unwrapString(value:country);
+        return OptUtils.unwrap(country)
     }
     
     public func getLat() -> String {
-        return StrUtils.unwrapString(value:lat);
+        return OptUtils.unwrap(lat)
     }
     
     public func getLon() -> String {
-        return StrUtils.unwrapString(value:lon);
+        return OptUtils.unwrap(lon)
     }
     
     public func getPostalCode() -> String {
-        return StrUtils.unwrapString(value:postalCode);
+        return OptUtils.unwrap(postalCode)
     }
     
     public func getRegion() -> String {
-        return StrUtils.unwrapString(value:region);
+        return OptUtils.unwrap(region)
     }
     
     public func getStoreNumber() -> String {
-        return StrUtils.unwrapString(value:storeNumber);
+        return OptUtils.unwrap(storeNumber)
     }
     
     private var address  : String?

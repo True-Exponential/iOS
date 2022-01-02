@@ -39,11 +39,6 @@ class TransactionsTableVC: UITableViewController {
         cell.textLabel!.text = tranaction.getName()
         cell.textLabel!.font = UIFont.boldSystemFont(ofSize: 14)
         
-        var categoryStr = ""
-        let category = Globals.categories.get(id: tranaction.getCategoryId())
-        
-        categoryStr = category.getHierarchy()[0]
-        
         cell.detailTextLabel!.text = tranaction.getCategoryDesc()
         
         //StrUtils.showNumberWithCurrency(number: tranaction.getAmount(), currencyCode: tranaction.getCurrencyCode())
@@ -67,6 +62,6 @@ class TransactionsTableVC: UITableViewController {
     
     static public var account : AccountEx? = nil
     
-    //static public var account;
+    //static public var account
 
 }

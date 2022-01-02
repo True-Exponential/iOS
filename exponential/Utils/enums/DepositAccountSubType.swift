@@ -10,7 +10,7 @@ import Foundation
 
 enum DepositAccountSubType  : Int {
 
-    case checking = 0
+    case checking
     case savings
     case hsa
     case cd

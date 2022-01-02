@@ -10,25 +10,17 @@ import Foundation
 
 struct StrUtils {
     
-    static public func unwrapString(value : String?) -> String {
-        if let val = value {
-            return val
-        }
+    static public func showNumberWithCurrency(_ number: Int, _ currencyCode: String ) -> String {
         
-        return ""
-    }
-    
-    static public func showNumberWithCurrency(number: Int, currencyCode: String ) -> String {
-        
-        let prettyNumber = StrUtils.numberWithCommas(number: abs(number))
+        let prettyNumber = StrUtils.numberWithCommas(abs(number))
         
         var retNumber : String = ""
         
-        if (number < 0) {
+        if number < 0 {
             retNumber = "-"
         }
         
-        if (currencyCode == "USD") {
+        if currencyCode == "USD" {
             retNumber += "$"
         }
         
@@ -37,7 +29,7 @@ struct StrUtils {
         return retNumber
     }
     
-    static public func numberWithCommas(number : Int) -> String {
+    static public func numberWithCommas(_ number : Int) -> String {
         
         let numStr = String(abs(number))
         
@@ -64,6 +56,6 @@ struct StrUtils {
             retNumber += character
         }
                 
-        return retNumber;
+        return retNumber
     }
 }

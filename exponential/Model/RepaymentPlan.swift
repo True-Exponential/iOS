@@ -17,11 +17,11 @@ struct RepaymentPlan : Codable{
     }
     
     public func getType() -> String {
-        StrUtils.unwrapString(value: type)
+        OptUtils.unwrap(type)
     }
     
     public func m_getDescription() -> String {
-        StrUtils.unwrapString(value: description)
+        OptUtils.unwrap(description)
     }
     
     private var description : String?

@@ -16,7 +16,7 @@ extension StartVC {
             let dispatch = DispatchGroup()
             dispatch.enter()
             
-            Globals.plaidHandler.getAccessToken(publicToken: success.publicToken, dispatch: dispatch)
+            Globals.plaidHandler.getAccessToken(success.publicToken, dispatch)
             
             dispatch.notify(queue: .main) {
                 self.getDataAndPresentUI()
@@ -37,11 +37,11 @@ extension StartVC {
         let dispatch = DispatchGroup()
         dispatch.enter()
         
-        Globals.plaidHandler.loadAccounts(dispatch: dispatch)
+        Globals.plaidHandler.loadAccounts(dispatch)
                         
         dispatch.notify(queue: .main) {
             dispatch.enter()
-            Globals.plaidHandler.loadCategories(dispatch: dispatch)
+            Globals.plaidHandler.loadCategories(dispatch)
             dispatch.notify(queue: .main) {
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                 
@@ -56,16 +56,16 @@ extension StartVC {
         let dispatch = DispatchGroup()
         dispatch.enter()
         
-        Globals.userHandler.login(dispatch: dispatch)
+        Globals.userHandler.login(dispatch)
         
         dispatch.notify(queue: .main) {
             let canAccessPlaid = Globals.plaidHandler.getLinkToken().count == 0
             
-            if (canAccessPlaid) {
+            if canAccessPlaid {
                 self.getDataAndPresentUI()
             }
             else {
-                if (Globals.plaidHandler.getLinkToken().count > 0) {
+                if Globals.plaidHandler.getLinkToken().count > 0 {
                     let linkConfiguration = self.createLinkConfig(linkToken: Globals.plaidHandler.getLinkToken())
                     
                     let result = Plaid.create(linkConfiguration)

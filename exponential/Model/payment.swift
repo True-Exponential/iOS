@@ -22,35 +22,35 @@ struct Payment :  Codable {
     }
     
     public func getPayer() -> String {
-        return StrUtils.unwrapString(value:payer);
+        return OptUtils.unwrap(payer)
     }
     
     public func getOrderOf() -> String {
-        return StrUtils.unwrapString(value:byOrderOf);
+        return OptUtils.unwrap(byOrderOf)
     }
     
     public func getPayee() -> String {
-        return StrUtils.unwrapString(value:payee);
+        return OptUtils.unwrap(payee)
     }
     
     public func getMethod() -> String {
-        return StrUtils.unwrapString(value:method);
+        return OptUtils.unwrap(method)
     }
     
     public func getProcessor() -> String {
-        return StrUtils.unwrapString(value:processor);
+        return OptUtils.unwrap(processor)
     }
     
     public func getReason() -> String {
-        return StrUtils.unwrapString(value:reason);
+        return OptUtils.unwrap(reason)
     }
     
     public func getId() -> String {
-        return StrUtils.unwrapString(value:id);
+        return OptUtils.unwrap(id)
     }
     
     public func getRefNumber() -> String {
-        return StrUtils.unwrapString(value:refNumber);
+        return OptUtils.unwrap(refNumber)
     }
     
     private var byOrderOf  : String?

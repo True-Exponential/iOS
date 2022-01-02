@@ -10,15 +10,15 @@ import Foundation
 
 protocol Finance {
     
-    func loadAccounts(dispatch : DispatchGroup)
-    func loadTransactions(dispatch : DispatchGroup, accountIds: [String]?)
-    func loadHoldings(dispatch : DispatchGroup, accountIds: [String]?)
-    func loadLiabilities(dispatch : DispatchGroup, accountIds: [String]?)
-    func loadCategories(dispatch : DispatchGroup)
+    func loadAccounts(_ dispatch : DispatchGroup)
+    func loadTransactions(_ dispatch : DispatchGroup,_  accountIds: [String]?)
+    func loadHoldings(_ dispatch : DispatchGroup,_  accountIds: [String]?)
+    func loadLiabilities(_ dispatch : DispatchGroup,_  accountIds: [String]?)
+    func loadCategories(_ dispatch : DispatchGroup)
     
-    func getLinkToken(dispatch : DispatchGroup)
+    func getLinkToken(_ dispatch : DispatchGroup)
     func getLinkToken() -> String
-    func setLinkToken(token : String)
-    func getAccessToken(publicToken: String, dispatch : DispatchGroup)
+    func setLinkToken(_ token : String)
+    func getAccessToken(_ publicToken: String, _ dispatch : DispatchGroup)
             
 }

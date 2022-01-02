@@ -12,16 +12,16 @@ struct Securities {
     
     init() {}
     
-    init(securities : [Security]) {
+    init(_ securities : [Security]) {
         self.securities = securities
     }
     
-    init(json : [String: Any]?) {
+    init(_ json : [String: Any]?) {
     
         self.securities = [Security]()
         
         let securities = json!["securities"]! as? Array<Any>
-        if (securities != nil) {
+        if securities != nil {
             
             for secutiry in securities! {
                 let secutiry = Security(security:secutiry as! NSDictionary)
@@ -30,9 +30,9 @@ struct Securities {
         }
     }
     
-    public func get(id : String) -> Security? {
+    public func get(_ id : String) -> Security? {
         for security in securities {
-            if (security.getId() == id) {
+            if security.getId() == id {
                 return security
             }
         }

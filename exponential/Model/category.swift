@@ -29,11 +29,11 @@ class Category : Codable {
     }
     
     public func getId() -> String {
-        return StrUtils.unwrapString(value: category_id);
+        return OptUtils.unwrap(category_id)
     }
     
     public func getGroup() -> String {
-        return StrUtils.unwrapString(value: group);
+        return OptUtils.unwrap(group)
     }
     
     public func getHierarchy() -> [String] {
