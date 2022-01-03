@@ -2,7 +2,7 @@
 //  AccountEx.swift
 //  LinkDemo-Swift
 //
-//  Created by Judas Macab on 16/12/2021.
+//  Created by Omer Paran on 16/12/2021.
 //  Copyright © 2021 True-Exp. All rights reserved.
 //
 
@@ -30,25 +30,11 @@ class AccountEx : Account {
         m_studentLoans = studentLoans
     }
     
-    public func getTransactions() -> [TransactionEx] {
-        return m_transactions
-    }
-    
-    public func getHoldings() -> [Holding] {
-        return m_holdings
-    }
-    
-    public func getCreditLoans() -> [CreditLoan] {
-        return m_creditLoans
-    }
-    
-    public func getMortgages() -> [Mortgage] {
-        return m_mortgages
-    }
-    
-    public func getStudentLoans() -> [StudentLoan] {
-        return m_studentLoans
-    }
+    public func getTransactions() -> [TransactionEx] {m_transactions}
+    public func getHoldings() -> [Holding] {m_holdings}
+    public func getCreditLoans() -> [CreditLoan] {m_creditLoans}
+    public func getMortgages() -> [Mortgage] {m_mortgages}
+    public func getStudentLoans() -> [StudentLoan] {m_studentLoans}
     
     public func getBalance() -> String {
         var retBalance = ""
@@ -63,7 +49,7 @@ class AccountEx : Account {
     }
     
     public func getLimit() -> String {
-        return StrUtils.showNumberWithCurrency(getBalances().getLimit(), getBalances().getCurrencyCode())
+        StrUtils.showNumberWithCurrency(getBalances().getLimit(), getBalances().getCurrencyCode())
     }
     
     private var m_transactions = [TransactionEx]()

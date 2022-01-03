@@ -2,7 +2,7 @@
 //  Apr.swift
 //  LinkDemo-Swift
 //
-//  Created by Judas Macab on 13/12/2021.
+//  Created by Omer Paran on 13/12/2021.
 //  Copyright © 2021 True-Exp. All rights reserved.
 //
 
@@ -19,21 +19,10 @@ struct Apr : Codable {
         interest_charge_amount = aprInfo["interest_charge_amount"] as? Double
     }
     
-    public func getAprType() -> String {
-        return OptUtils.unwrap(apr_type)
-    }
-    
-    public func getAprPercentage() -> Double {
-        return OptUtils.unwrap(apr_percentage)
-    }
-    
-    public func getBalanceSubjectToApr() -> Double {
-        return OptUtils.unwrap(balance_subject_to_apr)
-    }
-    
-    public func getInterestChargeAmount() -> Double {
-        return OptUtils.unwrap(interest_charge_amount)
-    }
+    public func getAprType() -> String {OptUtils.unwrap(apr_type)}    
+    public func getAprPercentage() -> Double {OptUtils.unwrap(apr_percentage)}
+    public func getBalanceSubjectToApr() -> Double {OptUtils.unwrap(balance_subject_to_apr)}
+    public func getInterestChargeAmount() -> Double {OptUtils.unwrap(interest_charge_amount)}
     
     private var apr_type : String?
     

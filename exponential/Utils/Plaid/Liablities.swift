@@ -2,7 +2,7 @@
 //  Liablities.swift
 //  LinkDemo-Swift
 //
-//  Created by Judas Macab on 13/12/2021.
+//  Created by Omer Paran on 13/12/2021.
 //  Copyright © 2021 True-Exp. All rights reserved.
 //
 
@@ -104,17 +104,9 @@ struct Liablities  {
         Globals.accounts.appeendCreditLoansToAccounts(creditLoansByAccount)
     }
     
-    public func getCreditLoans() -> [CreditLoan] {
-        return m_creditLoans
-    }
-    
-    public func getMortgages() -> [Mortgage] {
-        return m_mortgages
-    }
-    
-    public func getStudentLoans() -> [StudentLoan] {
-        return m_studentLoans
-    }
+    public func getCreditLoans() -> [CreditLoan] {m_creditLoans}
+    public func getMortgages() -> [Mortgage] {m_mortgages}
+    public func getStudentLoans() -> [StudentLoan] {m_studentLoans}
     
     private var m_creditLoans = [CreditLoan]()
     private var m_mortgages = [Mortgage]()

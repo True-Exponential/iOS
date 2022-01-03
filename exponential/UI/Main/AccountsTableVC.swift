@@ -2,7 +2,7 @@
 //  AccountsTableVC.swift
 //  LinkDemo-Swift
 //
-//  Created by Judas Macab on 05/12/2021.
+//  Created by Omer Paran on 05/12/2021.
 //  Copyright © 2021 True-Exp. All rights reserved.
 //
 
@@ -19,16 +19,14 @@ class AccountsTableVC: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return Globals.accounts.NumAccountTypes
-    }
+    override func numberOfSections(in tableView: UITableView) -> Int {Globals.accounts.NumAccountTypes}
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return Globals.accounts.getAccountGroupCaption(section)
+        Globals.accounts.getAccountGroupCaption(section)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Globals.accounts.getNumAccountType(section)
+        Globals.accounts.getNumAccountType(section)
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)

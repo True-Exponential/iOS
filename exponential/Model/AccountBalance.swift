@@ -2,7 +2,7 @@
 //  AccountBalance.swift
 //  LinkDemo-Swift
 //
-//  Created by Judas Macab on 16/12/2021.
+//  Created by Omer Paran on 16/12/2021.
 //  Copyright © 2021 True-Exp. All rights reserved.
 //
 
@@ -26,25 +26,11 @@ struct AccountBalance :  Codable {
         unofficial_currency_code = balances["unofficial_currency_code"] as? String
     }
     
-    public func getCurrent() -> Int {
-        return OptUtils.unwrap(current)
-    }
-    
-    public func getAvailable() -> Int {
-        return OptUtils.unwrap(available)
-    }
-    
-    public func getLimit() -> Int {
-        return OptUtils.unwrap(limit)
-    }
-    
-    public func getCurrencyCode() -> String {
-        return OptUtils.unwrap(iso_currency_code)
-    }
-    
-    public func getUnofficialCurrencyCode() -> String {
-        return OptUtils.unwrap(unofficial_currency_code)
-    }
+    public func getCurrent() -> Int {OptUtils.unwrap(current)}
+    public func getAvailable() -> Int {OptUtils.unwrap(available)}
+    public func getLimit() -> Int {OptUtils.unwrap(limit)}
+    public func getCurrencyCode() -> String {OptUtils.unwrap(iso_currency_code)}
+    public func getUnofficialCurrencyCode() -> String {OptUtils.unwrap(unofficial_currency_code)}
     
     private var iso_currency_code: String?
     private var unofficial_currency_code: String?

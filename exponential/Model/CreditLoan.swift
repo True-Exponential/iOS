@@ -2,7 +2,7 @@
 //  CreditLiability.swift
 //  LinkDemo-Swift
 //
-//  Created by Judas Macab on 13/12/2021.
+//  Created by Omer Paran on 13/12/2021.
 //  Copyright © 2021 True-Exp. All rights reserved.
 //
 
@@ -29,36 +29,14 @@ struct CreditLoan : Codable {
         }
     }
     
-    public func getAccountId() -> String {
-        return OptUtils.unwrap(account_id)
-    }
-    
-    public func getLastPaymentDate() -> String {
-        return OptUtils.unwrap(last_payment_date)
-    }
-    
-    public func getLastStatementIssueDate() -> String {
-        return OptUtils.unwrap(last_statement_issue_date)
-    }
-    public func getNextPaymentDueDate() -> String {
-        return OptUtils.unwrap(next_payment_due_date)
-    }
-    
-    public func getLastPaymentAmount() -> Double {
-        return OptUtils.unwrap(last_payment_amount)
-    }
-    
-    public func getLastStatementBalance() -> Double {
-        return OptUtils.unwrap(last_statement_balance)
-    }
-    
-    public func getMinimumPaymentAmount() -> Double {
-        return OptUtils.unwrap(minimum_payment_amount)
-    }
-    
-    public func getIsOverdue() -> Bool {
-        return OptUtils.unwrap(is_overdue)
-    }
+    public func getAccountId() -> String {OptUtils.unwrap(account_id)}
+    public func getLastPaymentDate() -> String {OptUtils.unwrap(last_payment_date)}
+    public func getLastStatementIssueDate() -> String {OptUtils.unwrap(last_statement_issue_date)}
+    public func getNextPaymentDueDate() -> String {OptUtils.unwrap(next_payment_due_date)}
+    public func getLastPaymentAmount() -> Double {OptUtils.unwrap(last_payment_amount)}
+    public func getLastStatementBalance() -> Double {OptUtils.unwrap(last_statement_balance)}
+    public func getMinimumPaymentAmount() -> Double {OptUtils.unwrap(minimum_payment_amount)}    
+    public func getIsOverdue() -> Bool {OptUtils.unwrap(is_overdue)}
     
     private var account_id : String?
 

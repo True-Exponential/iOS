@@ -2,7 +2,7 @@
 //  transaction.swift
 //  LinkDemo-Swift
 //
-//  Created by Judas Macab on 06/12/2021.
+//  Created by Omer Paran on 06/12/2021.
 //  Copyright © 2021 True-Exp. All rights reserved.
 //
 
@@ -70,93 +70,46 @@ class Transaction :  Codable {
         self.location = Location(location:location)
     }
     
-    public func getAccountId() -> String {
-        return OptUtils.unwrap(accountId)
+    public func getAccountId() -> String {OptUtils.unwrap(accountId)
+        
     }
     
-    public func getTransactionType() -> String {
-        return OptUtils.unwrap(transactionType)
+    public func getTransactionType() -> String {OptUtils.unwrap(transactionType)
+        
     }
     
-    public func getAccountOwner() -> String {
-        return OptUtils.unwrap(accountOwner)
+    public func getAccountOwner() -> String {OptUtils.unwrap(accountOwner)
+        
     }
     
     public func getAuthorizedDate() -> String {
-        return OptUtils.unwrap(authorizedDate)
+        OptUtils.unwrap(authorizedDate)
     }
     
     public func getAuthorizedTime() -> String {
-        return OptUtils.unwrap(authorizedTime)
+        OptUtils.unwrap(authorizedTime)
     }
     
     public func getCategoryId() -> String {
-        return OptUtils.unwrap(category_id)
+        OptUtils.unwrap(category_id)
     }
     
-    public func getCheckNumber() -> String {
-        return OptUtils.unwrap(checkNumber)
-    }
-    
-    public func getCurrencyCode() -> String {
-        return OptUtils.unwrap(currencyCode)
-    }
-    
-    public func getName() -> String {
-        return OptUtils.unwrap(name)
-    }
-    
-    public func getDate() -> String {
-        return OptUtils.unwrap(date)
-    }
-    
-    public func getDateTime() -> String {
-        return OptUtils.unwrap(dateTime)
-    }
-    
-    public func getPendingTransactionId() -> String {
-        return OptUtils.unwrap(pendingTransactionId)
-    }
-    
-    public func getPersonalFinanceCategory() -> String {
-        return OptUtils.unwrap(personalFinanceCategory)
-    }
-    
-    public func getTransactionCode() -> String {
-        return OptUtils.unwrap(transactionCode)
-    }
-    
-    public func getTransactionId() -> String {
-        return OptUtils.unwrap(transactionId)
-    }
-    
-    public func getMerchantName() -> String {
-        return OptUtils.unwrap(merchantName)
-    }
-    
-    public func getChannel() -> String {
-        return OptUtils.unwrap(channel)
-    }
-    
-    public func getIsPending() -> Bool {
-        return OptUtils.unwrap(pending)
-    }
-    
-    public func getAmount() -> Int {
-        return OptUtils.unwrap( amount)
-    }
-    
-    public func getPayment() -> Payment {
-        return payment
-    }
-    
-    public func getLocation() -> Location {
-        return location
-    }
-    
-    public func getCategories() -> [String] {
-        return categories
-    }
+    public func getCheckNumber() -> String {OptUtils.unwrap(checkNumber)}
+    public func getCurrencyCode() -> String {OptUtils.unwrap(currencyCode)}
+    public func getName() -> String {OptUtils.unwrap(name)}
+    public func getDate() -> String {OptUtils.unwrap(date)}
+    public func getDateTime() -> String {OptUtils.unwrap(dateTime)}
+    public func getPendingTransactionId() -> String {OptUtils.unwrap(pendingTransactionId)}
+    public func getPersonalFinanceCategory() -> String {OptUtils.unwrap(personalFinanceCategory)}
+    public func getTransactionCode() -> String {OptUtils.unwrap(transactionCode)}
+    public func getTransactionId() -> String {OptUtils.unwrap(transactionId)}
+    public func getMerchantName() -> String {OptUtils.unwrap(merchantName)}
+    public func getChannel() -> String {OptUtils.unwrap(channel)}
+    public func getIsPending() -> Bool {OptUtils.unwrap(pending)}
+    public func getAmount() -> Int {OptUtils.unwrap( amount)}
+    public func getPayment() -> Payment {payment}
+    public func getLocation() -> Location {location}
+    public func getCategories() -> [String] {categories}
     
     private var accountId  : String?
     private var accountOwner : String?

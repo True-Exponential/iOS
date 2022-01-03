@@ -2,7 +2,7 @@
 //  TransactionsTableVC.swift
 //  LinkDemo-Swift
 //
-//  Created by Judas Macab on 28/12/2021.
+//  Created by Omer Paran on 28/12/2021.
 //  Copyright © 2021 True-Exp. All rights reserved.
 //
 
@@ -21,11 +21,11 @@ class TransactionsTableVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TransactionsTableVC.account!.getTransactions().count
+        TransactionsTableVC.account!.getTransactions().count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

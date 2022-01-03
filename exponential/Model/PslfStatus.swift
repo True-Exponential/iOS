@@ -2,7 +2,7 @@
 //  PslfStatus.swift
 //  LinkDemo-Swift
 //
-//  Created by Judas Macab on 13/12/2021.
+//  Created by Omer Paran on 13/12/2021.
 //  Copyright © 2021 True-Exp. All rights reserved.
 //
 
@@ -24,17 +24,9 @@ struct PslfStatus : Codable {
         payments_remaining = pslfStatusInfo["payments_remaining"] as? Double
     }
     
-    public func getEstimatedEligibilityDate() -> String {
-        return OptUtils.unwrap(estimated_eligibility_date)
-    }
-    
-    public func getPaymentsMade() -> Double {
-        return OptUtils.unwrap(payments_made)
-    }
-    
-    public func getPaymentsRemaining() -> Double {
-        return OptUtils.unwrap(payments_remaining)
-    }
+    public func getEstimatedEligibilityDate() -> String {OptUtils.unwrap(estimated_eligibility_date)}
+    public func getPaymentsMade() -> Double {OptUtils.unwrap(payments_made)}
+    public func getPaymentsRemaining() -> Double {OptUtils.unwrap(payments_remaining)}
     
     private var estimated_eligibility_date : String?
     private var payments_made : Double?

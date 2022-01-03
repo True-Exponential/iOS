@@ -2,7 +2,7 @@
 //  payment.swift
 //  LinkDemo-Swift
 //
-//  Created by Judas Macab on 06/12/2021.
+//  Created by Omer Paran on 06/12/2021.
 //  Copyright © 2021 True-Exp. All rights reserved.
 //
 
@@ -21,37 +21,14 @@ struct Payment :  Codable {
         refNumber = payment["refNumber"] as? String
     }
     
-    public func getPayer() -> String {
-        return OptUtils.unwrap(payer)
-    }
-    
-    public func getOrderOf() -> String {
-        return OptUtils.unwrap(byOrderOf)
-    }
-    
-    public func getPayee() -> String {
-        return OptUtils.unwrap(payee)
-    }
-    
-    public func getMethod() -> String {
-        return OptUtils.unwrap(method)
-    }
-    
-    public func getProcessor() -> String {
-        return OptUtils.unwrap(processor)
-    }
-    
-    public func getReason() -> String {
-        return OptUtils.unwrap(reason)
-    }
-    
-    public func getId() -> String {
-        return OptUtils.unwrap(id)
-    }
-    
-    public func getRefNumber() -> String {
-        return OptUtils.unwrap(refNumber)
-    }
+    public func getPayer() -> String {OptUtils.unwrap(payer)}
+    public func getOrderOf() -> String {OptUtils.unwrap(byOrderOf)}
+    public func getPayee() -> String {OptUtils.unwrap(payee)}
+    public func getMethod() -> String {OptUtils.unwrap(method)}
+    public func getProcessor() -> String {OptUtils.unwrap(processor)}
+    public func getReason() -> String {OptUtils.unwrap(reason)}
+    public func getId() -> String {OptUtils.unwrap(id)}
+    public func getRefNumber() -> String {OptUtils.unwrap(refNumber)}
     
     private var byOrderOf  : String?
     private var payee : String?

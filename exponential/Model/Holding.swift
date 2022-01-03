@@ -2,7 +2,7 @@
 //  Holding.swift
 //  LinkDemo-Swift
 //
-//  Created by Judas Macab on 09/12/2021.
+//  Created by Omer Paran on 09/12/2021.
 //  Copyright © 2021 True-Exp. All rights reserved.
 //
 
@@ -24,41 +24,15 @@ struct Holding : Codable{
         quantity = holding["quantity"] as? Double
     }
     
-    public func getAccountId() -> String {
-        return OptUtils.unwrap(account_id)
-    }
-    
-    public func getSecurityId() -> String {
-        return OptUtils.unwrap(security_id)
-    }
-    
-    public func getCurrencyCode() -> String {
-        return OptUtils.unwrap(iso_currency_code)
-    }
-    
-    public func getUnofficialCurrencyCode() -> String {
-        return OptUtils.unwrap(unofficial_currency_code)
-    }
-    
-    public func getInstitutionPriceAsOf() -> String {
-        return OptUtils.unwrap(institution_price_as_of)
-    }
-    
-    public func getCostBasis() -> Double {
-        return OptUtils.unwrap(cost_basis)
-    }
-    
-    public func getInstitutionPrice() -> Double {
-        return OptUtils.unwrap(institution_price)
-    }
-    
-    public func getInstitutionValue() -> Double {
-        return OptUtils.unwrap(institution_value)
-    }
-    
-    public func getQuantity() -> Double {
-        return OptUtils.unwrap(quantity)
-    }
+    public func getAccountId() -> String {OptUtils.unwrap(account_id)}
+    public func getSecurityId() -> String {OptUtils.unwrap(security_id)}
+    public func getCurrencyCode() -> String {OptUtils.unwrap(iso_currency_code)}
+    public func getUnofficialCurrencyCode() -> String {OptUtils.unwrap(unofficial_currency_code)}
+    public func getInstitutionPriceAsOf() -> String {OptUtils.unwrap(institution_price_as_of)}
+    public func getCostBasis() -> Double {OptUtils.unwrap(cost_basis)}
+    public func getInstitutionPrice() -> Double {OptUtils.unwrap(institution_price)}
+    public func getInstitutionValue() -> Double {OptUtils.unwrap(institution_value)}
+    public func getQuantity() -> Double {OptUtils.unwrap(quantity)}
     
     private var account_id : String?
     private var security_id : String?

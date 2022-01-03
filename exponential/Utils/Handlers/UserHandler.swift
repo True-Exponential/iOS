@@ -2,7 +2,7 @@
 //  UserHandler.swift
 //  LinkDemo-Swift
 //
-//  Created by Judas Macab on 08/12/2021.
+//  Created by Omer Paran on 08/12/2021.
 //  Copyright © 2021 True-Exp. All rights reserved.
 //
 

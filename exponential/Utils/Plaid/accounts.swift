@@ -2,7 +2,7 @@
 //  accounts.swift
 //  LinkDemo-Swift
 //
-//  Created by Judas Macab on 16/12/2021.
+//  Created by Omer Paran on 16/12/2021.
 //  Copyright © 2021 True-Exp. All rights reserved.
 //
 
@@ -82,16 +82,16 @@ struct Accounts {
     
     public var NumAccountTypes : Int {
         get {
-            return m_groupedAccounts.count
+            m_groupedAccounts.count
         }
     }
     
     public func getNumAccountType(_ order : Int) -> Int {
-        return m_groupedAccounts[order].count
+        m_groupedAccounts[order].count
     }
     
     public func getAccountGroupCaption(_  order : Int) -> String {
-        return accountTitles[m_groupedAccounts[order][0].getType().rawValue]
+        accountTitles[m_groupedAccounts[order][0].getType().rawValue]
     }
     
     public func appendTransactionsToAccounts(_ accountTransactions: [String: [TransactionEx]]){
@@ -135,9 +135,7 @@ struct Accounts {
         }
     }
     
-    public func get(_ id : String) -> AccountEx? {
-        return m_accounts[id]
-    }
+    public func get(_ id : String) -> AccountEx? {m_accounts[id]}
     
     public func get(_ order: Int,_ index : Int) -> AccountEx? {
         var retAccount : AccountEx?
@@ -155,7 +153,7 @@ struct Accounts {
     
     public var count : Int {
         get {
-            return m_accounts.count
+            m_accounts.count
         }
     }
     

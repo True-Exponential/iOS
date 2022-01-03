@@ -2,7 +2,7 @@
 //  account.swift
 //  LinkDemo-Swift
 //
-//  Created by Judas Macab on 05/12/2021.
+//  Created by Omer Paran on 05/12/2021.
 //  Copyright © 2021 True-Exp. All rights reserved.
 //
 
@@ -42,44 +42,17 @@ class Account : Codable {
         else {
             self.balances = AccountBalance()
         }
-        
     }
     
-    public func getName() -> String {
-        return OptUtils.unwrap(name)
-    }
-    
-    public func getOfficialName() -> String {
-        return OptUtils.unwrap(official_name)
-    }
-    
-    public func getId() -> String {
-        return OptUtils.unwrap(id)
-    }
-    
-    public func getType() -> AccountType {
-        return type
-    }
-    
-    public func getMask() -> String?  {
-        return mask
-    }
-    
-    public func getSubType() -> Int {
-        return OptUtils.unwrap(subType)
-    }
-    
-    public func getTypeDesc() -> String {
-        return OptUtils.unwrap(typeDesc)
-    }
-    
-    public func getSubTypeDesc() -> String {
-        return OptUtils.unwrap(subTypeDesc)
-    }
-    
-    public func getBalances() -> AccountBalance {
-        return balances
-    }
+    public func getName() -> String {OptUtils.unwrap(name)}
+    public func getOfficialName() -> String {OptUtils.unwrap(official_name)}
+    public func getId() -> String {OptUtils.unwrap(id)}
+    public func getType() -> AccountType {type}
+    public func getMask() -> String?  {mask}
+    public func getSubType() -> Int {OptUtils.unwrap(subType)}
+    public func getTypeDesc() -> String {OptUtils.unwrap(typeDesc)}
+    public func getSubTypeDesc() -> String {OptUtils.unwrap(subTypeDesc)}
+    public func getBalances() -> AccountBalance {balances}
     
     private var name : String? 
     private var official_name : String?

@@ -2,7 +2,7 @@
 //  category.swift
 //  LinkDemo-Swift
 //
-//  Created by Judas Macab on 29/12/2021.
+//  Created by Omer Paran on 29/12/2021.
 //  Copyright © 2021 True-Exp. All rights reserved.
 //
 
@@ -28,17 +28,9 @@ class Category : Codable {
         hierarchy = category["hierarchy"] as? [String]
     }
     
-    public func getId() -> String {
-        return OptUtils.unwrap(category_id)
-    }
-    
-    public func getGroup() -> String {
-        return OptUtils.unwrap(group)
-    }
-    
-    public func getHierarchy() -> [String] {
-        return hierarchy ?? []
-    }
+    public func getId() -> String {OptUtils.unwrap(category_id)}
+    public func getGroup() -> String {OptUtils.unwrap(group)}    
+    public func getHierarchy() -> [String] {hierarchy ?? []}
     
     private var category_id : String?
     private var group :String?

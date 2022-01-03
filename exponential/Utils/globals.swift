@@ -2,7 +2,7 @@
 //  globals.swift
 //  LinkDemo-Swift
 //
-//  Created by Judas Macab on 28/11/2021.
+//  Created by Omer Paran on 28/11/2021.
 //  Copyright © 2021 True-Exp. All rights reserved.
 //
 
@@ -24,5 +24,5 @@ struct Globals {
     static var holdings = Holdings()
     static var liablities = Liablities()
     
-    public static func getServerAddr() -> String {return Globals.serverAddress}
+    public static func getServerAddr() -> String {Globals.serverAddress}
 }

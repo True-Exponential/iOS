@@ -2,7 +2,7 @@
 //  Security.swift
 //  LinkDemo-Swift
 //
-//  Created by Judas Macab on 09/12/2021.
+//  Created by Omer Paran on 09/12/2021.
 //  Copyright © 2021 True-Exp. All rights reserved.
 //
 
@@ -30,66 +30,23 @@ struct Security : Codable {
         close_price = security["close_price"] as? Double
     }
     
-    public func getName() -> String {
-        return OptUtils.unwrap(name)
-    }
+    public func getName() -> String {OptUtils.unwrap(name)}
     
-    public func getCloseDate() -> String {
-        return OptUtils.unwrap(close_price_as_of)
-    }
-    
-    public func getCusip() -> String {
-        return OptUtils.unwrap(cusip)
-    }
-    
-    public func getInstitutionId() -> String {
-        return OptUtils.unwrap(institution_id)
-    }
-    
-    public func getInstitutionSecurityId() -> String {
-        return OptUtils.unwrap(institution_security_id)
-    }
-    
-    public func getIsin() -> String {
-        return OptUtils.unwrap(isin)
-    }
-    
-    public func getCurrencyCode() -> String {
-        return OptUtils.unwrap(iso_currency_code)
-    }
-    
-    public func getUnofficialCurrencyCode() -> String {
-        return OptUtils.unwrap(unofficial_currency_code)
-    }
-    
-    public func getProxySecurityId() -> String {
-        return OptUtils.unwrap(proxy_security_id)
-    }
-    
-    public func getId() -> String {
-        return OptUtils.unwrap(security_id)
-    }
-    
-    public func getSedol() -> String {
-        return OptUtils.unwrap(sedol)
-    }
-    
-    public func getTickerSymbol() -> String {
-        return OptUtils.unwrap(ticker_symbol)
-    }
-    
-    public func getType() -> String {
-        return OptUtils.unwrap(type)
-    }
-    
-    public func getIsCashEquivalent() -> Bool {
-        return OptUtils.unwrap(is_cash_equivalent)
-    }
-    
-    public func getClosePrice() -> Double {
-        return OptUtils.unwrap(close_price)
-    }
-    
+    public func getCloseDate() -> String {OptUtils.unwrap(close_price_as_of)}
+    public func getCusip() -> String {OptUtils.unwrap(cusip)}
+    public func getInstitutionId() -> String {OptUtils.unwrap(institution_id)}
+    public func getInstitutionSecurityId() -> String {OptUtils.unwrap(institution_security_id)}
+    public func getIsin() -> String {OptUtils.unwrap(isin)}
+    public func getCurrencyCode() -> String {OptUtils.unwrap(iso_currency_code)}
+    public func getUnofficialCurrencyCode() -> String {OptUtils.unwrap(unofficial_currency_code)}
+    public func getProxySecurityId() -> String {OptUtils.unwrap(proxy_security_id)}
+    public func getId() -> String {OptUtils.unwrap(security_id)}
+    public func getSedol() -> String {OptUtils.unwrap(sedol)}
+    public func getTickerSymbol() -> String {OptUtils.unwrap(ticker_symbol)}
+    public func getType() -> String {OptUtils.unwrap(type)}
+    public func getIsCashEquivalent() -> Bool {OptUtils.unwrap(is_cash_equivalent)}
+    public func getClosePrice() -> Double {OptUtils.unwrap(close_price)}
+
     private var name : String?
     private var close_price_as_of : String?
     private var cusip : String?
