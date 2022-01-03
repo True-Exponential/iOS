@@ -11,7 +11,7 @@ import Foundation
 struct StudentLoan : Codable {
     
     
-    init(studentLoanInfo: NSDictionary) {
+    init(_ studentLoanInfo: NSDictionary) {
         
         account_id = studentLoanInfo["account_id"] as? String
         
@@ -37,125 +37,121 @@ struct StudentLoan : Codable {
         
         is_overdue = studentLoanInfo["is_overdue"] as? Bool
         
-        disbursement_dates = studentLoanInfo["disbursement_dates"] as? Array<String>
+        disbursement_dates = studentLoanInfo["disbursement_dates"] as? [String]
         
-        let loanStatus = studentLoanInfo["loan_status"] as? NSDictionary
-        if let _loanStatus = loanStatus {
-            self.loan_status = LoanStatus(loanStatusInfo: _loanStatus)
+        if let loanStatus = studentLoanInfo["loan_status"] as? NSDictionary {
+            self.loan_status = LoanStatus(loanStatus)
         }
         
-        let repaymentPlan = studentLoanInfo["repayment_plan"] as? NSDictionary
-        if let _repaymentPlan = repaymentPlan {
-            self.repayment_plan = RepaymentPlan(repaymentPlanInfo: _repaymentPlan)
+        if let repaymentPlan = studentLoanInfo["repayment_plan"] as? NSDictionary {
+            self.repayment_plan = RepaymentPlan(repaymentPlan)
         }
         
-        let pslfStatus = studentLoanInfo["pslf_status"] as? NSDictionary
-        if let _pslfStatus = pslfStatus {
-            self.pslf_status = PslfStatus(pslfStatusInfo: _pslfStatus)
+        if let pslfStatus = studentLoanInfo["pslf_status"] as? NSDictionary {
+            self.pslf_status = PslfStatus(pslfStatus)
         }
         
-        let servicerAddress = studentLoanInfo["servicer_address"] as? NSDictionary
-        if let _servicerAddress = servicerAddress {
-            self.servicer_address = Address(addressInfo: _servicerAddress)
+        if let servicerAddress = studentLoanInfo["servicer_address"] as? NSDictionary {
+            self.servicer_address = Address(servicerAddress)
         }
     }
     
     public func getAccountId() -> String {
-        OptUtils.unwrap(account_id)
+        return OptUtils.unwrap(account_id)
     }
     
     public func getAccountNumber() -> String {
-        OptUtils.unwrap(account_number)
+        return OptUtils.unwrap(account_number)
     }
     
     public func getExpectedPayoffDate() -> String {
-        OptUtils.unwrap(expected_payoff_date)
+        return OptUtils.unwrap(expected_payoff_date)
     }
     
     public func getLastPaymentDate() -> String {
-        OptUtils.unwrap(last_payment_date)
+        return OptUtils.unwrap(last_payment_date)
     }
     
     public func getLastStatementIssueDate() -> String {
-        OptUtils.unwrap(last_statement_issue_date)
+        return OptUtils.unwrap(last_statement_issue_date)
     }
     public func getGuarantor() -> String {
-        OptUtils.unwrap(guarantor)
+        return OptUtils.unwrap(guarantor)
     }
     public func getNextPaymentDueDate() -> String {
-        OptUtils.unwrap(next_payment_due_date)
+        return OptUtils.unwrap(next_payment_due_date)
     }
     
     public func getOriginationDate() -> String {
-        OptUtils.unwrap(origination_date)
+        return OptUtils.unwrap(origination_date)
     }
     
     public func getPaymentReferenceNumber() -> String {
-        OptUtils.unwrap(payment_reference_number)
+        return OptUtils.unwrap(payment_reference_number)
     }
     
     public func getLoanName() -> String {
-        OptUtils.unwrap(loan_name)
+        return OptUtils.unwrap(loan_name)
     }
     
     public func getSequenceNumber() -> String {
-        OptUtils.unwrap(sequence_number)
+        return OptUtils.unwrap(sequence_number)
     }
     
     public func getInterestRatePercentage() -> Double {
-        OptUtils.unwrap(interest_rate_percentage)
+        return OptUtils.unwrap(interest_rate_percentage)
     }
     
     public func getLastPaymentAmount() -> Double {
-        OptUtils.unwrap(last_payment_amount)
+        return OptUtils.unwrap(last_payment_amount)
     }
     
     public func getLastStatementBalance() -> Double {
-        OptUtils.unwrap(last_statement_balance)
+        return OptUtils.unwrap(last_statement_balance)
     }
     
     public func getMinimumPaymentAmount() -> Double {
-        OptUtils.unwrap(minimum_payment_amount)
+        return OptUtils.unwrap(minimum_payment_amount)
     }
     
     public func getOriginationPrincipalAmount() -> Double {
-        OptUtils.unwrap(origination_principal_amount)
+        return OptUtils.unwrap(origination_principal_amount)
     }
     
     public func getOutstandingInterestAmount() -> Double {
-        OptUtils.unwrap(outstanding_interest_amount)
+        return OptUtils.unwrap(outstanding_interest_amount)
     }
     
     public func getYtdInterestPaid() -> Double {
-        OptUtils.unwrap(ytd_interest_paid)
+        return OptUtils.unwrap(ytd_interest_paid)
     }
     
     public func getYtdPrincipalPaid() -> Double {
-        OptUtils.unwrap(ytd_principal_paid)
+        return OptUtils.unwrap(ytd_principal_paid)
     }
     
     public func getIsOverdue() -> Bool {
         return OptUtils.unwrap(is_overdue)
     }
     
-    public func getLoanStatus() -> LoanStatus? {
-        return loan_status
+    public func getLoanStatus() -> LoanStatus {
+        return loan_status ?? LoanStatus()
     }
     
-    public func getRepaymentPlan() -> RepaymentPlan? {
-        return repayment_plan
+    public func getRepaymentPlan() -> RepaymentPlan {
+        return repayment_plan ?? RepaymentPlan()
     }
     
-    public func getDisbursementDates() -> [String]? {
-        return disbursement_dates
+    public func getDisbursementDates() -> [String] {
+        return disbursement_dates ?? [String]()
     }
     
-    public func getPslfStatus() -> PslfStatus? {
-        return pslf_status
+    public func getPslfStatus() -> PslfStatus {
+        return pslf_status ?? PslfStatus()
     }
     
-    public func getServicerAddress() -> Address? {
-        return servicer_address
+    public func getServicerAddress() -> Address {
+        return servicer_address ?? Address()
     }
     
     private var account_id : String?

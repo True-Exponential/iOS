@@ -10,18 +10,22 @@ import Foundation
 
 struct LoanStatus : Codable{
     
-    init(loanStatusInfo : NSDictionary) {
-        
+    init() {
+        end_date = ""
+        type = ""
+    }
+    
+    init(_ loanStatusInfo : NSDictionary) {
         end_date = loanStatusInfo["end_date"] as? String
         type = loanStatusInfo["type"] as? String
     }
     
     public func getType() -> String {
-        OptUtils.unwrap(type)
+        return OptUtils.unwrap(type)
     }
     
     public func getEndDate() -> String {
-        OptUtils.unwrap(end_date)
+        return OptUtils.unwrap(end_date)
     }
     
     private var end_date : String?

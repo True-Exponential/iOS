@@ -17,14 +17,12 @@ struct Securities {
     }
     
     init(_ json : [String: Any]?) {
-    
         self.securities = [Security]()
         
-        let securities = json!["securities"]! as? Array<Any>
-        if securities != nil {
-            
-            for secutiry in securities! {
-                let secutiry = Security(security:secutiry as! NSDictionary)
+        if let data = json {
+            let securities = data["securities"]! as? [Any] ?? []
+            for secutiry in securities {
+                let secutiry = Security(secutiry as! NSDictionary)
                 self.securities.append(secutiry)
             }
         }
@@ -40,6 +38,6 @@ struct Securities {
         return nil
     }
     
-    private var securities: Array = [Security]()
+    private var securities = [Security]()
     
 }

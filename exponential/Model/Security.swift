@@ -10,7 +10,7 @@ import Foundation
 
 struct Security : Codable {
     
-    init(security: NSDictionary) {
+    init(_ security: NSDictionary) {
         
         name = security["name"] as? String
         close_price_as_of = security["close_price_as_of"] as? String

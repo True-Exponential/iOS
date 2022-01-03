@@ -15,7 +15,7 @@ class TransactionEx : Transaction {
         
         var hierarchy = category.getHierarchy()
         
-        if hierarchy.count == 0 {
+        if hierarchy.isEmpty {
             hierarchy = getCategories()
         }
             

@@ -22,32 +22,30 @@ struct CreditLoan : Codable {
         last_statement_balance = creditLoanInfo["last_statement_balance"] as? Double
         minimum_payment_amount = creditLoanInfo["minimum_payment_amount"] as? Double
         
-        let aprs = creditLoanInfo["aprs"]! as? Array<NSDictionary>
-        if aprs != nil {
-            for aprInfo in aprs! {
-                let apr = Apr(aprInfo:aprInfo)
-                self.aprs.append(apr)
-            }
+        let aprs = creditLoanInfo["aprs"]! as? [NSDictionary] ?? []
+        for aprInfo in aprs {
+            let apr = Apr(aprInfo:aprInfo)
+            self.aprs.append(apr)
         }
     }
     
     public func getAccountId() -> String {
-        OptUtils.unwrap(account_id)
+        return OptUtils.unwrap(account_id)
     }
     
     public func getLastPaymentDate() -> String {
-        OptUtils.unwrap(last_payment_date)
+        return OptUtils.unwrap(last_payment_date)
     }
     
     public func getLastStatementIssueDate() -> String {
-        OptUtils.unwrap(last_statement_issue_date)
+        return OptUtils.unwrap(last_statement_issue_date)
     }
     public func getNextPaymentDueDate() -> String {
-        OptUtils.unwrap(next_payment_due_date)
+        return OptUtils.unwrap(next_payment_due_date)
     }
     
     public func getLastPaymentAmount() -> Double {
-        OptUtils.unwrap(last_payment_amount)
+        return OptUtils.unwrap(last_payment_amount)
     }
     
     public func getLastStatementBalance() -> Double {
@@ -55,7 +53,7 @@ struct CreditLoan : Codable {
     }
     
     public func getMinimumPaymentAmount() -> Double {
-        OptUtils.unwrap(minimum_payment_amount)
+        return OptUtils.unwrap(minimum_payment_amount)
     }
     
     public func getIsOverdue() -> Bool {

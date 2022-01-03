@@ -16,12 +16,12 @@ class NetworkHandler {
         let url = URL(string: Globals.getServerAddr() + "/" + relUrl)!
         
         var parameters = [String : Any]()
-        if token != nil {
-            parameters = ["token": token! as String]
+        if let _token = token {
+            parameters = ["token": _token as String]
         }
         
-        if extraParams != nil {
-            for param in extraParams! {
+        if let _extraParams = extraParams {
+            for param in _extraParams {
                 parameters[param.key] = param.value
             }
         }
@@ -47,18 +47,14 @@ class NetworkHandler {
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
-        let request = NetworkHandler.getDefaultReq(url, token,extraParams)
-        
-        if request != nil {
-            let task = session.dataTask(with: request!) { data, response, error in
+        if let request = NetworkHandler.getDefaultReq(url, token,extraParams) {
+            let task = session.dataTask(with: request) { data, response, error in
                 
                 // ensure there is no error for this HTTP response
                 if error == nil {
                     // ensure there is data returned from this HTTP response
-                    let content = data
-                    
-                    if content != nil {
-                        guard let json = (try? JSONSerialization.jsonObject(with: content!, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
+                    if let content = data {
+                        guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
                             print("Not containing JSON")
                             dispatch.leave()
                             return
@@ -88,10 +84,9 @@ class NetworkHandler {
             
             if error == nil {
                 // ensure there is data returned from this HTTP response
-                let content = data
                 
-                if content != nil {
-                    guard let json = (try? JSONSerialization.jsonObject(with: content!, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
+                if let content = data {
+                    guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
                         print("Not containing JSON")
                         dispatch.leave()
                         return

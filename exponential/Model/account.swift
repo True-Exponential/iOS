@@ -36,8 +36,13 @@ class Account : Codable {
         typeDesc = account["typeDesc"] as? String
         subTypeDesc = account["subTypeDesc"] as? String
         
-        let balances = account["balances"] as! NSDictionary
-        self.balances = AccountBalance(balances:balances)
+        if let balances = account["balances"] as? NSDictionary {
+            self.balances = AccountBalance(balances)
+        }
+        else {
+            self.balances = AccountBalance()
+        }
+        
     }
     
     public func getName() -> String {

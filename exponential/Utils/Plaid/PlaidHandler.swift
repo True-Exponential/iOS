@@ -22,8 +22,8 @@ class PlaidHandler : Finance {
     }
     
     private func getLinkTokenCallBack(_ json : [String: Any]?) {
-        if json != nil {
-            self.setLinkToken(json!["token"] as! String)
+        if let data = json {
+            self.setLinkToken(data["token"] as! String)
         }
     }
     
@@ -32,7 +32,7 @@ class PlaidHandler : Finance {
     }
     
     private func loadAccountsCallBack(_ json : [String: Any]?) {
-        Globals.accounts = Accounts(json: json)
+        Globals.accounts = Accounts(json)
     }
     
     func loadTransactions(_ dispatch : DispatchGroup,_  accountIds: [String]?) {

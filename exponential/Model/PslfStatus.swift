@@ -10,7 +10,13 @@ import Foundation
 
 struct PslfStatus : Codable {
     
-    init(pslfStatusInfo : NSDictionary) {
+    init() {
+        estimated_eligibility_date = ""
+        payments_made = 0
+        payments_remaining = 0
+    }
+    
+    init(_ pslfStatusInfo : NSDictionary) {
         
         estimated_eligibility_date = pslfStatusInfo["estimated_eligibility_date"] as? String
         
@@ -19,15 +25,15 @@ struct PslfStatus : Codable {
     }
     
     public func getEstimatedEligibilityDate() -> String {
-        OptUtils.unwrap(estimated_eligibility_date)
+        return OptUtils.unwrap(estimated_eligibility_date)
     }
     
     public func getPaymentsMade() -> Double {
-        OptUtils.unwrap(payments_made)
+        return OptUtils.unwrap(payments_made)
     }
     
     public func getPaymentsRemaining() -> Double {
-        OptUtils.unwrap(payments_remaining)
+        return OptUtils.unwrap(payments_remaining)
     }
     
     private var estimated_eligibility_date : String?

@@ -14,7 +14,7 @@ struct Transactions {
     
     init(_ transactions : [Transaction]) {
         for transaction in transactions {
-            let transactionEx = TransactionEx(transaction: transaction)
+            let transactionEx = TransactionEx(transaction)
             self.transactions.append(transactionEx)
         }
         
@@ -25,16 +25,14 @@ struct Transactions {
     
         self.transactions = [TransactionEx]()
         
-        if json != nil {
-            let transactions = json!["transactions"]! as? Array<Any>
-            if transactions != nil {
-                for transaction in transactions! {
-                    let newTransaction = TransactionEx(transaction:transaction as! NSDictionary)
-                    self.transactions.append(newTransaction)
-                }
-                
-                self.appendTransactinosToAccounts()
+        if let data = json {
+            let transactions = data["transactions"]! as? [Any] ?? []
+            for transaction in transactions {
+                let newTransaction = TransactionEx(transaction as! NSDictionary)
+                self.transactions.append(newTransaction)
             }
+            
+            self.appendTransactinosToAccounts()
         }
     }
     
@@ -56,6 +54,6 @@ struct Transactions {
         Globals.accounts.appendTransactionsToAccounts(accountTransactions)
     }
     
-    private var transactions: Array = [TransactionEx]()
+    private var transactions = [TransactionEx]()
     
 }

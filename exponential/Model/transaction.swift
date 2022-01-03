@@ -10,7 +10,7 @@ import Foundation
 
 class Transaction :  Codable {
     
-    init(transaction : Transaction) {
+    init(_ transaction : Transaction) {
         accountId = transaction.getAccountId()
         accountOwner = transaction.getAccountOwner()
         authorizedDate = transaction.getAuthorizedDate()
@@ -39,7 +39,7 @@ class Transaction :  Codable {
         location = transaction.getLocation()
     }
     
-    init(transaction : NSDictionary) {
+    init(_ transaction : NSDictionary) {
         accountId = transaction["accountId"] as? String
         accountOwner = transaction["accountOwner"] as? String
         authorizedDate = transaction["authorizedDate"] as? String

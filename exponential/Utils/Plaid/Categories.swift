@@ -22,25 +22,21 @@ struct Categories {
     
         self.categories = [String: Category]()
         
-        if json != nil {
-            let categories = json!["categories"]! as? Array<Any>
-            if categories != nil {
-                for category in categories! {
-                    let newCategory = Category(category: category as! NSDictionary)
-                    self.categories[newCategory.getId()] = newCategory
-                }
+        if let data = json {
+            let categories = data["categories"]! as? [Any] ?? []
+            for category in categories {
+                let newCategory = Category(category: category as! NSDictionary)
+                self.categories[newCategory.getId()] = newCategory
             }
         }
     }
     
     func get(_ id : String) -> Category {
-        let category = categories[id]
-        
-        if category == nil {
-            return Category()
+        if let category = categories[id] {
+            return category
         }
         
-        return category!
+        return Category()
     }
     
     var categories = [String: Category]()

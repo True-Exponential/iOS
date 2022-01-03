@@ -24,35 +24,28 @@ struct Liablities  {
     
     init(_ json : [String: Any]?) {
         
-        if json != nil {
-            let liablities = json!["liabilities"]! as? NSDictionary
-            if liablities != nil {
-                let creditLoans = liablities!["credit"]! as? Array<NSDictionary>
-                if let _creditLoans = creditLoans {
-                    for credirLoanInfo in _creditLoans {
-                        let creditLoan = CreditLoan(creditLoanInfo:credirLoanInfo)
-                        m_creditLoans.append(creditLoan)
-                    }
+        if let data = json {
+            if let liablities = data["liabilities"]! as? NSDictionary {
+                let creditLoans = liablities["credit"]! as? [NSDictionary] ?? []
+                for credirLoanInfo in creditLoans {
+                    let creditLoan = CreditLoan(creditLoanInfo:credirLoanInfo)
+                    m_creditLoans.append(creditLoan)
                 }
                 
                 self.appendCreditLoansToAccounts()
                 
-                let mortgages = liablities!["mortgage"]! as? Array<NSDictionary>
-                if let _mortgages = mortgages {
-                    for mortgageInfo in _mortgages {
-                        let mortgage = Mortgage(mortgageInfo:mortgageInfo)
-                        m_mortgages.append(mortgage)
-                    }
+                let mortgages = liablities["mortgage"]! as? [NSDictionary] ?? []
+                for mortgageInfo in mortgages {
+                    let mortgage = Mortgage(mortgageInfo:mortgageInfo)
+                    m_mortgages.append(mortgage)
                 }
                 
                 self.appendMortgagesToAccounts()
                 
-                let studentLoans = liablities!["student"]! as? Array<NSDictionary>
-                if let _studentLoans = studentLoans {
-                    for studentLoanInfo in _studentLoans {
-                        let studentLoan = StudentLoan(studentLoanInfo:studentLoanInfo)
-                        m_studentLoans.append(studentLoan)
-                    }
+                let studentLoans = liablities["student"]! as? [NSDictionary] ?? []
+                for studentLoanInfo in studentLoans {
+                    let studentLoan = StudentLoan(studentLoanInfo)
+                    m_studentLoans.append(studentLoan)
                 }
                 
                 self.appendStudentLoansToAccounts()

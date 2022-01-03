@@ -10,34 +10,18 @@ import Foundation
 
 struct OptUtils {
     static public func unwrap(_ value : Int?) -> Int {
-        if let val = value {
-            return val
-        }
-        
-        return 0
+        return value ?? 0
     }
     
     static public func unwrap(_ value : String?) -> String {
-        if let val = value {
-            return val
-        }
-        
-        return ""
+        return value ?? ""
     }
     
     static public func unwrap(_ value : Bool?) -> Bool {
-        if let val = value {
-            return val
-        }
-        
-        return false
+        return value ?? false
     }
     
     static public func unwrap(_ value : Double?) -> Double {
-        if let val = value {
-            return val
-        }
-        
-        return 0
+        return value ?? 0
     }
 }

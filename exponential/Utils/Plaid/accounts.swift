@@ -15,24 +15,22 @@ struct Accounts {
     
     init() {}
     
-    init(json : [String: Any]?) {
-        if json != nil {
-            let accounts = json!["accounts"]! as? Array<Any>
+    init(_ json : [String: Any]?) {
+        if let data = json {
+            let accounts = data["accounts"]! as? [Any] ?? []
             
-            if accounts != nil {
-                for account in accounts! {
-                    let accountEx = AccountEx(account:account as! NSDictionary)
-                    m_accounts.append(accountEx)
-                }
-                self.sortAccounts()
+            for account in accounts {
+                let accountEx = AccountEx(account:account as! NSDictionary)
+                m_accounts[accountEx.getId()] = accountEx
             }
+            self.sortAccounts()
         }
     }
     
     init(_ accounts : [Account]) {
         for account in accounts {
             let accountEx = AccountEx(account: account)
-            m_accounts.append(accountEx)
+            m_accounts[accountEx.getId()] = accountEx
         }
         
         self.sortAccounts()
@@ -40,7 +38,7 @@ struct Accounts {
     
     private mutating func sortAccounts() {
         
-        for account in m_accounts {
+        for account in m_accounts.values {
             switch(account.getType()) {
             case .Deposit:
                 m_depositAccounts.append(account)
@@ -57,27 +55,27 @@ struct Accounts {
             }
         }
         
-        if m_depositAccounts.count != 0 {
+        if !m_depositAccounts.isEmpty {
             m_groupedAccounts.append(m_depositAccounts)
         }
         
-        if m_creditAccounts.count != 0 {
+        if !m_creditAccounts.isEmpty {
             m_groupedAccounts.append(m_creditAccounts)
         }
         
-        if m_loanAccounts.count != 0 {
+        if !m_loanAccounts.isEmpty {
             m_groupedAccounts.append(m_loanAccounts)
         }
         
-        if m_investmentsAccounts.count != 0 {
+        if !m_investmentsAccounts.isEmpty {
             m_groupedAccounts.append(m_investmentsAccounts)
         }
         
-        if m_brokerageAccounts.count != 0 {
+        if !m_brokerageAccounts.isEmpty {
             m_groupedAccounts.append(m_brokerageAccounts)
         }
         
-        if m_otherAccounts.count != 0 {
+        if !m_otherAccounts.isEmpty {
             m_groupedAccounts.append(m_otherAccounts)
         }
     }
@@ -107,58 +105,38 @@ struct Accounts {
     
     public func appendHoldingsToAccounts(_ accountHoldings: [String: [Holding]]){
         for holdings in accountHoldings {
-            let account = get(holdings.key)
-            if let _account = account {
-                _account.setHoldings(holdings.value)
+            if let account = get(holdings.key) {
+                account.setHoldings(holdings.value)
             }
         }
     }
     
     public func appeendCreditLoansToAccounts(_ creditLoansByAccount: [String: [CreditLoan]]){
         for creditLoan in creditLoansByAccount {
-            let account = Globals.accounts.get(creditLoan.key)
-            if let _account = account {
-                _account.setCreditLoans(creditLoan.value)
+            if let account = Globals.accounts.get(creditLoan.key) {
+                account.setCreditLoans(creditLoan.value)
             }
         }
     }
     
     public func appeendMortgagesToAccounts(_ mortgagesByAccount: [String: [Mortgage]]){
         for mortgage in mortgagesByAccount {
-            let account = Globals.accounts.get(mortgage.key)
-            if let _account = account {
-                _account.setMortgages(mortgage.value)
+            if let account = Globals.accounts.get(mortgage.key) {
+                account.setMortgages(mortgage.value)
             }
         }
     }
     
     public func appeendStudentLoansToAccounts(_ studentLoansByAccount: [String: [StudentLoan]]){
         for studentLoan in studentLoansByAccount {
-            let account = Globals.accounts.get(studentLoan.key)
-            if let _account = account {
-                _account.setStudentLoans(studentLoan.value)
+            if let account = Globals.accounts.get(studentLoan.key) {
+                account.setStudentLoans(studentLoan.value)
             }
         }
     }
     
     public func get(_ id : String) -> AccountEx? {
-        for account in m_accounts {
-            if account.getId() == id {
-                return account
-            }
-        }
-        
-        return nil
-    }
-    
-    public func get(_ index : Int) -> AccountEx? {
-        var retAccount : AccountEx?
-        
-        if index < m_accounts.count {
-            retAccount = m_accounts[index]
-        }
-        
-        return retAccount
+        return m_accounts[id]
     }
     
     public func get(_ order: Int,_ index : Int) -> AccountEx? {
@@ -181,14 +159,14 @@ struct Accounts {
         }
     }
     
-    private var m_accounts: Array = [AccountEx]()
+    private var m_accounts = [String: AccountEx]()
     
-    private var m_groupedAccounts: Array = [[AccountEx]]()
+    private var m_groupedAccounts = [[AccountEx]]()
     
-    private var m_depositAccounts: Array = [AccountEx]()
-    private var m_creditAccounts: Array = [AccountEx]()
-    private var m_loanAccounts: Array = [AccountEx]()
-    private var m_investmentsAccounts: Array = [AccountEx]()
-    private var m_brokerageAccounts: Array = [AccountEx]()
-    private var m_otherAccounts: Array = [AccountEx]()
+    private var m_depositAccounts = [AccountEx]()
+    private var m_creditAccounts = [AccountEx]()
+    private var m_loanAccounts = [AccountEx]()
+    private var m_investmentsAccounts = [AccountEx]()
+    private var m_brokerageAccounts = [AccountEx]()
+    private var m_otherAccounts = [AccountEx]()
 }

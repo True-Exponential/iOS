@@ -10,7 +10,15 @@ import Foundation
 
 struct Address : Codable{
     
-    init(addressInfo: NSDictionary) {
+    init() {
+        city = ""
+        street = ""
+        country = ""
+        postal_code = ""
+        region = ""
+    }
+    
+    init(_ addressInfo: NSDictionary) {
         city = addressInfo["city"] as? String
         street = addressInfo["street"] as? String
         country = addressInfo["country"] as? String
@@ -19,23 +27,23 @@ struct Address : Codable{
     }
     
     public func getCity() -> String {
-        OptUtils.unwrap(city)
+        return OptUtils.unwrap(city)
     }
     
     public func getStreet() -> String {
-        OptUtils.unwrap(street)
+        return OptUtils.unwrap(street)
     }
     
     public func getCountry() -> String {
-        OptUtils.unwrap(country)
+        return OptUtils.unwrap(country)
     }
     
     public func getPostalCode() -> String {
-        OptUtils.unwrap(postal_code)
+        return OptUtils.unwrap(postal_code)
     }
     
     public func getRegion() -> String {
-        OptUtils.unwrap(region)
+        return OptUtils.unwrap(region)
     }
     
     private var city : String?

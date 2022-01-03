@@ -37,11 +37,7 @@ class Category : Codable {
     }
     
     public func getHierarchy() -> [String] {
-        if let _hierarchy = hierarchy {
-            return _hierarchy
-        }
-        
-        return []
+        return hierarchy ?? []
     }
     
     private var category_id : String?

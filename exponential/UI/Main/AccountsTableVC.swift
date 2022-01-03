@@ -45,18 +45,16 @@ class AccountsTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let plaidAccount = Globals.accounts.get(indexPath.section, indexPath.row)
-        
-        if(plaidAccount != nil) {
-            if plaidAccount!.getTransactions().count == 0 {
+        if let plaidAccount = Globals.accounts.get(indexPath.section, indexPath.row) {
+            if plaidAccount.getTransactions().isEmpty {
                 let dispatch = DispatchGroup()
                 dispatch.enter()
                 
-                Globals.plaidHandler.loadTransactions(dispatch, [plaidAccount!.getId()])
+                Globals.plaidHandler.loadTransactions(dispatch, [plaidAccount.getId()])
                 
                 dispatch.notify(queue: .main) {
                     TransactionsTableVC.account = plaidAccount
-                    if plaidAccount!.getTransactions().count != 0 {
+                    if !plaidAccount.getTransactions().isEmpty {
                         self.performSegue(withIdentifier: "switchToTransactionsView", sender: plaidAccount)
                     }
                 }
@@ -74,12 +72,10 @@ class AccountsTableVC: UITableViewController {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
         }
         
-        let plaidAccount = Globals.accounts.get(indexPath.section, indexPath.row)
-        
-        if let _plaidAccount = plaidAccount {
-            cell.textLabel!.text = _plaidAccount.getName()
+        if let plaidAccount = Globals.accounts.get(indexPath.section, indexPath.row) {
+            cell.textLabel!.text = plaidAccount.getName()
             cell.textLabel!.font = UIFont.boldSystemFont(ofSize: 18)
-            cell.detailTextLabel!.text = "Balance: " + _plaidAccount.getBalance()
+            cell.detailTextLabel!.text = "Balance: " + plaidAccount.getBalance()
         }
         
         return cell

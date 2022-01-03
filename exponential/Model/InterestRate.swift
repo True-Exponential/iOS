@@ -10,17 +10,22 @@ import Foundation
 
 struct InterestRate : Codable {
     
-    init(interestRate: NSDictionary) {
+    init() {
+        percentage = 0
+        type = ""
+    }
+    
+    init(_ interestRate: NSDictionary) {
         percentage = interestRate["percentage"] as? Double
         type = interestRate["type"] as? String
     }
     
     public func getType() -> String {
-        OptUtils.unwrap(type)
+        return OptUtils.unwrap(type)
     }
     
     public func getStreet() -> Double {
-        OptUtils.unwrap(percentage)
+        return OptUtils.unwrap(percentage)
     }
     
     private var percentage : Double?

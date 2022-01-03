@@ -10,7 +10,15 @@ import Foundation
 
 struct AccountBalance :  Codable {
     
-    init(balances: NSDictionary) {
+    init() {
+        available = 0
+        limit = 0
+        current = 0
+        iso_currency_code = ""
+        unofficial_currency_code = ""
+    }
+    
+    init(_ balances: NSDictionary) {
         available = balances["available"] as? Int
         limit = balances["limit"] as? Int
         current = balances["current"] as? Int

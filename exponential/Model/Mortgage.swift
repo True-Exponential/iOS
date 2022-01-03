@@ -30,79 +30,77 @@ struct Mortgage : Codable {
         has_pmi = mortgageInfo["has_pmi"] as? Bool
         has_prepayment_penalty = mortgageInfo["has_prepayment_penalty"] as? Bool
         
-        let propertyAddress = mortgageInfo["property_address"] as? NSDictionary
-        if let _propertyAddress = propertyAddress {
-            property_address = Address(addressInfo: _propertyAddress)
+        if let propertyAddress = mortgageInfo["property_address"] as? NSDictionary {
+            property_address = Address(propertyAddress)
         }
         
-        let interestRate = mortgageInfo["interest_rate"] as? NSDictionary
-        if let _interestRate = interestRate {
-            interest_rate = InterestRate(interestRate: _interestRate)
+        if let interestRate = mortgageInfo["interest_rate"] as? NSDictionary {
+            interest_rate = InterestRate(interestRate)
         }
     }
     
     public func getAccountId() -> String {
-        OptUtils.unwrap(account_id)
+        return OptUtils.unwrap(account_id)
     }
     
     public func getAccountNumber() -> String {
-        OptUtils.unwrap(account_number)
+        return OptUtils.unwrap(account_number)
     }
     
     public func getLastPaymentDate() -> String {
-        OptUtils.unwrap(last_payment_date)
+        return OptUtils.unwrap(last_payment_date)
     }
     
     public func getLoanTerm() -> String {
-        OptUtils.unwrap(loan_term)
+        return OptUtils.unwrap(loan_term)
     }
     
     public func getLoanTypeDescription() -> String {
-        OptUtils.unwrap(loan_type_description)
+        return OptUtils.unwrap(loan_type_description)
     }
     
     public func getMaturityDate() -> String {
-        OptUtils.unwrap(maturity_date)
+        return OptUtils.unwrap(maturity_date)
     }
     
     public func getNextPaymentDueDate() -> String {
-        OptUtils.unwrap(next_payment_due_date)
+        return OptUtils.unwrap(next_payment_due_date)
     }
     
     public func getOriginationDate() -> String {
-        OptUtils.unwrap(origination_date)
+        return OptUtils.unwrap(origination_date)
     }
     
     public func getCurrentLateFee() -> Double {
-        OptUtils.unwrap(current_late_fee)
+        return OptUtils.unwrap(current_late_fee)
     }
     
     public func getEscrowBalance() -> Double {
-        OptUtils.unwrap(escrow_balance)
+        return OptUtils.unwrap(escrow_balance)
     }
     
     public func getLastPaymentAmount() -> Double {
-        OptUtils.unwrap(last_payment_amount)
+        return OptUtils.unwrap(last_payment_amount)
     }
     
     public func getOriginationPrincipalAmount() -> Double {
-        OptUtils.unwrap(origination_principal_amount)
+        return OptUtils.unwrap(origination_principal_amount)
     }
     
     public func getPastDueAmount() -> Double {
-        OptUtils.unwrap(m_pastDueAmount)
+        return OptUtils.unwrap(m_pastDueAmount)
     }
     
     public func getYtdInterestPaid() -> Double {
-        OptUtils.unwrap(m_ytdInterestPaid)
+        return OptUtils.unwrap(m_ytdInterestPaid)
     }
     
     public func getYtdPrincipalPaid() -> Double {
-        OptUtils.unwrap(m_ytdPrincipalPaid)
+        return OptUtils.unwrap(m_ytdPrincipalPaid)
     }
     
     public func getNextMonthlyPayment() -> Double {
-        OptUtils.unwrap(next_monthly_payment)
+        return OptUtils.unwrap(next_monthly_payment)
     }
     
     public func getHasPmi() -> Bool {
@@ -113,12 +111,12 @@ struct Mortgage : Codable {
         return OptUtils.unwrap(self.has_prepayment_penalty)
     }
     
-    public func getPropertyAddress() -> Address? {
-        return property_address
+    public func getPropertyAddress() -> Address {
+        return property_address ?? Address()
     }
     
-    public func getInterestRate() -> InterestRate? {
-        return interest_rate
+    public func getInterestRate() -> InterestRate {
+        return interest_rate ?? InterestRate()
     }
     
     private var account_id : String?

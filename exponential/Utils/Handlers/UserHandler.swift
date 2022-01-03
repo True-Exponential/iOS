@@ -38,14 +38,14 @@ class UserHandler {
     }
     
     private func loginCallBack(_ json : [String: Any]?) {
-        if json != nil {
-            let userToken = json!["exponentialToken"] as? String?
+        if let data = json {
+            let userToken = data["exponentialToken"] as? String?
             if let _userToken = userToken {
                 self.setUserToken(_userToken!)
                 
-                let shouldLoginToPlaid = json!["shouldLoginToPlaid"] as! Bool
+                let shouldLoginToPlaid = data["shouldLoginToPlaid"] as! Bool
                 if shouldLoginToPlaid {
-                    let linkToken = json!["plaidLinkToken"] as? String?
+                    let linkToken = data["plaidLinkToken"] as? String?
                     if let linkToken = linkToken {
                         Globals.plaidHandler.setLinkToken(linkToken!)
                     }
