@@ -11,50 +11,42 @@ import Foundation
 class AccountEx : Account {
     
     public func setTransactions(_ transactions : [TransactionEx]) {
-        self.m_transactions = transactions
+        self.transactions = transactions
     }
     
     public func setHoldings(_ holdings : [Holding]) {
-        self.m_holdings = holdings
+        self.holdings = holdings
     }
     
     public func setCreditLoans(_ creditLoans : [CreditLoan]) {
-        self.m_creditLoans = creditLoans
+        self.creditLoans = creditLoans
     }
     
     public func setMortgages(_ mortgages : [Mortgage]) {
-        self.m_mortgages = mortgages
+        self.mortgages = mortgages
     }
     
     public func setStudentLoans(_ studentLoans : [StudentLoan]) {
-        m_studentLoans = studentLoans
+        self.studentLoans = studentLoans
     }
     
-    public func getTransactions() -> [TransactionEx] {m_transactions}
-    public func getHoldings() -> [Holding] {m_holdings}
-    public func getCreditLoans() -> [CreditLoan] {m_creditLoans}
-    public func getMortgages() -> [Mortgage] {m_mortgages}
-    public func getStudentLoans() -> [StudentLoan] {m_studentLoans}
+    public func getTransactions() -> [TransactionEx] {transactions}
+    public func getHoldings() -> [Holding] {holdings}
+    public func getCreditLoans() -> [CreditLoan] {creditLoans}
+    public func getMortgages() -> [Mortgage] {mortgages}
+    public func getStudentLoans() -> [StudentLoan] {studentLoans}
     
-    public func getBalance() -> String {
-        var retBalance = ""
-        if getBalances().getAvailable() == 0 {
-            retBalance = StrUtils.showNumberWithCurrency(getBalances().getCurrent(),  getBalances().getCurrencyCode())
-        }
-        else {
-            retBalance = StrUtils.showNumberWithCurrency(getBalances().getCurrent(),  getBalances().getCurrencyCode())
-        }
-    
-        return retBalance
+    var balance : String {
+            StrUtils.showNumberWithCurrency(getBalances().getAvailable() == 0 ? getBalances().getCurrent() : getBalances().getAvailable(),getBalances().getCurrencyCode())
     }
     
-    public func getLimit() -> String {
+    var limit : String {
         StrUtils.showNumberWithCurrency(getBalances().getLimit(), getBalances().getCurrencyCode())
     }
     
-    private var m_transactions = [TransactionEx]()
-    private var m_holdings = [Holding]()
-    private var m_creditLoans = [CreditLoan]()
-    private var m_mortgages = [Mortgage]()
-    private var m_studentLoans = [StudentLoan]()
+    private var transactions = [TransactionEx]()
+    private var holdings = [Holding]()
+    private var creditLoans = [CreditLoan]()
+    private var mortgages = [Mortgage]()
+    private var studentLoans = [StudentLoan]()
 }

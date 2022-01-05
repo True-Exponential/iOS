@@ -11,11 +11,11 @@ import Foundation
 struct Globals {
     static private let serverAddress = "http://localhost:8080"
     
-    static let demoMode = true
+    static let demoMode = false
     
-    static var plaidHandler : Finance = demoMode ? PlaidDemoHandler() : PlaidHandler()
+    static let plaidHandler : Finance = demoMode ? PlaidDemoHandler() : PlaidHandler()
     
-    static let userHandler = UserHandler()
+    static var userHandler = UserHandler()
     
     static var categories = Categories()
     static var accounts = Accounts()

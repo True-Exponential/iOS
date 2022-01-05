@@ -22,11 +22,31 @@ class StartVC: UIViewController, LinkOAuthHandling {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presentPlaidLinkUsingLinkToken()
+        //presentPlaidLinkUsingLinkToken()
         
     }
 
-    @IBAction func didTapButton(_ sender: Any?) {
-        presentPlaidLinkUsingLinkToken()
+    @IBAction func login(_ sender: Any?) {
+        let dispatch = DispatchGroup()
+        dispatch.enter()
+        
+        Globals.userHandler.login(dispatch)
+        
+        dispatch.notify(queue: .main) {
+            if (Globals.userHandler.isLoggedIn) {
+                self.presentPlaidLinkUsingLinkToken()
+            }
+        }
+    }
+    
+    @IBAction func signup(_ sender: Any?) {
+        let dispatch = DispatchGroup()
+        dispatch.enter()
+        
+        Globals.userHandler.signup(dispatch)
+        
+        if (Globals.userHandler.isRegistered) {
+            self.login(nil)
+        }
     }
 }

@@ -31,7 +31,7 @@ struct Categories {
         }
     }
     
-    func get(_ id : String) -> Category {
+    subscript (_ id : String) -> Category {
         if let category = categories[id] {
             return category
         }

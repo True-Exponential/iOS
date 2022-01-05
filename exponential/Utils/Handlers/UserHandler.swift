@@ -10,52 +10,75 @@ import Foundation
 
 class UserHandler {
     
-    static private let USER_TOKEN_KEY_NAME = "UserToken"
-    
-    private var m_userToken : String = ""
-    
     public func getUserToken() -> String {
-        if self.m_userToken.count > 0 {
-            return self.m_userToken
-        }
-        else {
-            let defaults = UserDefaults.standard
-            
-            let storedAccessToken = defaults.string(forKey: UserHandler.USER_TOKEN_KEY_NAME)
-            if let userToken = storedAccessToken {
-                self.m_userToken = userToken
-            }
+        if userToken.isEmpty {
+            userToken = UserDefaults.standard.string(forKey: UserHandler.USER_TOKEN_KEY_NAME) ?? ""
         }
         
-        return self.m_userToken
+        return userToken
     }
     
+    public var isLoggedIn : Bool {
+        get {
+            UserDefaults.standard.bool(forKey: UserHandler.USER_SIGNED_IN)
+        }
+        set {
+            UserDefaults.standard.set(1,forKey: UserHandler.USER_SIGNED_IN)
+        }
+    }
+    
+    public var isRegistered : Bool {
+        get {
+            UserDefaults.standard.bool(forKey: UserHandler.USER_REGISTERED)
+        }
+        set {
+            UserDefaults.standard.set(1,forKey: UserHandler.USER_REGISTERED)
+        }
+    }
+
+    
     public func setUserToken(_ token : String) {
-        self.m_userToken = token
+        userToken = token
         
-        let defaults = UserDefaults.standard
-        defaults.set(self.m_userToken, forKey: UserHandler.USER_TOKEN_KEY_NAME)
+        UserDefaults.standard.set(self.userToken, forKey: UserHandler.USER_TOKEN_KEY_NAME)
     }
     
     private func loginCallBack(_ json : [String: Any]?) {
         if let data = json {
-            let userToken = data["exponentialToken"] as? String?
-            if let _userToken = userToken {
-                self.setUserToken(_userToken!)
+            if let expoToken = data["exponentialToken"] as? String {
+                self.setUserToken(expoToken)
+                self.isLoggedIn = true
+                UserDefaults.standard.set(1, forKey: UserHandler.USER_SIGNED_IN)
                 
-                let shouldLoginToPlaid = data["shouldLoginToPlaid"] as! Bool
-                if shouldLoginToPlaid {
-                    let linkToken = data["plaidLinkToken"] as? String?
-                    if let linkToken = linkToken {
-                        Globals.plaidHandler.setLinkToken(linkToken!)
-                    }
+                if let linkToken = data["plaidLinkToken"] as? String {
+                //if let _ = data["shouldLoginToPlaid"] as? Bool, let linkToken = data["plaidLinkToken"] as? String {
+                    Globals.plaidHandler.setLinkToken(linkToken)
                 }
+            }
+            else {
+                UserDefaults.standard.set(0, forKey: UserHandler.USER_SIGNED_IN)
             }
         }
     }
     
-    public func login(_ dispatch : DispatchGroup) {
-        NetworkHandler.sendPostRequest(dispatch, "login", self.getUserToken(),nil, self.loginCallBack)
+    private func signupCallBack(_ json : [String: Any]?) {
+        isRegistered = true
     }
+    
+    public func login(_ dispatch : DispatchGroup) {
+        NetworkHandler.sendPostRequest(dispatch, "login", nil,["email" : "omer.paran@true-exp.com","password" : "qazwsx11", "token":nil], self.loginCallBack)
+    }
+    
+    public func signup(_ dispatch : DispatchGroup) {
+        NetworkHandler.sendPostRequest(dispatch, "signup", nil,
+    ["email" : "omer.paran@true-exp.com","password" : "qazwsx11","agreement_approve": "1","invite_token": nil],
+                                       self.signupCallBack)
+    }
+    
+    static private let USER_TOKEN_KEY_NAME = "UserToken"
+    static private let USER_SIGNED_IN = "SignedIn"
+    static private let USER_REGISTERED = "Registered"
+    
+    private var userToken : String = ""
 }
 

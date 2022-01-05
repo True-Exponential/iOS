@@ -88,14 +88,10 @@ class PlaidHandler : Finance {
          }*/
     }
     
-    func getLinkToken() -> String {
-        return self.m_linkToken
-    }
+    func getLinkToken() -> String {linkToken}
     
-    func setLinkToken(_ token : String) {
-        self.m_linkToken = token
-    }
+    func setLinkToken(_ token : String) {linkToken = token}
     
-    private var m_linkToken = ""
+    private var linkToken = ""
 }
 

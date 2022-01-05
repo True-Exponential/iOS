@@ -51,9 +51,9 @@ struct Mortgage : Codable {
     public func getEscrowBalance() -> Double {OptUtils.unwrap(escrow_balance)}
     public func getLastPaymentAmount() -> Double {OptUtils.unwrap(last_payment_amount)}
     public func getOriginationPrincipalAmount() -> Double {OptUtils.unwrap(origination_principal_amount)}
-    public func getPastDueAmount() -> Double {OptUtils.unwrap(m_pastDueAmount)}
-    public func getYtdInterestPaid() -> Double {OptUtils.unwrap(m_ytdInterestPaid)}
-    public func getYtdPrincipalPaid() -> Double {OptUtils.unwrap(m_ytdPrincipalPaid)}
+    public func getPastDueAmount() -> Double {OptUtils.unwrap(pastDueAmount)}
+    public func getYtdInterestPaid() -> Double {OptUtils.unwrap(ytdInterestPaid)}
+    public func getYtdPrincipalPaid() -> Double {OptUtils.unwrap(ytdPrincipalPaid)}
     public func getNextMonthlyPayment() -> Double {OptUtils.unwrap(next_monthly_payment)}
     public func getHasPmi() -> Bool {OptUtils.unwrap(self.has_pmi)}
     public func getHasPrepaymentPenalty() -> Bool {OptUtils.unwrap(self.has_prepayment_penalty)}
@@ -74,9 +74,9 @@ struct Mortgage : Codable {
     private var last_payment_amount : Double?
     private var next_monthly_payment : Double?
     private var origination_principal_amount : Double?
-    private var m_pastDueAmount : Double?
-    private var m_ytdInterestPaid : Double?
-    private var m_ytdPrincipalPaid : Double?
+    private var pastDueAmount : Double?
+    private var ytdInterestPaid : Double?
+    private var ytdPrincipalPaid : Double?
     
     private var has_pmi : Bool?
     private var has_prepayment_penalty : Bool?

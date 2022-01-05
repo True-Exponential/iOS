@@ -39,7 +39,7 @@ class TransactionsTableVC: UITableViewController {
         cell.textLabel!.text = tranaction.getName()
         cell.textLabel!.font = UIFont.boldSystemFont(ofSize: 14)
         
-        cell.detailTextLabel!.text = tranaction.getCategoryDesc()
+        cell.detailTextLabel!.text = tranaction.categoryDesc
         
         //StrUtils.showNumberWithCurrency(number: tranaction.getAmount(), currencyCode: tranaction.getCurrencyCode())
         

@@ -58,7 +58,7 @@ class Account : Codable {
     private var official_name : String?
     private var mask : String?
     private var id : String?
-    private var type : AccountType  = AccountType.Other
+    private var type : AccountType  = AccountType.other
     private var subType : Int?
     private var typeDesc : String?
     private var subTypeDesc : String?

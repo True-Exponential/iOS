@@ -10,8 +10,8 @@ import Foundation
 
 class TransactionEx : Transaction {
     
-    func getCategoryDesc() -> String {
-        let category = Globals.categories.get(getCategoryId())
+    var categoryDesc : String {
+        let category = Globals.categories[getCategoryId()]
         
         var hierarchy = category.getHierarchy()
         

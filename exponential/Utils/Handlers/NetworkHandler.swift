@@ -8,16 +8,14 @@
 
 import Foundation
 
-class NetworkHandler {
-    
-    static public func defaultCallback(response: [String: Any]?) {}
+struct NetworkHandler {
     
     static public func getDefaultReq(_ relUrl : String, _ token: String?, _ extraParams: [String:Any]?) -> URLRequest? {
         let url = URL(string: Globals.getServerAddr() + "/" + relUrl)!
         
         var parameters = [String : Any]()
         if let _token = token {
-            parameters = ["token": _token as String]
+            parameters = ["token": _token]
         }
         
         if let _extraParams = extraParams {
@@ -56,6 +54,7 @@ class NetworkHandler {
                     if let content = data {
                         guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
                             print("Not containing JSON")
+                            callback(nil)
                             dispatch.leave()
                             return
                         }

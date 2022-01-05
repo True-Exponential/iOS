@@ -13,9 +13,9 @@ struct Liablities  {
     init(){}
     
     init (_ mortgages : [Mortgage],_ creditLoans: [CreditLoan],_ studentLoans:[StudentLoan] ) {
-        self.m_mortgages = mortgages
-        self.m_studentLoans = studentLoans
-        self.m_creditLoans = creditLoans
+        self.mortgages = mortgages
+        self.studentLoans = studentLoans
+        self.creditLoans = creditLoans
         
         self.appendMortgagesToAccounts()
         self.appendStudentLoansToAccounts()
@@ -29,7 +29,7 @@ struct Liablities  {
                 let creditLoans = liablities["credit"]! as? [NSDictionary] ?? []
                 for credirLoanInfo in creditLoans {
                     let creditLoan = CreditLoan(creditLoanInfo:credirLoanInfo)
-                    m_creditLoans.append(creditLoan)
+                    self.creditLoans.append(creditLoan)
                 }
                 
                 self.appendCreditLoansToAccounts()
@@ -37,7 +37,7 @@ struct Liablities  {
                 let mortgages = liablities["mortgage"]! as? [NSDictionary] ?? []
                 for mortgageInfo in mortgages {
                     let mortgage = Mortgage(mortgageInfo:mortgageInfo)
-                    m_mortgages.append(mortgage)
+                    self.mortgages.append(mortgage)
                 }
                 
                 self.appendMortgagesToAccounts()
@@ -45,7 +45,7 @@ struct Liablities  {
                 let studentLoans = liablities["student"]! as? [NSDictionary] ?? []
                 for studentLoanInfo in studentLoans {
                     let studentLoan = StudentLoan(studentLoanInfo)
-                    m_studentLoans.append(studentLoan)
+                    self.studentLoans.append(studentLoan)
                 }
                 
                 self.appendStudentLoansToAccounts()
@@ -56,7 +56,7 @@ struct Liablities  {
     private func appendStudentLoansToAccounts() {
         var studentLoansByAccount = [String: [StudentLoan]]()
         
-        for studentLoan in m_studentLoans {
+        for studentLoan in studentLoans {
             let accountId = studentLoan.getAccountId()
             let account = studentLoansByAccount[accountId]
             
@@ -73,7 +73,7 @@ struct Liablities  {
     private func appendMortgagesToAccounts() {
         var mortgagesByAccount = [String: [Mortgage]]()
         
-        for mortgage in m_mortgages {
+        for mortgage in mortgages {
             let accountId = mortgage.getAccountId()
             let account = mortgagesByAccount[accountId]
             
@@ -90,7 +90,7 @@ struct Liablities  {
     private func appendCreditLoansToAccounts() {
         var creditLoansByAccount = [String: [CreditLoan]]()
         
-        for creditLoan in m_creditLoans {
+        for creditLoan in creditLoans {
             let accountId = creditLoan.getAccountId()
             let account = creditLoansByAccount[accountId]
             
@@ -104,11 +104,11 @@ struct Liablities  {
         Globals.accounts.appeendCreditLoansToAccounts(creditLoansByAccount)
     }
     
-    public func getCreditLoans() -> [CreditLoan] {m_creditLoans}
-    public func getMortgages() -> [Mortgage] {m_mortgages}
-    public func getStudentLoans() -> [StudentLoan] {m_studentLoans}
+    public func getCreditLoans() -> [CreditLoan] {creditLoans}
+    public func getMortgages() -> [Mortgage] {mortgages}
+    public func getStudentLoans() -> [StudentLoan] {studentLoans}
     
-    private var m_creditLoans = [CreditLoan]()
-    private var m_mortgages = [Mortgage]()
-    private var m_studentLoans = [StudentLoan]()
+    private var creditLoans = [CreditLoan]()
+    private var mortgages = [Mortgage]()
+    private var studentLoans = [StudentLoan]()
 }

@@ -43,7 +43,7 @@ class AccountsTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let plaidAccount = Globals.accounts.get(indexPath.section, indexPath.row) {
+        if let plaidAccount = Globals.accounts[indexPath.section, indexPath.row] {
             if plaidAccount.getTransactions().isEmpty {
                 let dispatch = DispatchGroup()
                 dispatch.enter()
@@ -70,10 +70,10 @@ class AccountsTableVC: UITableViewController {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
         }
         
-        if let plaidAccount = Globals.accounts.get(indexPath.section, indexPath.row) {
+        if let plaidAccount = Globals.accounts[indexPath.section, indexPath.row] {
             cell.textLabel!.text = plaidAccount.getName()
             cell.textLabel!.font = UIFont.boldSystemFont(ofSize: 18)
-            cell.detailTextLabel!.text = "Balance: " + plaidAccount.getBalance()
+            cell.detailTextLabel!.text = "Balance: " + plaidAccount.balance
         }
         
         return cell

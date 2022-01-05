@@ -21,7 +21,7 @@ struct Accounts {
             
             for account in accounts {
                 let accountEx = AccountEx(account:account as! NSDictionary)
-                m_accounts[accountEx.getId()] = accountEx
+                self.accounts[accountEx.getId()] = accountEx
             }
             self.sortAccounts()
         }
@@ -30,7 +30,7 @@ struct Accounts {
     init(_ accounts : [Account]) {
         for account in accounts {
             let accountEx = AccountEx(account: account)
-            m_accounts[accountEx.getId()] = accountEx
+            self.accounts[accountEx.getId()] = accountEx
         }
         
         self.sortAccounts()
@@ -38,74 +38,69 @@ struct Accounts {
     
     private mutating func sortAccounts() {
         
-        for account in m_accounts.values {
+        for account in self.accounts.values {
             switch(account.getType()) {
-            case .Deposit:
-                m_depositAccounts.append(account)
-            case .Credit:
-                m_creditAccounts.append(account)
-            case .Loan:
-                m_loanAccounts.append(account)
-            case .Investment:
-                m_investmentsAccounts.append(account)
-            case .Brokerage:
-                m_brokerageAccounts.append(account)
-            case .Other:
-                m_otherAccounts.append(account)
+            case .deposit:
+                depositAccounts.append(account)
+            case .credit:
+                creditAccounts.append(account)
+            case .loan:
+                loanAccounts.append(account)
+            case .investment:
+                investmentsAccounts.append(account)
+            case .brokerage:
+                brokerageAccounts.append(account)
+            case .other:
+                otherAccounts.append(account)
             }
         }
         
-        if !m_depositAccounts.isEmpty {
-            m_groupedAccounts.append(m_depositAccounts)
+        if !depositAccounts.isEmpty {
+            groupedAccounts.append(depositAccounts)
         }
         
-        if !m_creditAccounts.isEmpty {
-            m_groupedAccounts.append(m_creditAccounts)
+        if !creditAccounts.isEmpty {
+            groupedAccounts.append(creditAccounts)
         }
         
-        if !m_loanAccounts.isEmpty {
-            m_groupedAccounts.append(m_loanAccounts)
+        if !loanAccounts.isEmpty {
+            groupedAccounts.append(loanAccounts)
         }
         
-        if !m_investmentsAccounts.isEmpty {
-            m_groupedAccounts.append(m_investmentsAccounts)
+        if !investmentsAccounts.isEmpty {
+            groupedAccounts.append(investmentsAccounts)
         }
         
-        if !m_brokerageAccounts.isEmpty {
-            m_groupedAccounts.append(m_brokerageAccounts)
+        if !brokerageAccounts.isEmpty {
+            groupedAccounts.append(brokerageAccounts)
         }
         
-        if !m_otherAccounts.isEmpty {
-            m_groupedAccounts.append(m_otherAccounts)
+        if !otherAccounts.isEmpty {
+            groupedAccounts.append(otherAccounts)
         }
     }
     
-    public var NumAccountTypes : Int {
-        get {
-            m_groupedAccounts.count
-        }
-    }
+    public var NumAccountTypes : Int {groupedAccounts.count}
     
     public func getNumAccountType(_ order : Int) -> Int {
-        m_groupedAccounts[order].count
+        groupedAccounts[order].count
     }
     
     public func getAccountGroupCaption(_  order : Int) -> String {
-        accountTitles[m_groupedAccounts[order][0].getType().rawValue]
+        accountTitles[groupedAccounts[order][0].getType().rawValue]
     }
     
     public func appendTransactionsToAccounts(_ accountTransactions: [String: [TransactionEx]]){
         for transactions in accountTransactions {
-            let account = get(transactions.key)
-            if let _account = account {
-                _account.setTransactions(transactions.value)
+            if let account = accounts[transactions.key] {
+                account.setTransactions(transactions.value)
             }
         }
     }
     
     public func appendHoldingsToAccounts(_ accountHoldings: [String: [Holding]]){
         for holdings in accountHoldings {
-            if let account = get(holdings.key) {
+            if let account = accounts[holdings.key] {
                 account.setHoldings(holdings.value)
             }
         }
@@ -113,7 +108,7 @@ struct Accounts {
     
     public func appeendCreditLoansToAccounts(_ creditLoansByAccount: [String: [CreditLoan]]){
         for creditLoan in creditLoansByAccount {
-            if let account = Globals.accounts.get(creditLoan.key) {
+            if let account = accounts[creditLoan.key] {
                 account.setCreditLoans(creditLoan.value)
             }
         }
@@ -121,7 +116,7 @@ struct Accounts {
     
     public func appeendMortgagesToAccounts(_ mortgagesByAccount: [String: [Mortgage]]){
         for mortgage in mortgagesByAccount {
-            if let account = Globals.accounts.get(mortgage.key) {
+            if let account = accounts[mortgage.key] {
                 account.setMortgages(mortgage.value)
             }
         }
@@ -129,19 +124,17 @@ struct Accounts {
     
     public func appeendStudentLoansToAccounts(_ studentLoansByAccount: [String: [StudentLoan]]){
         for studentLoan in studentLoansByAccount {
-            if let account = Globals.accounts.get(studentLoan.key) {
+            if let account = accounts[studentLoan.key] {
                 account.setStudentLoans(studentLoan.value)
             }
         }
     }
     
-    public func get(_ id : String) -> AccountEx? {m_accounts[id]}
-    
-    public func get(_ order: Int,_ index : Int) -> AccountEx? {
+    subscript(_ order: Int,_ index : Int) -> AccountEx? {
         var retAccount : AccountEx?
         
-        if order < m_groupedAccounts.count {
-            let groupedAccounts = m_groupedAccounts[order]
+        if order < groupedAccounts.count {
+            let groupedAccounts = groupedAccounts[order]
             
             if index < groupedAccounts.count {
                 retAccount = groupedAccounts[index]
@@ -151,20 +144,16 @@ struct Accounts {
         return retAccount
     }
     
-    public var count : Int {
-        get {
-            m_accounts.count
-        }
-    }
+    var count : Int {accounts.count}
     
-    private var m_accounts = [String: AccountEx]()
+    private var accounts = [String: AccountEx]()
     
-    private var m_groupedAccounts = [[AccountEx]]()
+    private var groupedAccounts = [[AccountEx]]()
     
-    private var m_depositAccounts = [AccountEx]()
-    private var m_creditAccounts = [AccountEx]()
-    private var m_loanAccounts = [AccountEx]()
-    private var m_investmentsAccounts = [AccountEx]()
-    private var m_brokerageAccounts = [AccountEx]()
-    private var m_otherAccounts = [AccountEx]()
+    private var depositAccounts = [AccountEx]()
+    private var creditAccounts = [AccountEx]()
+    private var loanAccounts = [AccountEx]()
+    private var investmentsAccounts = [AccountEx]()
+    private var brokerageAccounts = [AccountEx]()
+    private var otherAccounts = [AccountEx]()
 }

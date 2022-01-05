@@ -13,31 +13,25 @@ struct Securities {
     init() {}
     
     init(_ securities : [Security]) {
-        self.securities = securities
+        for security in securities {
+            self.securities[security.getId()] = security
+        }
     }
     
     init(_ json : [String: Any]?) {
-        self.securities = [Security]()
+        self.securities = [String:Security]()
         
         if let data = json {
             let securities = data["securities"]! as? [Any] ?? []
-            for secutiry in securities {
-                let secutiry = Security(secutiry as! NSDictionary)
-                self.securities.append(secutiry)
+            for security in securities {
+                let _security = Security(security as! NSDictionary)
+                self.securities[_security.getId()] = _security
             }
         }
     }
     
-    public func get(_ id : String) -> Security? {
-        for security in securities {
-            if security.getId() == id {
-                return security
-            }
-        }
-        
-        return nil
-    }
+    subscript (_ id : String) -> Security? {securities[id]}
     
-    private var securities = [Security]()
+    private var securities = [String:Security]()
     
 }
