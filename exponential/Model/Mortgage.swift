@@ -39,26 +39,26 @@ struct Mortgage : Codable {
         }
     }
     
-    public func getAccountId() -> String {OptUtils.unwrap(account_id)}
-    public func getAccountNumber() -> String {OptUtils.unwrap(account_number)}
-    public func getLastPaymentDate() -> String {OptUtils.unwrap(last_payment_date)}
-    public func getLoanTerm() -> String {OptUtils.unwrap(loan_term)}
-    public func getLoanTypeDescription() -> String {OptUtils.unwrap(loan_type_description)}
-    public func getMaturityDate() -> String {OptUtils.unwrap(maturity_date)}
-    public func getNextPaymentDueDate() -> String {OptUtils.unwrap(next_payment_due_date)}
-    public func getOriginationDate() -> String {OptUtils.unwrap(origination_date)}
-    public func getCurrentLateFee() -> Double {OptUtils.unwrap(current_late_fee)}
-    public func getEscrowBalance() -> Double {OptUtils.unwrap(escrow_balance)}
-    public func getLastPaymentAmount() -> Double {OptUtils.unwrap(last_payment_amount)}
-    public func getOriginationPrincipalAmount() -> Double {OptUtils.unwrap(origination_principal_amount)}
-    public func getPastDueAmount() -> Double {OptUtils.unwrap(pastDueAmount)}
-    public func getYtdInterestPaid() -> Double {OptUtils.unwrap(ytdInterestPaid)}
-    public func getYtdPrincipalPaid() -> Double {OptUtils.unwrap(ytdPrincipalPaid)}
-    public func getNextMonthlyPayment() -> Double {OptUtils.unwrap(next_monthly_payment)}
-    public func getHasPmi() -> Bool {OptUtils.unwrap(self.has_pmi)}
-    public func getHasPrepaymentPenalty() -> Bool {OptUtils.unwrap(self.has_prepayment_penalty)}
-    public func getPropertyAddress() -> Address {property_address ?? Address()}
-    public func getInterestRate() -> InterestRate {interest_rate ?? InterestRate()}
+    func getAccountId() -> String {OptUtils.unwrap(account_id)}
+    func getAccountNumber() -> String {OptUtils.unwrap(account_number)}
+    func getLastPaymentDate() -> String {OptUtils.unwrap(last_payment_date)}
+    func getLoanTerm() -> String {OptUtils.unwrap(loan_term)}
+    func getLoanTypeDescription() -> String {OptUtils.unwrap(loan_type_description)}
+    func getMaturityDate() -> String {OptUtils.unwrap(maturity_date)}
+    func getNextPaymentDueDate() -> String {OptUtils.unwrap(next_payment_due_date)}
+    func getOriginationDate() -> String {OptUtils.unwrap(origination_date)}
+    func getCurrentLateFee() -> Double {OptUtils.unwrap(current_late_fee)}
+    func getEscrowBalance() -> Double {OptUtils.unwrap(escrow_balance)}
+    func getLastPaymentAmount() -> Double {OptUtils.unwrap(last_payment_amount)}
+    func getOriginationPrincipalAmount() -> Double {OptUtils.unwrap(origination_principal_amount)}
+    func getPastDueAmount() -> Double {OptUtils.unwrap(pastDueAmount)}
+    func getYtdInterestPaid() -> Double {OptUtils.unwrap(ytdInterestPaid)}
+    func getYtdPrincipalPaid() -> Double {OptUtils.unwrap(ytdPrincipalPaid)}
+    func getNextMonthlyPayment() -> Double {OptUtils.unwrap(next_monthly_payment)}
+    func getHasPmi() -> Bool {OptUtils.unwrap(self.has_pmi)}
+    func getHasPrepaymentPenalty() -> Bool {OptUtils.unwrap(self.has_prepayment_penalty)}
+    func getPropertyAddress() -> Address {property_address ?? Address()}
+    func getInterestRate() -> InterestRate {interest_rate ?? InterestRate()}
     
     private var account_id : String?
     private var account_number : String?

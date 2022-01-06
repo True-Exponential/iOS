@@ -20,11 +20,11 @@ struct AccountBalance :  Codable {
         unofficial_currency_code = balances["unofficial_currency_code"] as? String
     }
     
-    public func getCurrent() -> Int {OptUtils.unwrap(current)}
-    public func getAvailable() -> Int {OptUtils.unwrap(available)}
-    public func getLimit() -> Int {OptUtils.unwrap(limit)}
-    public func getCurrencyCode() -> String {OptUtils.unwrap(iso_currency_code)}
-    public func getUnofficialCurrencyCode() -> String {OptUtils.unwrap(unofficial_currency_code)}
+    func getCurrent() -> Int {OptUtils.unwrap(current)}
+    func getAvailable() -> Int {OptUtils.unwrap(available)}
+    func getLimit() -> Int {OptUtils.unwrap(limit)}
+    func getCurrencyCode() -> String {OptUtils.unwrap(iso_currency_code)}
+    func getUnofficialCurrencyCode() -> String {OptUtils.unwrap(unofficial_currency_code)}
     
     private var iso_currency_code: String?
     private var unofficial_currency_code: String?

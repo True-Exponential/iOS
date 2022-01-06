@@ -24,5 +24,5 @@ struct Globals {
     static var holdings = Holdings()
     static var liablities = Liablities()
     
-    public static func getServerAddr() -> String {Globals.serverAddress}
+    static func getServerAddr() -> String {Globals.serverAddress}
 }

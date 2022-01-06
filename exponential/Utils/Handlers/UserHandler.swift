@@ -10,7 +10,7 @@ import Foundation
 
 class UserHandler {
     
-    public func getUserToken() -> String {
+    func getUserToken() -> String {
         if userToken.isEmpty {
             userToken = UserDefaults.standard.string(forKey: UserHandler.USER_TOKEN_KEY_NAME) ?? ""
         }
@@ -18,7 +18,7 @@ class UserHandler {
         return userToken
     }
     
-    public var isLoggedIn : Bool {
+    var isLoggedIn : Bool {
         get {
             UserDefaults.standard.bool(forKey: UserHandler.USER_SIGNED_IN)
         }
@@ -27,7 +27,7 @@ class UserHandler {
         }
     }
     
-    public var isRegistered : Bool {
+    var isRegistered : Bool {
         get {
             UserDefaults.standard.bool(forKey: UserHandler.USER_REGISTERED)
         }
@@ -37,7 +37,7 @@ class UserHandler {
     }
 
     
-    public func setUserToken(_ token : String) {
+    func setUserToken(_ token : String) {
         userToken = token
         
         UserDefaults.standard.set(self.userToken, forKey: UserHandler.USER_TOKEN_KEY_NAME)
@@ -65,11 +65,11 @@ class UserHandler {
         isRegistered = true
     }
     
-    public func login(_ dispatch : DispatchGroup) {
+    func login(_ dispatch : DispatchGroup) {
         NetworkHandler.sendPostRequest(dispatch, "login", nil,["email" : "omer.paran@true-exp.com","password" : "qazwsx11", "token":nil], self.loginCallBack)
     }
     
-    public func signup(_ dispatch : DispatchGroup) {
+    func signup(_ dispatch : DispatchGroup) {
         NetworkHandler.sendPostRequest(dispatch, "signup", nil,
     ["email" : "omer.paran@true-exp.com","password" : "qazwsx11","agreement_approve": "1","invite_token": nil],
                                        self.signupCallBack)

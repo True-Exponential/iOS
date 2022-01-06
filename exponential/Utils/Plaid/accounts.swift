@@ -82,17 +82,17 @@ struct Accounts {
         }
     }
     
-    public var NumAccountTypes : Int {groupedAccounts.count}
+    var NumAccountTypes : Int {groupedAccounts.count}
     
-    public func getNumAccountType(_ order : Int) -> Int {
+    func getNumAccountType(_ order : Int) -> Int {
         groupedAccounts[order].count
     }
     
-    public func getAccountGroupCaption(_  order : Int) -> String {
+    func getAccountGroupCaption(_  order : Int) -> String {
         accountTitles[groupedAccounts[order][0].getType().rawValue]
     }
     
-    public func appendTransactionsToAccounts(_ accountTransactions: [String: [TransactionEx]]){
+    func appendTransactionsToAccounts(_ accountTransactions: [String: [TransactionEx]]){
         for transactions in accountTransactions {
             if let account = accounts[transactions.key] {
                 account.setTransactions(transactions.value)
@@ -100,7 +100,7 @@ struct Accounts {
         }
     }
     
-    public func appendHoldingsToAccounts(_ accountHoldings: [String: [Holding]]){
+    func appendHoldingsToAccounts(_ accountHoldings: [String: [Holding]]){
         for holdings in accountHoldings {
             if let account = accounts[holdings.key] {
                 account.setHoldings(holdings.value)
@@ -108,7 +108,7 @@ struct Accounts {
         }
     }
     
-    public func appeendCreditLoansToAccounts(_ creditLoansByAccount: [String: [CreditLoan]]){
+    func appeendCreditLoansToAccounts(_ creditLoansByAccount: [String: [CreditLoan]]){
         for creditLoan in creditLoansByAccount {
             if let account = accounts[creditLoan.key] {
                 account.setCreditLoans(creditLoan.value)
@@ -116,7 +116,7 @@ struct Accounts {
         }
     }
     
-    public func appeendMortgagesToAccounts(_ mortgagesByAccount: [String: [Mortgage]]){
+    func appeendMortgagesToAccounts(_ mortgagesByAccount: [String: [Mortgage]]){
         for mortgage in mortgagesByAccount {
             if let account = accounts[mortgage.key] {
                 account.setMortgages(mortgage.value)
@@ -124,7 +124,7 @@ struct Accounts {
         }
     }
     
-    public func appeendStudentLoansToAccounts(_ studentLoansByAccount: [String: [StudentLoan]]){
+    func appeendStudentLoansToAccounts(_ studentLoansByAccount: [String: [StudentLoan]]){
         for studentLoan in studentLoansByAccount {
             if let account = accounts[studentLoan.key] {
                 account.setStudentLoans(studentLoan.value)

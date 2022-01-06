@@ -28,14 +28,14 @@ struct Location :  Codable {
         storeNumber = location["storeNumber"] as? String
     }
     
-    public func getAddress() -> String {OptUtils.unwrap(address)}
-    public func getCity() -> String {OptUtils.unwrap(city)}
-    public func getCountry() -> String {OptUtils.unwrap(country)}
-    public func getLat() -> String {OptUtils.unwrap(lat)}
-    public func getLon() -> String {OptUtils.unwrap(lon)}
-    public func getPostalCode() -> String {OptUtils.unwrap(postalCode)}
-    public func getRegion() -> String {OptUtils.unwrap(region)}
-    public func getStoreNumber() -> String {OptUtils.unwrap(storeNumber)}
+    func getAddress() -> String {OptUtils.unwrap(address)}
+    func getCity() -> String {OptUtils.unwrap(city)}
+    func getCountry() -> String {OptUtils.unwrap(country)}
+    func getLat() -> String {OptUtils.unwrap(lat)}
+    func getLon() -> String {OptUtils.unwrap(lon)}
+    func getPostalCode() -> String {OptUtils.unwrap(postalCode)}
+    func getRegion() -> String {OptUtils.unwrap(region)}
+    func getStoreNumber() -> String {OptUtils.unwrap(storeNumber)}
         
     private var address  : String?
     private var city : String?

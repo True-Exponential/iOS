@@ -22,8 +22,8 @@ class ViewController: UIViewController, LinkOAuthHandling {
 
     // MARK: - PublicKey Configuration (Deprecated)
     // See `ViewController+PublicKey.swift` for usage of `oauthRedirectUri` & `oauthNonce`.
-    // Integrating LinkKit using public key has been deprecated in favor of Link Tokens
-    // hence the public key related oauthNonce and oauthRedirect properties are deprecated as well.
+    // Integrating LinkKit using key has been deprecated in favor of Link Tokens
+    // hence the key related oauthNonce and oauthRedirect properties are deprecated as well.
     // For more information on how to migrate to Link Tokens see https://plaid.com/docs/link/link-token-migration-guide/
 
     // When re-initializing Link to complete the OAuth flows ensure that the same oauthNonce is used per session.

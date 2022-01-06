@@ -24,15 +24,15 @@ struct Holding : Codable{
         quantity = holding["quantity"] as? Double
     }
     
-    public func getAccountId() -> String {OptUtils.unwrap(account_id)}
-    public func getSecurityId() -> String {OptUtils.unwrap(security_id)}
-    public func getCurrencyCode() -> String {OptUtils.unwrap(iso_currency_code)}
-    public func getUnofficialCurrencyCode() -> String {OptUtils.unwrap(unofficial_currency_code)}
-    public func getInstitutionPriceAsOf() -> String {OptUtils.unwrap(institution_price_as_of)}
-    public func getCostBasis() -> Double {OptUtils.unwrap(cost_basis)}
-    public func getInstitutionPrice() -> Double {OptUtils.unwrap(institution_price)}
-    public func getInstitutionValue() -> Double {OptUtils.unwrap(institution_value)}
-    public func getQuantity() -> Double {OptUtils.unwrap(quantity)}
+    func getAccountId() -> String {OptUtils.unwrap(account_id)}
+    func getSecurityId() -> String {OptUtils.unwrap(security_id)}
+    func getCurrencyCode() -> String {OptUtils.unwrap(iso_currency_code)}
+    func getUnofficialCurrencyCode() -> String {OptUtils.unwrap(unofficial_currency_code)}
+    func getInstitutionPriceAsOf() -> String {OptUtils.unwrap(institution_price_as_of)}
+    func getCostBasis() -> Double {OptUtils.unwrap(cost_basis)}
+    func getInstitutionPrice() -> Double {OptUtils.unwrap(institution_price)}
+    func getInstitutionValue() -> Double {OptUtils.unwrap(institution_value)}
+    func getQuantity() -> Double {OptUtils.unwrap(quantity)}
     
     private var account_id : String?
     private var security_id : String?

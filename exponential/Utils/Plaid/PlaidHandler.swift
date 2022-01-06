@@ -53,7 +53,7 @@ class PlaidHandler : Finance {
     }
     
     
-    public func loadHoldings(_ dispatch : DispatchGroup,_  accountIds: [String]?) {
+    func loadHoldings(_ dispatch : DispatchGroup,_  accountIds: [String]?) {
         var extraParams : [String: Any]? = nil
         
         if let _accountIds = accountIds {
@@ -67,7 +67,7 @@ class PlaidHandler : Finance {
         Globals.holdings = Holdings(json) ?? Holdings()
     }
     
-    public func loadLiabilities(_ dispatch : DispatchGroup,_  accountIds: [String]?) {
+    func loadLiabilities(_ dispatch : DispatchGroup,_  accountIds: [String]?) {
         var extraParams : [String: Any]? = nil
         
         if let _accountIds = accountIds {

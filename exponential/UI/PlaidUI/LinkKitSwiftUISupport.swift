@@ -9,7 +9,7 @@ import SwiftUI
 
 // The Controller that bridges from SwiftUI to UIKit
 struct LinkController {
-    // A wrapper enum for either a public key or link token based configuration
+    // A wrapper enum for either a key or link token based configuration
     enum LinkConfigurationType {
         case publicKey(LinkPublicKeyConfiguration)
         case linkToken(LinkTokenConfiguration)

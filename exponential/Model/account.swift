@@ -44,15 +44,15 @@ class Account : Codable {
         }
     }
     
-    public func getName() -> String {OptUtils.unwrap(name)}
-    public func getOfficialName() -> String {OptUtils.unwrap(official_name)}
-    public func getId() -> String {OptUtils.unwrap(id)}
-    public func getType() -> AccountType {type}
-    public func getMask() -> String?  {mask}
-    public func getSubType() -> Int {OptUtils.unwrap(subType)}
-    public func getTypeDesc() -> String {OptUtils.unwrap(typeDesc)}
-    public func getSubTypeDesc() -> String {OptUtils.unwrap(subTypeDesc)}
-    public func getBalances() -> AccountBalance {balances}
+    func getName() -> String {OptUtils.unwrap(name)}
+    func getOfficialName() -> String {OptUtils.unwrap(official_name)}
+    func getId() -> String {OptUtils.unwrap(id)}
+    func getType() -> AccountType {type}
+    func getMask() -> String?  {mask}
+    func getSubType() -> Int {OptUtils.unwrap(subType)}
+    func getTypeDesc() -> String {OptUtils.unwrap(typeDesc)}
+    func getSubTypeDesc() -> String {OptUtils.unwrap(subTypeDesc)}
+    func getBalances() -> AccountBalance {balances}
     
     private var name : String? 
     private var official_name : String?

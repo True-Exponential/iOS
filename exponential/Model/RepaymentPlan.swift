@@ -18,8 +18,8 @@ struct RepaymentPlan : Codable{
         type = repaymentPlanInfo["type"] as? String
     }
     
-    public func getType() -> String {OptUtils.unwrap(type)}
-    public func m_getDescription() -> String {OptUtils.unwrap(description)}
+    func getType() -> String {OptUtils.unwrap(type)}
+    func m_getDescription() -> String {OptUtils.unwrap(description)}
     
     private var description : String?
     private var type : String?

@@ -10,7 +10,7 @@ import Foundation
 
 struct NetworkHandler {
     
-    static public func getDefaultReq(_ relUrl : String, _ token: String?, _ extraParams: [String:Any]?) -> URLRequest? {
+    static func getDefaultReq(_ relUrl : String, _ token: String?, _ extraParams: [String:Any]?) -> URLRequest? {
         if let url = URL(string: Globals.getServerAddr() + "/" + relUrl) {
             var parameters = [String : Any]()
             if let _token = token {
@@ -40,7 +40,7 @@ struct NetworkHandler {
         return nil
     }
     
-    static public func sendPostRequest(_ dispatch : DispatchGroup,_ url: String, _ token: String?,_ extraParams: [String:Any]?,
+    static func sendPostRequest(_ dispatch : DispatchGroup,_ url: String, _ token: String?,_ extraParams: [String:Any]?,
      _ callback: @escaping (_ response : [String: Any]?) ->Void) {
 
         let config = URLSessionConfiguration.default
@@ -75,7 +75,7 @@ struct NetworkHandler {
         }
     }
     
-    static public func sendGetRequest(_ dispatch : DispatchGroup,_  url: String,_  callback: @escaping (_ response : [String: Any]?) ->Void) {
+    static func sendGetRequest(_ dispatch : DispatchGroup,_  url: String,_  callback: @escaping (_ response : [String: Any]?) ->Void) {
         let url = URL(string: Globals.getServerAddr() + "/" + url)!
         
         let config = URLSessionConfiguration.default

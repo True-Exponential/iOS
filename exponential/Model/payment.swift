@@ -23,14 +23,14 @@ struct Payment :  Codable {
         refNumber = payment["refNumber"] as? String
     }
     
-    public func getPayer() -> String {OptUtils.unwrap(payer)}
-    public func getOrderOf() -> String {OptUtils.unwrap(byOrderOf)}
-    public func getPayee() -> String {OptUtils.unwrap(payee)}
-    public func getMethod() -> String {OptUtils.unwrap(method)}
-    public func getProcessor() -> String {OptUtils.unwrap(processor)}
-    public func getReason() -> String {OptUtils.unwrap(reason)}
-    public func getId() -> String {OptUtils.unwrap(id)}
-    public func getRefNumber() -> String {OptUtils.unwrap(refNumber)}
+    func getPayer() -> String {OptUtils.unwrap(payer)}
+    func getOrderOf() -> String {OptUtils.unwrap(byOrderOf)}
+    func getPayee() -> String {OptUtils.unwrap(payee)}
+    func getMethod() -> String {OptUtils.unwrap(method)}
+    func getProcessor() -> String {OptUtils.unwrap(processor)}
+    func getReason() -> String {OptUtils.unwrap(reason)}
+    func getId() -> String {OptUtils.unwrap(id)}
+    func getRefNumber() -> String {OptUtils.unwrap(refNumber)}
     
     private var byOrderOf  : String?
     private var payee : String?

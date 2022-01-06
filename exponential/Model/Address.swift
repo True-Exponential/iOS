@@ -20,11 +20,11 @@ struct Address : Codable{
         region = addressInfo["region"] as? String
     }
     
-    public func getCity() -> String {OptUtils.unwrap(city)}
-    public func getStreet() -> String {OptUtils.unwrap(street)}
-    public func getCountry() -> String {OptUtils.unwrap(country)}
-    public func getPostalCode() -> String {OptUtils.unwrap(postal_code)}
-    public func getRegion() -> String {OptUtils.unwrap(region)}
+    func getCity() -> String {OptUtils.unwrap(city)}
+    func getStreet() -> String {OptUtils.unwrap(street)}
+    func getCountry() -> String {OptUtils.unwrap(country)}
+    func getPostalCode() -> String {OptUtils.unwrap(postal_code)}
+    func getRegion() -> String {OptUtils.unwrap(region)}
     
     private var city : String?
     private var street : String?

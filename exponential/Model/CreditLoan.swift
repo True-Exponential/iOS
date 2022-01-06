@@ -29,14 +29,14 @@ struct CreditLoan : Codable {
         }
     }
     
-    public func getAccountId() -> String {OptUtils.unwrap(account_id)}
-    public func getLastPaymentDate() -> String {OptUtils.unwrap(last_payment_date)}
-    public func getLastStatementIssueDate() -> String {OptUtils.unwrap(last_statement_issue_date)}
-    public func getNextPaymentDueDate() -> String {OptUtils.unwrap(next_payment_due_date)}
-    public func getLastPaymentAmount() -> Double {OptUtils.unwrap(last_payment_amount)}
-    public func getLastStatementBalance() -> Double {OptUtils.unwrap(last_statement_balance)}
-    public func getMinimumPaymentAmount() -> Double {OptUtils.unwrap(minimum_payment_amount)}    
-    public func getIsOverdue() -> Bool {OptUtils.unwrap(is_overdue)}
+    func getAccountId() -> String {OptUtils.unwrap(account_id)}
+    func getLastPaymentDate() -> String {OptUtils.unwrap(last_payment_date)}
+    func getLastStatementIssueDate() -> String {OptUtils.unwrap(last_statement_issue_date)}
+    func getNextPaymentDueDate() -> String {OptUtils.unwrap(next_payment_due_date)}
+    func getLastPaymentAmount() -> Double {OptUtils.unwrap(last_payment_amount)}
+    func getLastStatementBalance() -> Double {OptUtils.unwrap(last_statement_balance)}
+    func getMinimumPaymentAmount() -> Double {OptUtils.unwrap(minimum_payment_amount)}    
+    func getIsOverdue() -> Bool {OptUtils.unwrap(is_overdue)}
     
     private var account_id : String?
 

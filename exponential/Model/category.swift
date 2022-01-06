@@ -24,9 +24,9 @@ class Category : Codable {
         hierarchy = category["hierarchy"] as? [String]
     }
     
-    public func getId() -> String {OptUtils.unwrap(category_id)}
-    public func getGroup() -> String {OptUtils.unwrap(group)}    
-    public func getHierarchy() -> [String] {hierarchy ?? []}
+    func getId() -> String {OptUtils.unwrap(category_id)}
+    func getGroup() -> String {OptUtils.unwrap(group)}    
+    func getHierarchy() -> [String] {hierarchy ?? []}
     
     private var category_id : String?
     private var group :String?

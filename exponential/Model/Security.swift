@@ -30,22 +30,22 @@ struct Security : Codable {
         close_price = security["close_price"] as? Double
     }
     
-    public func getName() -> String {OptUtils.unwrap(name)}
+    func getName() -> String {OptUtils.unwrap(name)}
     
-    public func getCloseDate() -> String {OptUtils.unwrap(close_price_as_of)}
-    public func getCusip() -> String {OptUtils.unwrap(cusip)}
-    public func getInstitutionId() -> String {OptUtils.unwrap(institution_id)}
-    public func getInstitutionSecurityId() -> String {OptUtils.unwrap(institution_security_id)}
-    public func getIsin() -> String {OptUtils.unwrap(isin)}
-    public func getCurrencyCode() -> String {OptUtils.unwrap(iso_currency_code)}
-    public func getUnofficialCurrencyCode() -> String {OptUtils.unwrap(unofficial_currency_code)}
-    public func getProxySecurityId() -> String {OptUtils.unwrap(proxy_security_id)}
-    public func getId() -> String {OptUtils.unwrap(security_id)}
-    public func getSedol() -> String {OptUtils.unwrap(sedol)}
-    public func getTickerSymbol() -> String {OptUtils.unwrap(ticker_symbol)}
-    public func getType() -> String {OptUtils.unwrap(type)}
-    public func getIsCashEquivalent() -> Bool {OptUtils.unwrap(is_cash_equivalent)}
-    public func getClosePrice() -> Double {OptUtils.unwrap(close_price)}
+    func getCloseDate() -> String {OptUtils.unwrap(close_price_as_of)}
+    func getCusip() -> String {OptUtils.unwrap(cusip)}
+    func getInstitutionId() -> String {OptUtils.unwrap(institution_id)}
+    func getInstitutionSecurityId() -> String {OptUtils.unwrap(institution_security_id)}
+    func getIsin() -> String {OptUtils.unwrap(isin)}
+    func getCurrencyCode() -> String {OptUtils.unwrap(iso_currency_code)}
+    func getUnofficialCurrencyCode() -> String {OptUtils.unwrap(unofficial_currency_code)}
+    func getProxySecurityId() -> String {OptUtils.unwrap(proxy_security_id)}
+    func getId() -> String {OptUtils.unwrap(security_id)}
+    func getSedol() -> String {OptUtils.unwrap(sedol)}
+    func getTickerSymbol() -> String {OptUtils.unwrap(ticker_symbol)}
+    func getType() -> String {OptUtils.unwrap(type)}
+    func getIsCashEquivalent() -> Bool {OptUtils.unwrap(is_cash_equivalent)}
+    func getClosePrice() -> Double {OptUtils.unwrap(close_price)}
 
     private var name : String?
     private var close_price_as_of : String?

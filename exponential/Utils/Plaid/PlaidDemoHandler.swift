@@ -31,7 +31,7 @@ struct PlaidDemoHandler : Finance {
         dispatch.leave()
     }
     
-    public func loadHoldings(_ dispatch : DispatchGroup, _ accountIds: [String]?) {
+    func loadHoldings(_ dispatch : DispatchGroup, _ accountIds: [String]?) {
         
         let securities : [Security] = load("securities.json")
         Globals.securities = Securities(securities)
@@ -42,7 +42,7 @@ struct PlaidDemoHandler : Finance {
         dispatch.leave()
     }
     
-    public func loadLiabilities(_ dispatch : DispatchGroup,_  accountIds: [String]?) {
+    func loadLiabilities(_ dispatch : DispatchGroup,_  accountIds: [String]?) {
         let mortgages : [Mortgage] = load("mortgages.json")
         let creditLoans : [CreditLoan]  = load("creditloans.json")
         let studentLoans : [StudentLoan]  = load("studentloans.json")

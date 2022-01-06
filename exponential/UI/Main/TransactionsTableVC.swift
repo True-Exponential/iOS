@@ -60,8 +60,8 @@ class TransactionsTableVC: UITableViewController {
     }
     */
     
-    static public var account : AccountEx? = nil
+    static var account : AccountEx? = nil
     
-    //static public var account
+    //static var account
 
 }

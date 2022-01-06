@@ -9,8 +9,8 @@
 import Foundation
 
 struct OptUtils {
-    static public func unwrap(_ value : Int?) -> Int {value ?? 0}
-    static public func unwrap(_ value : String?) -> String {value ?? ""}
-    static public func unwrap(_ value : Bool?) -> Bool {value ?? false}
-    static public func unwrap(_ value : Double?) -> Double {value ?? 0}
+    static func unwrap(_ value : Int?) -> Int {value ?? 0}
+    static func unwrap(_ value : String?) -> String {value ?? ""}
+    static func unwrap(_ value : Bool?) -> Bool {value ?? false}
+    static func unwrap(_ value : Double?) -> Double {value ?? 0}
 }

@@ -17,8 +17,8 @@ struct LoanStatus : Codable{
         type = loanStatusInfo["type"] as? String
     }
     
-    public func getType() -> String {OptUtils.unwrap(type)}
-    public func getEndDate() -> String {OptUtils.unwrap(end_date)}
+    func getType() -> String {OptUtils.unwrap(type)}
+    func getEndDate() -> String {OptUtils.unwrap(end_date)}
     
     private var end_date : String?
     private var type : String?

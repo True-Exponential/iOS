@@ -10,31 +10,31 @@ import Foundation
 
 class AccountEx : Account {
     
-    public func setTransactions(_ transactions : [TransactionEx]) {
+    func setTransactions(_ transactions : [TransactionEx]) {
         self.transactions = transactions
     }
     
-    public func setHoldings(_ holdings : [Holding]) {
+    func setHoldings(_ holdings : [Holding]) {
         self.holdings = holdings
     }
     
-    public func setCreditLoans(_ creditLoans : [CreditLoan]) {
+    func setCreditLoans(_ creditLoans : [CreditLoan]) {
         self.creditLoans = creditLoans
     }
     
-    public func setMortgages(_ mortgages : [Mortgage]) {
+    func setMortgages(_ mortgages : [Mortgage]) {
         self.mortgages = mortgages
     }
     
-    public func setStudentLoans(_ studentLoans : [StudentLoan]) {
+    func setStudentLoans(_ studentLoans : [StudentLoan]) {
         self.studentLoans = studentLoans
     }
     
-    public func getTransactions() -> [TransactionEx] {transactions}
-    public func getHoldings() -> [Holding] {holdings}
-    public func getCreditLoans() -> [CreditLoan] {creditLoans}
-    public func getMortgages() -> [Mortgage] {mortgages}
-    public func getStudentLoans() -> [StudentLoan] {studentLoans}
+    func getTransactions() -> [TransactionEx] {transactions}
+    func getHoldings() -> [Holding] {holdings}
+    func getCreditLoans() -> [CreditLoan] {creditLoans}
+    func getMortgages() -> [Mortgage] {mortgages}
+    func getStudentLoans() -> [StudentLoan] {studentLoans}
     
     var balance : String {
             StrUtils.showNumberWithCurrency(getBalances().getAvailable() == 0 ? getBalances().getCurrent() : getBalances().getAvailable(),getBalances().getCurrencyCode())

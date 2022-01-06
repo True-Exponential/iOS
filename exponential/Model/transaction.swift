@@ -72,46 +72,46 @@ class Transaction :  Codable {
         }
     }
     
-    public func getAccountId() -> String {OptUtils.unwrap(accountId)
+    func getAccountId() -> String {OptUtils.unwrap(accountId)
         
     }
     
-    public func getTransactionType() -> String {OptUtils.unwrap(transactionType)
+    func getTransactionType() -> String {OptUtils.unwrap(transactionType)
         
     }
     
-    public func getAccountOwner() -> String {OptUtils.unwrap(accountOwner)
+    func getAccountOwner() -> String {OptUtils.unwrap(accountOwner)
         
     }
     
-    public func getAuthorizedDate() -> String {
+    func getAuthorizedDate() -> String {
         OptUtils.unwrap(authorizedDate)
     }
     
-    public func getAuthorizedTime() -> String {
+    func getAuthorizedTime() -> String {
         OptUtils.unwrap(authorizedTime)
     }
     
-    public func getCategoryId() -> String {
+    func getCategoryId() -> String {
         OptUtils.unwrap(category_id)
     }
     
-    public func getCheckNumber() -> String {OptUtils.unwrap(checkNumber)}
-    public func getCurrencyCode() -> String {OptUtils.unwrap(currencyCode)}
-    public func getName() -> String {OptUtils.unwrap(name)}
-    public func getDate() -> String {OptUtils.unwrap(date)}
-    public func getDateTime() -> String {OptUtils.unwrap(dateTime)}
-    public func getPendingTransactionId() -> String {OptUtils.unwrap(pendingTransactionId)}
-    public func getPersonalFinanceCategory() -> String {OptUtils.unwrap(personalFinanceCategory)}
-    public func getTransactionCode() -> String {OptUtils.unwrap(transactionCode)}
-    public func getTransactionId() -> String {OptUtils.unwrap(transactionId)}
-    public func getMerchantName() -> String {OptUtils.unwrap(merchantName)}
-    public func getChannel() -> String {OptUtils.unwrap(channel)}
-    public func getIsPending() -> Bool {OptUtils.unwrap(pending)}
-    public func getAmount() -> Int {OptUtils.unwrap( amount)}
-    public func getPayment() -> Payment {payment}
-    public func getLocation() -> Location {location}
-    public func getCategories() -> [String] {categories}
+    func getCheckNumber() -> String {OptUtils.unwrap(checkNumber)}
+    func getCurrencyCode() -> String {OptUtils.unwrap(currencyCode)}
+    func getName() -> String {OptUtils.unwrap(name)}
+    func getDate() -> String {OptUtils.unwrap(date)}
+    func getDateTime() -> String {OptUtils.unwrap(dateTime)}
+    func getPendingTransactionId() -> String {OptUtils.unwrap(pendingTransactionId)}
+    func getPersonalFinanceCategory() -> String {OptUtils.unwrap(personalFinanceCategory)}
+    func getTransactionCode() -> String {OptUtils.unwrap(transactionCode)}
+    func getTransactionId() -> String {OptUtils.unwrap(transactionId)}
+    func getMerchantName() -> String {OptUtils.unwrap(merchantName)}
+    func getChannel() -> String {OptUtils.unwrap(channel)}
+    func getIsPending() -> Bool {OptUtils.unwrap(pending)}
+    func getAmount() -> Int {OptUtils.unwrap( amount)}
+    func getPayment() -> Payment {payment}
+    func getLocation() -> Location {location}
+    func getCategories() -> [String] {categories}
     
     private var accountId  : String?
     private var accountOwner : String?

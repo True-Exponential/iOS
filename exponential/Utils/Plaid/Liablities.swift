@@ -104,9 +104,9 @@ struct Liablities  {
         Globals.accounts.appeendCreditLoansToAccounts(creditLoansByAccount)
     }
     
-    public func getCreditLoans() -> [CreditLoan] {creditLoans}
-    public func getMortgages() -> [Mortgage] {mortgages}
-    public func getStudentLoans() -> [StudentLoan] {studentLoans}
+    func getCreditLoans() -> [CreditLoan] {creditLoans}
+    func getMortgages() -> [Mortgage] {mortgages}
+    func getStudentLoans() -> [StudentLoan] {studentLoans}
     
     private var creditLoans = [CreditLoan]()
     private var mortgages = [Mortgage]()

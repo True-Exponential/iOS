@@ -20,9 +20,9 @@ struct PslfStatus : Codable {
         payments_remaining = pslfStatusInfo["payments_remaining"] as? Double
     }
     
-    public func getEstimatedEligibilityDate() -> String {OptUtils.unwrap(estimated_eligibility_date)}
-    public func getPaymentsMade() -> Double {OptUtils.unwrap(payments_made)}
-    public func getPaymentsRemaining() -> Double {OptUtils.unwrap(payments_remaining)}
+    func getEstimatedEligibilityDate() -> String {OptUtils.unwrap(estimated_eligibility_date)}
+    func getPaymentsMade() -> Double {OptUtils.unwrap(payments_made)}
+    func getPaymentsRemaining() -> Double {OptUtils.unwrap(payments_remaining)}
     
     private var estimated_eligibility_date : String?
     private var payments_made : Double?
