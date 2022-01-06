@@ -10,7 +10,9 @@ import Foundation
 
 struct Payment :  Codable {
     
-    init(payment : NSDictionary) {
+    init(){}
+    
+    init(_ payment : NSDictionary) {
         byOrderOf = payment["byOrderOf"] as? String
         payee = payment["payee"] as? String
         payer = payment["payer"] as? String

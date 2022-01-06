@@ -9,8 +9,15 @@
 import Foundation
 
 struct Location :  Codable {
+    
+    init(){}
         
-    init(location : NSDictionary ) {
+    init(_ _location : NSDictionary? ) {
+        guard let location = _location else {
+            assert(false)
+            return
+        }
+        
         address = location["address"] as? String
         city = location["city"] as? String
         country = location["country"] as? String

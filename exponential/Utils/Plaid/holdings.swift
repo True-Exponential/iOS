@@ -16,7 +16,7 @@ struct Holdings {
         self.appendHoldingsToAccounts()
     }
     
-    init(_ json : [String: Any]?) {
+    init?(_ json : [String: Any]?) {
         
         self.holdings = [Holding]()
     
@@ -24,9 +24,10 @@ struct Holdings {
             Globals.securities = Securities(data)
             
             let holdings = data["holdings"]! as? [Any] ?? []
-            for holding in holdings {
-                let newHolding = Holding(holding:holding as! NSDictionary)
-                self.holdings.append(newHolding)
+            for _holding in holdings {
+                if let holding = _holding as? NSDictionary {
+                    self.holdings.append(Holding(holding))
+                }
             }
             
             self.appendHoldingsToAccounts()

@@ -10,13 +10,7 @@ import Foundation
 
 struct Address : Codable{
     
-    init() {
-        city = ""
-        street = ""
-        country = ""
-        postal_code = ""
-        region = ""
-    }
+    init() {}
     
     init(_ addressInfo: NSDictionary) {
         city = addressInfo["city"] as? String

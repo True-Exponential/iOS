@@ -10,10 +10,7 @@ import Foundation
 
 struct InterestRate : Codable {
     
-    init() {
-        percentage = 0
-        type = ""
-    }
+    init() {}
     
     init(_ interestRate: NSDictionary) {
         percentage = interestRate["percentage"] as? Double

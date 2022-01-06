@@ -10,19 +10,15 @@ import Foundation
 
 class Category : Codable {
     
-    init() {
-        category_id = ""
-        group  = ""
-        hierarchy  = [""]
-    }
+    init() {}
     
-    init(category : Category) {
+    init(_ category : Category) {
         category_id = category.getId()
         group  = category.getGroup()
         hierarchy  = category.getHierarchy()
     }
     
-    init(category: NSDictionary) {
+    init(_ category: NSDictionary) {
         category_id = category["category_id"] as? String
         group = category["group"] as? String
         hierarchy = category["hierarchy"] as? [String]

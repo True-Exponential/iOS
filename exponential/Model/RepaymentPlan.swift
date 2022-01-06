@@ -10,10 +10,7 @@ import Foundation
 
 struct RepaymentPlan : Codable{
     
-    init() {
-        description = ""
-        type = ""
-    }
+    init() {}
     
     init(_ repaymentPlanInfo : NSDictionary) {
         

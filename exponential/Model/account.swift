@@ -10,7 +10,7 @@ import Foundation
 
 class Account : Codable {
     
-    init(account : Account) {
+    init(_ account : Account) {
         name = account.getName()
         official_name = account.getOfficialName()
         mask = account.getMask()
@@ -22,7 +22,7 @@ class Account : Codable {
         balances = account.getBalances()
     }
     
-    init(account: NSDictionary) {
+    init(_ account: NSDictionary) {
         name = account["name"] as? String
         official_name = account["official_name"] as? String
         id = account["id"] as? String

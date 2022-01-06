@@ -10,7 +10,7 @@ import Foundation
 
 struct Mortgage : Codable {
     
-    init(mortgageInfo: NSDictionary) {
+    init(_ mortgageInfo: NSDictionary) {
         account_id = mortgageInfo["account_id"] as? String
         
         account_number = mortgageInfo["account_number"] as? String

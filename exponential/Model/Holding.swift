@@ -10,7 +10,7 @@ import Foundation
 
 struct Holding : Codable{
     
-    init(holding: NSDictionary) {
+    init(_ holding: NSDictionary) {
         
         account_id = holding["account_id"] as? String
         security_id = holding["security_id"] as? String

@@ -11,32 +11,33 @@ import Foundation
 struct NetworkHandler {
     
     static public func getDefaultReq(_ relUrl : String, _ token: String?, _ extraParams: [String:Any]?) -> URLRequest? {
-        let url = URL(string: Globals.getServerAddr() + "/" + relUrl)!
-        
-        var parameters = [String : Any]()
-        if let _token = token {
-            parameters = ["token": _token]
-        }
-        
-        if let _extraParams = extraParams {
-            for param in _extraParams {
-                parameters[param.key] = param.value
+        if let url = URL(string: Globals.getServerAddr() + "/" + relUrl) {
+            var parameters = [String : Any]()
+            if let _token = token {
+                parameters = ["token": _token]
             }
+            
+            if let _extraParams = extraParams {
+                for param in _extraParams {
+                    parameters[param.key] = param.value
+                }
+            }
+            
+            var request = URLRequest(url: url)
+            do {
+                request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+            } catch  {
+                return nil
+            }
+            
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.httpMethod = "POST"
+            
+            return request
         }
         
-        var request = URLRequest(url: url)
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to data object and set it as request body
-        } catch  {
-            return nil
-        }
-        
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.httpMethod = "POST"
-        
-        return request
+        return nil
     }
     
     static public func sendPostRequest(_ dispatch : DispatchGroup,_ url: String, _ token: String?,_ extraParams: [String:Any]?,
@@ -52,7 +53,8 @@ struct NetworkHandler {
                 if error == nil {
                     // ensure there is data returned from this HTTP response
                     if let content = data {
-                        guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any] else {
+                        guard let json = (try? JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any]
+                        else {
                             print("Not containing JSON")
                             callback(nil)
                             dispatch.leave()

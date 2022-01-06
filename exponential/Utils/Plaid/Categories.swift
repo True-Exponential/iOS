@@ -14,7 +14,7 @@ struct Categories {
     
     init(_ categories : [Category]) {
         for category in categories {
-            self.categories[category.getId()] = category
+            self[category.getId()] = category
         }
     }
     
@@ -24,19 +24,27 @@ struct Categories {
         
         if let data = json {
             let categories = data["categories"]! as? [Any] ?? []
-            for category in categories {
-                let newCategory = Category(category: category as! NSDictionary)
-                self.categories[newCategory.getId()] = newCategory
+            for _category in categories {
+                if let category = _category as? NSDictionary {
+                    let newCategory = Category(category as NSDictionary)
+                    self[newCategory.getId()] = newCategory
+                }
             }
         }
     }
     
     subscript (_ id : String) -> Category {
-        if let category = categories[id] {
+        get {
+            if let category = categories[id] {
             return category
+            }
+            
+            return Category()
         }
         
-        return Category()
+        set {
+            categories[id] = newValue
+        }
     }
     
     var categories = [String: Category]()

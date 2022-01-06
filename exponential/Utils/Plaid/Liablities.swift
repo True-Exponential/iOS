@@ -36,7 +36,7 @@ struct Liablities  {
                 
                 let mortgages = liablities["mortgage"]! as? [NSDictionary] ?? []
                 for mortgageInfo in mortgages {
-                    let mortgage = Mortgage(mortgageInfo:mortgageInfo)
+                    let mortgage = Mortgage(mortgageInfo)
                     self.mortgages.append(mortgage)
                 }
                 

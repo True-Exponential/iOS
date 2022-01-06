@@ -19,9 +19,11 @@ struct Accounts {
         if let data = json {
             let accounts = data["accounts"]! as? [Any] ?? []
             
-            for account in accounts {
-                let accountEx = AccountEx(account:account as! NSDictionary)
-                self.accounts[accountEx.getId()] = accountEx
+            for _account in accounts {
+                if let account = _account as? NSDictionary {
+                    let accountEx = AccountEx(account)
+                    self.accounts[accountEx.getId()] = accountEx
+                }
             }
             self.sortAccounts()
         }
@@ -29,7 +31,7 @@ struct Accounts {
     
     init(_ accounts : [Account]) {
         for account in accounts {
-            let accountEx = AccountEx(account: account)
+            let accountEx = AccountEx(account)
             self.accounts[accountEx.getId()] = accountEx
         }
         

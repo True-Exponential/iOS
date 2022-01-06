@@ -10,11 +10,7 @@ import Foundation
 
 struct PslfStatus : Codable {
     
-    init() {
-        estimated_eligibility_date = ""
-        payments_made = 0
-        payments_remaining = 0
-    }
+    init() {}
     
     init(_ pslfStatusInfo : NSDictionary) {
         

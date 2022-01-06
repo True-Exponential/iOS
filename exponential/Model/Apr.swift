@@ -10,7 +10,7 @@ import Foundation
 
 struct Apr : Codable {
     
-    init(aprInfo: NSDictionary) {
+    init(_ aprInfo: NSDictionary) {
         
         apr_type = aprInfo["apr_type"] as? String
                 

@@ -23,7 +23,7 @@ class PlaidHandler : Finance {
     
     private func getLinkTokenCallBack(_ json : [String: Any]?) {
         if let data = json {
-            self.setLinkToken(data["token"] as! String)
+            self.setLinkToken(data["token"] as? String)
         }
     }
     
@@ -64,7 +64,7 @@ class PlaidHandler : Finance {
     }
         
     private func loadHoldingsCallBack(json : [String: Any]?) {
-        Globals.holdings = Holdings(json)
+        Globals.holdings = Holdings(json) ?? Holdings()
     }
     
     public func loadLiabilities(_ dispatch : DispatchGroup,_  accountIds: [String]?) {
@@ -84,13 +84,13 @@ class PlaidHandler : Finance {
     private func getAccessTokenCallBack(_ json : [String: Any]?) {
         // Needs to test here if the call was succssful or not
         /*if json != nil {
-         Globals.userHandler.setUserToken(userToken: json!["token"] as! String)
+         Globals.userHandler.setUserToken(userToken: json!["token"] as String)
          }*/
     }
     
     func getLinkToken() -> String {linkToken}
     
-    func setLinkToken(_ token : String) {linkToken = token}
+    func setLinkToken(_ token : String?) {linkToken = token ?? ""}
     
     private var linkToken = ""
 }

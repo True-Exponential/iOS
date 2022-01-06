@@ -27,9 +27,10 @@ struct Transactions {
         
         if let data = json {
             let transactions = data["transactions"]! as? [Any] ?? []
-            for transaction in transactions {
-                let newTransaction = TransactionEx(transaction as! NSDictionary)
-                self.transactions.append(newTransaction)
+            for _transaction in transactions {
+                if let transaction = _transaction as? NSDictionary {
+                    self.transactions.append(TransactionEx(transaction))
+                }
             }
             
             self.appendTransactinosToAccounts()

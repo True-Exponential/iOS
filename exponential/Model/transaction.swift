@@ -58,16 +58,18 @@ class Transaction :  Codable {
         transactionType = transaction["transactionType"] as? String
         channel = transaction["channel"] as? String
         
-        categories = transaction["categories"] as! [String]
+        categories = transaction["categories"] as? [String] ?? []
         
         amount = transaction["amount"] as? Int
         pending = transaction["pending"] as? Bool
         
-        let payment = transaction["payment"] as! NSDictionary
-        self.payment = Payment(payment:payment)
+        if let payment = transaction["payment"] as? NSDictionary {
+            self.payment = Payment(payment)
+        }
         
-        let location = transaction["location"] as! NSDictionary
-        self.location = Location(location:location)
+        if let location = transaction["location"] as? NSDictionary {
+            self.location = Location(location)
+        }
     }
     
     public func getAccountId() -> String {OptUtils.unwrap(accountId)
@@ -134,8 +136,8 @@ class Transaction :  Codable {
     private var amount : Int?
     private var pending : Bool?
     
-    private var payment : Payment
-    private var location : Location
+    private var payment = Payment()
+    private var location = Location()
     
     private var categories : [String]    
 }

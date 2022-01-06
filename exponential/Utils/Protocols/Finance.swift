@@ -18,7 +18,7 @@ protocol Finance {
     
     func getLinkToken(_ dispatch : DispatchGroup)
     func getLinkToken() -> String
-    func setLinkToken(_ token : String)
+    func setLinkToken(_ token : String?)
     func getAccessToken(_ publicToken: String, _ dispatch : DispatchGroup)
             
 }

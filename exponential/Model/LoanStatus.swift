@@ -10,10 +10,7 @@ import Foundation
 
 struct LoanStatus : Codable{
     
-    init() {
-        end_date = ""
-        type = ""
-    }
+    init() {}
     
     init(_ loanStatusInfo : NSDictionary) {
         end_date = loanStatusInfo["end_date"] as? String

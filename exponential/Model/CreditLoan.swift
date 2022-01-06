@@ -24,7 +24,7 @@ struct CreditLoan : Codable {
         
         let aprs = creditLoanInfo["aprs"]! as? [NSDictionary] ?? []
         for aprInfo in aprs {
-            let apr = Apr(aprInfo:aprInfo)
+            let apr = Apr(aprInfo)
             self.aprs.append(apr)
         }
     }

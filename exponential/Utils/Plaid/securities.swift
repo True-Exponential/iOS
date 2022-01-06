@@ -14,7 +14,7 @@ struct Securities {
     
     init(_ securities : [Security]) {
         for security in securities {
-            self.securities[security.getId()] = security
+            self[security.getId()] = security
         }
     }
     
@@ -23,14 +23,24 @@ struct Securities {
         
         if let data = json {
             let securities = data["securities"]! as? [Any] ?? []
-            for security in securities {
-                let _security = Security(security as! NSDictionary)
-                self.securities[_security.getId()] = _security
+            for _security in securities {
+                if let security = _security as? NSDictionary {
+                    let newSecurity = Security(security)
+                    self[newSecurity.getId()] = newSecurity
+                }
             }
         }
     }
     
-    subscript (_ id : String) -> Security? {securities[id]}
+    subscript (_ id : String) -> Security? {
+        get {
+            securities[id]
+        }
+        
+        set {
+            securities[id] = newValue
+        }
+    }
     
     private var securities = [String:Security]()
     
