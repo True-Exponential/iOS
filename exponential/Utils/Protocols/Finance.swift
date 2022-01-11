@@ -16,9 +16,8 @@ protocol Finance {
     func loadLiabilities(_ dispatch : DispatchGroup,_  accountIds: [String]?)
     func loadCategories(_ dispatch : DispatchGroup)
     
-    func getLinkToken(_ dispatch : DispatchGroup)
     func getLinkToken() -> String
     func setLinkToken(_ token : String?)
-    func getAccessToken(_ publicToken: String, _ dispatch : DispatchGroup)
-            
+    func generateAccessToken(_ publicToken: String, _ dispatch : DispatchGroup)
+    
 }

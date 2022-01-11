@@ -7,6 +7,7 @@
 
 import UIKit
 import LinkKit
+import SwiftUI
 
 
 class StartVC: UIViewController, LinkOAuthHandling {
@@ -22,31 +23,14 @@ class StartVC: UIViewController, LinkOAuthHandling {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //presentPlaidLinkUsingLinkToken()
+        let nc = NotificationCenter.default
+        nc.addObserver(self, selector: #selector(userLoggedIn), name: Notification.Name("UserLoggedIn"), object: nil)
         
-    }
-
-    @IBAction func login(_ sender: Any?) {
-        let dispatch = DispatchGroup()
-        dispatch.enter()
-        
-        Globals.userHandler.login(dispatch)
-        
-        dispatch.notify(queue: .main) {
-            if (Globals.userHandler.isLoggedIn) {
-                self.presentPlaidLinkUsingLinkToken()
-            }
-        }
+        self.addSwiftUIView(SwiftUIViews.signup)
     }
     
-    @IBAction func signup(_ sender: Any?) {
-        let dispatch = DispatchGroup()
-        dispatch.enter()
-        
-        Globals.userHandler.signup(dispatch)
-        
-        if (Globals.userHandler.isRegistered) {
-            self.login(nil)
-        }
+    @objc func userLoggedIn() {
+        self.removeSwiftUIView()
+        presentPlaidLinkUsingLinkToken()
     }
 }

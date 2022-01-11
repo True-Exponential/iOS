@@ -9,7 +9,7 @@
 import Foundation
 
 struct StrUtils {
-    
+        
     static func showNumberWithCurrency(_ number: Int, _ currencyCode: String ) -> String {
         
         let prettyNumber = StrUtils.numberWithCommas(abs(number))

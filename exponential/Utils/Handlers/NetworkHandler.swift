@@ -10,18 +10,8 @@ import Foundation
 
 struct NetworkHandler {
     
-    static func getDefaultReq(_ relUrl : String, _ token: String?, _ extraParams: [String:Any]?) -> URLRequest? {
+    static func getDefaultReq(_ relUrl : String,  _ parameters: [String:Any]) -> URLRequest? {
         if let url = URL(string: Globals.getServerAddr() + "/" + relUrl) {
-            var parameters = [String : Any]()
-            if let _token = token {
-                parameters = ["token": _token]
-            }
-            
-            if let _extraParams = extraParams {
-                for param in _extraParams {
-                    parameters[param.key] = param.value
-                }
-            }
             
             var request = URLRequest(url: url)
             do {
@@ -32,6 +22,7 @@ struct NetworkHandler {
             
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.addValue("Bearer " + Globals.userHandler.getUserToken(), forHTTPHeaderField: "Authorization")
             request.httpMethod = "POST"
             
             return request
@@ -40,14 +31,18 @@ struct NetworkHandler {
         return nil
     }
     
-    static func sendPostRequest(_ dispatch : DispatchGroup,_ url: String, _ token: String?,_ extraParams: [String:Any]?,
+    static func sendPostRequest(_ dispatch : DispatchGroup,_ url: String, _ extraParams: [String:Any],
      _ callback: @escaping (_ response : [String: Any]?) ->Void) {
 
         let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
+        config.timeoutIntervalForRequest = 120.0
+        config.timeoutIntervalForResource = 120.0
         
-        if let request = NetworkHandler.getDefaultReq(url, token,extraParams) {
-            let task = session.dataTask(with: request) { data, response, error in
+        let session = URLSession(configuration: config)
+
+        if let request = NetworkHandler.getDefaultReq(url, extraParams) {
+            
+            session.dataTask(with: request) { data, response, error in
                 
                 // ensure there is no error for this HTTP response
                 if error == nil {
@@ -66,9 +61,7 @@ struct NetworkHandler {
                 }
                 
                 dispatch.leave()
-            }
-            
-            task.resume()
+            }.resume()
         }
         else {
             dispatch.leave()
@@ -81,8 +74,7 @@ struct NetworkHandler {
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
-        let task = session.dataTask(with: url) { data, response, error in
-            
+        session.dataTask(with: url) { data, response, error in
             if error == nil {
                 // ensure there is data returned from this HTTP response
                 
@@ -98,9 +90,30 @@ struct NetworkHandler {
             }
             
             dispatch.leave()
-        }
+        }.resume()
+    }
+    
+    static func sendPostRequest(_ url: String, _ extraParams: [String:Any],
+     _ callback: @escaping (_ response : [String: Any]?) ->Void) async {
         
-        task.resume()
+        if let request = NetworkHandler.getDefaultReq(url, extraParams) {
+            do {
+                let (data, _) = try await URLSession.shared.data(for: request)
+                
+                guard let json = (try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [String: Any]
+                else {
+                    print("Not containing JSON")
+                    callback(nil)
+                    return
+                }
+                
+                callback(json)
+            }
+            catch{
+                print("Error in post call")
+                callback(nil)
+            }
+        }
     }
     
 }

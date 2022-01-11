@@ -1,19 +1,11 @@
 import UIKit
 import SwiftUI
 
-@available(iOS 13.0, *)
+
 extension StartVC {
     func presentSwiftUILinkToken() {
-        let dispatch = DispatchGroup()
-    
-        dispatch.enter()
-        
-        Globals.plaidHandler.getLinkToken(dispatch)
-        
-        dispatch.notify(queue: .main) {
-            let configuration = self.createLinkConfig(linkToken: Globals.plaidHandler.getLinkToken())
-            self.presentLink(with: .linkToken(configuration))
-        }
+        let configuration = self.createLinkConfig(linkToken: Globals.plaidHandler.getLinkToken())
+        self.presentLink(with: .linkToken(configuration))
     }
     
     func presentSwiftUIPublicKey() {

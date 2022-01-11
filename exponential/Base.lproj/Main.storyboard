@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0BW-6f-BQs">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,58 +25,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" systemColor="labelColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owB-X4-eC0">
-                                <rect key="frame" x="120" y="266" width="134" height="54"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" buttonSize="large">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Login">
-                                            <attributes>
-                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <font key="NSFont" size="21" name="Helvetica"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <attributedString key="attributedSubtitle"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="login:" destination="0BW-6f-BQs" eventType="touchUpInside" id="sZy-yr-klu"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9S-xr-5t6">
-                                <rect key="frame" x="134" y="460" width="106" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" buttonSize="large">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Signup">
-                                            <attributes>
-                                                <font key="NSFont" size="21" name="Helvetica"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <attributedString key="attributedSubtitle"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="signup:" destination="0BW-6f-BQs" eventType="touchUpInside" id="laL-zX-QHU"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="I9v-78-tO0" firstAttribute="leading" secondItem="g09-qw-1Bg" secondAttribute="leadingMargin" constant="-4" id="4aP-5V-KuM"/>
                             <constraint firstItem="I9v-78-tO0" firstAttribute="top" secondItem="h61-s4-zTm" secondAttribute="bottom" constant="33" id="7yd-GK-4rv"/>
-                            <constraint firstItem="owB-X4-eC0" firstAttribute="centerY" secondItem="g09-qw-1Bg" secondAttribute="centerY" constant="7" id="9mP-xb-ftf"/>
                             <constraint firstItem="I9v-78-tO0" firstAttribute="centerX" secondItem="g09-qw-1Bg" secondAttribute="centerX" id="Bd2-OC-Pwt"/>
-                            <constraint firstItem="owB-X4-eC0" firstAttribute="centerX" secondItem="g09-qw-1Bg" secondAttribute="centerX" id="yKN-KW-XPt"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="heightConstaint" destination="9mP-xb-ftf" id="5gI-tj-bq9"/>
-                        <outlet property="startButton" destination="owB-X4-eC0" id="1b1-n5-p3U"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wM2-SH-Zdc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

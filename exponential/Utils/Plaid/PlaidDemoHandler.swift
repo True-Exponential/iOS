@@ -53,8 +53,7 @@ struct PlaidDemoHandler : Finance {
     func getLinkToken() -> String {return ""}
     func setLinkToken(_ token : String?) {}
     
-    func getLinkToken(_ dispatch : DispatchGroup){}
-    func getAccessToken(_ publicToken: String,_ dispatch : DispatchGroup) {}
+    func generateAccessToken(_ publicToken: String,_ dispatch : DispatchGroup) {}
     
 }
 

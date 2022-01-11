@@ -35,11 +35,9 @@ class UserHandler {
             UserDefaults.standard.set(1,forKey: UserHandler.USER_REGISTERED)
         }
     }
-
     
     func setUserToken(_ token : String) {
-        userToken = token
-        
+        userToken = token        
         UserDefaults.standard.set(self.userToken, forKey: UserHandler.USER_TOKEN_KEY_NAME)
     }
     
@@ -50,10 +48,7 @@ class UserHandler {
                 self.isLoggedIn = true
                 UserDefaults.standard.set(1, forKey: UserHandler.USER_SIGNED_IN)
                 
-                if let linkToken = data["plaidLinkToken"] as? String {
-                //if let _ = data["shouldLoginToPlaid"] as? Bool, let linkToken = data["plaidLinkToken"] as? String {
-                    Globals.plaidHandler.setLinkToken(linkToken)
-                }
+                Globals.plaidHandler.setLinkToken(data["plaidLinkToken"] as? String ?? "")
             }
             else {
                 UserDefaults.standard.set(0, forKey: UserHandler.USER_SIGNED_IN)
@@ -65,14 +60,21 @@ class UserHandler {
         isRegistered = true
     }
     
-    func login(_ dispatch : DispatchGroup) {
-        NetworkHandler.sendPostRequest(dispatch, "login", nil,["email" : "omer.paran@true-exp.com","password" : "qazwsx11", "token":nil], self.loginCallBack)
+    func login(_ dispatch : DispatchGroup, _ email: String, _ password: String) {
+        if(Globals.demoMode) {
+            UserDefaults.standard.set(1,forKey: UserHandler.USER_SIGNED_IN)
+            dispatch.leave()
+        }
+        else {
+            NetworkHandler.sendPostRequest(dispatch, "login", ["email" : email,"password" : password, "token":nil], self.loginCallBack)
+        }
+        
     }
     
-    func signup(_ dispatch : DispatchGroup) {
-        NetworkHandler.sendPostRequest(dispatch, "signup", nil,
-    ["email" : "omer.paran@true-exp.com","password" : "qazwsx11","agreement_approve": "1","invite_token": nil],
-                                       self.signupCallBack)
+    func signup(_ dispatch : DispatchGroup, _ email: String, _ password: String) {
+        NetworkHandler.sendPostRequest(dispatch, "signup",
+                                             ["email" : email,"password" : password,"agreement_approve": "1","invite_token": nil],
+                                             self.signupCallBack)
     }
     
     static private let USER_TOKEN_KEY_NAME = "UserToken"
@@ -81,4 +83,10 @@ class UserHandler {
     
     private var userToken : String = ""
 }
+
+/*func signup(_ email: String, _ password: String) async {
+    await NetworkHandler.sendPostRequest("signup", nil,
+                                         ["email" : email,"password" : password,"agreement_approve": "1","invite_token": nil],
+                                         self.signupCallBack)
+}*/
 

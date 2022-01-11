@@ -16,7 +16,7 @@ extension StartVC {
             let dispatch = DispatchGroup()
             dispatch.enter()
             
-            Globals.plaidHandler.getAccessToken(success.publicToken, dispatch)
+            Globals.plaidHandler.generateAccessToken(success.publicToken, dispatch)
             
             dispatch.notify(queue: .main) {
                 self.getDataAndPresentUI()
@@ -53,23 +53,21 @@ extension StartVC {
     
     func presentPlaidLinkUsingLinkToken() {
         
-        let canAccessPlaid = !Globals.plaidHandler.getLinkToken().isEmpty
+        let canAccessPlaid = Globals.plaidHandler.getLinkToken().isEmpty
         
         if canAccessPlaid {
             self.getDataAndPresentUI()
         }
         else {
-            if Globals.plaidHandler.getLinkToken().count > 0 {
-                let linkConfiguration = self.createLinkConfig(linkToken: Globals.plaidHandler.getLinkToken())
-                
-                let result = Plaid.create(linkConfiguration)
-                switch result {
-                case .failure(let error):
-                    print("Unable to create Plaid handler due to: \(error)")
-                case .success(let handler):
-                    handler.open(presentUsing: .viewController(self))
-                    self.linkHandler = handler
-                }
+            let linkConfiguration = self.createLinkConfig(linkToken: Globals.plaidHandler.getLinkToken())
+            
+            let result = Plaid.create(linkConfiguration)
+            switch result {
+            case .failure(let error):
+                print("Unable to create Plaid handler due to: \(error)")
+            case .success(let handler):
+                handler.open(presentUsing: .viewController(self))
+                self.linkHandler = handler
             }
         }
     }
