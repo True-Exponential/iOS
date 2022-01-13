@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TransactionEx : Transaction {
+class TransactionEx : Transaction, Identifiable {
     
     var categoryDesc : String {
         let category = Globals.categories[getCategoryId()]
@@ -25,5 +25,7 @@ class TransactionEx : Transaction {
         
         return ""
     }
+    
+    var ammount : String {StrUtils.showNumberWithCurrency(getAmount() ,getCurrencyCode())}
     
 }

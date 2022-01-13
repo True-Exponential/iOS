@@ -59,26 +59,32 @@ struct Accounts {
         
         if !depositAccounts.isEmpty {
             groupedAccounts.append(depositAccounts)
+            sortedAccounts += depositAccounts
         }
         
         if !creditAccounts.isEmpty {
             groupedAccounts.append(creditAccounts)
+            sortedAccounts += creditAccounts
         }
         
         if !loanAccounts.isEmpty {
             groupedAccounts.append(loanAccounts)
+            sortedAccounts += loanAccounts
         }
         
         if !investmentsAccounts.isEmpty {
             groupedAccounts.append(investmentsAccounts)
+            sortedAccounts += investmentsAccounts
         }
         
         if !brokerageAccounts.isEmpty {
             groupedAccounts.append(brokerageAccounts)
+            sortedAccounts += brokerageAccounts
         }
         
         if !otherAccounts.isEmpty {
             groupedAccounts.append(otherAccounts)
+            sortedAccounts += otherAccounts
         }
     }
     
@@ -146,11 +152,36 @@ struct Accounts {
         return retAccount
     }
     
+    subscript(_ accountType: AccountType) -> [AccountEx] {
+        switch(accountType) {
+        case .deposit:
+            return depositAccounts
+            
+        case .credit:
+            return creditAccounts
+            
+        case .loan:
+            return loanAccounts
+            
+        case .investment:
+            return investmentsAccounts
+            
+        case .brokerage:
+            return brokerageAccounts
+            
+        case .other:
+            return otherAccounts
+        }
+    }
+    
+    func getSortedAccounts() -> [AccountEx] {sortedAccounts}
+    
     var count : Int {accounts.count}
     
     private var accounts = [String: AccountEx]()
     
     private var groupedAccounts = [[AccountEx]]()
+    private var sortedAccounts = [AccountEx]()
     
     private var depositAccounts = [AccountEx]()
     private var creditAccounts = [AccountEx]()

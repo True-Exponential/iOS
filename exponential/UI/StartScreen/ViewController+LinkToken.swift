@@ -43,10 +43,7 @@ extension StartVC {
             dispatch.enter()
             Globals.plaidHandler.loadCategories(dispatch)
             dispatch.notify(queue: .main) {
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                
-                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MainTabCtrl")
-                self.present(nextViewController, animated:true, completion:nil)
+                self.addSwiftUIView(SwiftUIViews.accountList)
             }
         }
     }

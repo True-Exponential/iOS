@@ -10,6 +10,19 @@ import Foundation
 
 class Account : Codable {
     
+    init(_ name: String,_ type: AccountType) {
+        self.name = name
+        self.type = type
+        
+        official_name = ""
+        mask = ""
+        id = ""
+        subType = 0
+        typeDesc = ""
+        subTypeDesc = ""
+        balances = AccountBalance()
+    }
+    
     init(_ account : Account) {
         name = account.getName()
         official_name = account.getOfficialName()

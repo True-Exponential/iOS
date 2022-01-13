@@ -13,6 +13,10 @@ let emailPattern = #"^\S+@\S+\.\S+$"#
 struct Validations {
 
     static func validate(email : String) -> Bool {
+        if (Globals.demoMode) {
+            return true
+        }
+        
         let result = email.range(
             of: emailPattern,
             options: .regularExpression

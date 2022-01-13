@@ -7,97 +7,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "01315385-7884-43F1-9CFE-EB71895844BD"
+            uuid = "179CAD72-938B-44C7-A40E-3C77F819C9E8"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "exponential/Utils/Handlers/NetworkHandler.swift"
+            filePath = "exponential/UI/Account/transactionslist.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "sendPostRequest(_:_:_:_:)"
-            landmarkType = "7">
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1A630DA9-C7CE-446D-A0B7-52B096886C4C"
+            uuid = "B017915E-D9B8-466D-A63F-B8CBE5EA3AFF"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "exponential/Utils/Handlers/NetworkHandler.swift"
+            filePath = "exponential/UI/Account/transactionslist.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "sendPostRequest(_:_:_:_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1A630DA9-C7CE-446D-A0B7-52B096886C4C - e82d665351ca0ea6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static Exponential.NetworkHandler.sendPostRequest(__C.OS_dispatch_group, Swift.String, Swift.Dictionary&lt;Swift.String, Any&gt;, (Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Exponential"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Judas/xcode%20projects/exponential/exponential/Utils/Handlers/NetworkHandler.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "292">
-               </Location>
-               <Location
-                  uuid = "1A630DA9-C7CE-446D-A0B7-52B096886C4C - e82d665351ca0ea6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static Exponential.NetworkHandler.sendPostRequest(__C.OS_dispatch_group, Swift.String, Swift.Dictionary&lt;Swift.String, Any&gt;, (Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Exponential"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Judas/xcode%20projects/exponential/exponential/Utils/Handlers/NetworkHandler.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "376">
-               </Location>
-            </Locations>
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AC9BF7FB-4663-4823-BDB7-581997D0C12E"
+            uuid = "05809B88-1C5C-4B04-BCAD-871A5A0C3A02"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "exponential/Utils/Handlers/NetworkHandler.swift"
+            filePath = "exponential/Utils/Plaid/TransactionEx.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "sendPostRequest(_:_:_:_:)"
-            landmarkType = "7">
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "TransactionEx"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "177E88EC-211C-445F-9801-413DAAF3C619"
+            uuid = "49406BC3-4573-4E3C-86DA-45F57BFBDD2E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "exponential/Utils/Handlers/NetworkHandler.swift"
+            filePath = "exponential/UI/Account/TransactionView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "sendPostRequest(_:_:_:_:)"
-            landmarkType = "7">
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "body"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -8,7 +8,23 @@
 
 import Foundation
 
-class AccountEx : Account {
+class AccountEx : Account, Identifiable {
+    
+    override init(_ name: String,_ type: AccountType) {
+        super.init(name,type)
+    }
+    
+    override init(_ account: Account){
+        super.init(account)
+    }
+    
+    override init(_ account: NSDictionary) {
+        super.init(account)
+    }
+    
+    required init(from decoder: Decoder) throws {
+        fatalError("init(from:) has not been implemented")
+    }
     
     func setTransactions(_ transactions : [TransactionEx]) {
         self.transactions = transactions

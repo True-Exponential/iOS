@@ -15,6 +15,9 @@
 		913AF7CA251D3C04007CC064 /* ViewController+PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913AF7C9251D3C04007CC064 /* ViewController+PublicKey.swift */; };
 		91974B0B246D6D4200182D9B /* AppDelegate+OAuthSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91974B0A246D6D4200182D9B /* AppDelegate+OAuthSupport.swift */; };
 		91BB7745246D50C800BFD0CE /* ViewController+LinkToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BB7744246D50C800BFD0CE /* ViewController+LinkToken.swift */; };
+		A606461827902FEC00E246C2 /* AccountsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A606461727902FEC00E246C2 /* AccountsList.swift */; };
+		A606461A279031E200E246C2 /* transactionslist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6064619279031E200E246C2 /* transactionslist.swift */; };
+		A606461C279067B500E246C2 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A606461B279067B500E246C2 /* TransactionView.swift */; };
 		A60EE978278B30F500B84623 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60EE977278B30F500B84623 /* Login.swift */; };
 		A6101E87276B3C2C0092EE75 /* accounts.json in Resources */ = {isa = PBXBuildFile; fileRef = A6101E86276B3C2C0092EE75 /* accounts.json */; };
 		A6101E89276B3C7E0092EE75 /* AccountBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6101E88276B3C7E0092EE75 /* AccountBalance.swift */; };
@@ -43,6 +46,8 @@
 		A634773C275CF5CE00AF3D6D /* AccountsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A634773B275CF5CE00AF3D6D /* AccountsTableVC.swift */; };
 		A634773F275D17B800AF3D6D /* account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A634773E275D17B800AF3D6D /* account.swift */; };
 		A6347741275D1F4B00AF3D6D /* AccountTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6347740275D1F4B00AF3D6D /* AccountTable.swift */; };
+		A65DFD9C278F475A00C75E55 /* accountview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65DFD9B278F475A00C75E55 /* accountview.swift */; };
+		A65DFD9F278F4C9B00C75E55 /* uiutils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65DFD9E278F4C9B00C75E55 /* uiutils.swift */; };
 		A66881EA2761069B00102E3D /* UserHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66881E92761069B00102E3D /* UserHandler.swift */; };
 		A66881EC2761092500102E3D /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66881EB2761092500102E3D /* NetworkHandler.swift */; };
 		A66881EE27626BF000102E3D /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66881ED27626BF000102E3D /* Security.swift */; };
@@ -103,6 +108,9 @@
 		91648DDD24A47EF3002BED1F /* exponential.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = exponential.entitlements; sourceTree = "<group>"; };
 		91974B0A246D6D4200182D9B /* AppDelegate+OAuthSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+OAuthSupport.swift"; sourceTree = "<group>"; };
 		91BB7744246D50C800BFD0CE /* ViewController+LinkToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+LinkToken.swift"; sourceTree = "<group>"; };
+		A606461727902FEC00E246C2 /* AccountsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsList.swift; sourceTree = "<group>"; };
+		A6064619279031E200E246C2 /* transactionslist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = transactionslist.swift; sourceTree = "<group>"; };
+		A606461B279067B500E246C2 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 		A60EE977278B30F500B84623 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		A6101E86276B3C2C0092EE75 /* accounts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = accounts.json; sourceTree = "<group>"; };
 		A6101E88276B3C7E0092EE75 /* AccountBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBalance.swift; sourceTree = "<group>"; };
@@ -130,6 +138,8 @@
 		A634773B275CF5CE00AF3D6D /* AccountsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsTableVC.swift; sourceTree = "<group>"; };
 		A634773E275D17B800AF3D6D /* account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = account.swift; sourceTree = "<group>"; };
 		A6347740275D1F4B00AF3D6D /* AccountTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTable.swift; sourceTree = "<group>"; };
+		A65DFD9B278F475A00C75E55 /* accountview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accountview.swift; sourceTree = "<group>"; };
+		A65DFD9E278F4C9B00C75E55 /* uiutils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uiutils.swift; sourceTree = "<group>"; };
 		A66881E92761069B00102E3D /* UserHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHandler.swift; sourceTree = "<group>"; };
 		A66881EB2761092500102E3D /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		A66881ED27626BF000102E3D /* Security.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
@@ -195,6 +205,7 @@
 		91035E511E3CA7C000A97B26 /* exponential */ = {
 			isa = PBXGroup;
 			children = (
+				A65DFD9D278F4C8B00C75E55 /* UiUtils */,
 				A6101E85276B3B420092EE75 /* Model */,
 				A6DAF12D2753C66500747B14 /* UI */,
 				A6DAF12A2753C61B00747B14 /* Utils */,
@@ -291,6 +302,7 @@
 		A6347730275CC9EE00AF3D6D /* StartScreen */ = {
 			isa = PBXGroup;
 			children = (
+				A6EC724F278B381F0009C21F /* swiftuibridge.swift */,
 				91BB7744246D50C800BFD0CE /* ViewController+LinkToken.swift */,
 				A6347733275CCADF00AF3D6D /* StartVC.swift */,
 			);
@@ -300,6 +312,9 @@
 		A6347735275CEFA200AF3D6D /* PlaidUI */ = {
 			isa = PBXGroup;
 			children = (
+				91035E541E3CA7C000A97B26 /* ViewController.swift */,
+				913AF7C9251D3C04007CC064 /* ViewController+PublicKey.swift */,
+				7A92F55D25BF40FB00009CFD /* ViewController+SwiftUI.swift */,
 				91974B0A246D6D4200182D9B /* AppDelegate+OAuthSupport.swift */,
 				7A92F55925BF3CF800009CFD /* LinkKitSwiftUISupport.swift */,
 			);
@@ -315,6 +330,25 @@
 				A688F1A3277B65A300621BCB /* TransactionsTableVC.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		A65DFD9A278F474000C75E55 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				A65DFD9B278F475A00C75E55 /* accountview.swift */,
+				A606461727902FEC00E246C2 /* AccountsList.swift */,
+				A6064619279031E200E246C2 /* transactionslist.swift */,
+				A606461B279067B500E246C2 /* TransactionView.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		A65DFD9D278F4C8B00C75E55 /* UiUtils */ = {
+			isa = PBXGroup;
+			children = (
+				A65DFD9E278F4C9B00C75E55 /* uiutils.swift */,
+			);
+			path = UiUtils;
 			sourceTree = "<group>";
 		};
 		A677E896278C7F260067666B /* Ctrl */ = {
@@ -343,26 +377,15 @@
 		A6DAF12D2753C66500747B14 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A65DFD9A278F474000C75E55 /* Account */,
 				A677E896278C7F260067666B /* Ctrl */,
 				A60EE976278B30E100B84623 /* Login */,
 				A6347736275CEFB200AF3D6D /* Main */,
 				A6347735275CEFA200AF3D6D /* PlaidUI */,
 				A6347730275CC9EE00AF3D6D /* StartScreen */,
-				A6DAF12E2753C67900747B14 /* controllers */,
 				91035E521E3CA7C000A97B26 /* AppDelegate.swift */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		A6DAF12E2753C67900747B14 /* controllers */ = {
-			isa = PBXGroup;
-			children = (
-				91035E541E3CA7C000A97B26 /* ViewController.swift */,
-				913AF7C9251D3C04007CC064 /* ViewController+PublicKey.swift */,
-				7A92F55D25BF40FB00009CFD /* ViewController+SwiftUI.swift */,
-				A6EC724F278B381F0009C21F /* swiftuibridge.swift */,
-			);
-			path = controllers;
 			sourceTree = "<group>";
 		};
 		A6DAF12F2753C6C500747B14 /* Handlers */ = {
@@ -477,6 +500,7 @@
 				A6E218682767945B004F9BEC /* Mortgage.swift in Sources */,
 				A6DAF1312753C6E600747B14 /* PlaidHandler.swift in Sources */,
 				A634773A275CF06800AF3D6D /* Main.swift in Sources */,
+				A606461C279067B500E246C2 /* TransactionView.swift in Sources */,
 				A6E218642767937C004F9BEC /* Liablities.swift in Sources */,
 				A6E2186C27679FD3004F9BEC /* Apr.swift in Sources */,
 				913AF7CA251D3C04007CC064 /* ViewController+PublicKey.swift in Sources */,
@@ -486,12 +510,15 @@
 				A6ECEC9B277CB7C1007F4944 /* Categories.swift in Sources */,
 				91974B0B246D6D4200182D9B /* AppDelegate+OAuthSupport.swift in Sources */,
 				A6ECEC9F277CC192007F4944 /* TransactionEx.swift in Sources */,
+				A606461827902FEC00E246C2 /* AccountsList.swift in Sources */,
 				7A92F55E25BF40FB00009CFD /* ViewController+SwiftUI.swift in Sources */,
 				A60EE978278B30F500B84623 /* Login.swift in Sources */,
 				A6E218602765F67B004F9BEC /* DepositAccountSubType.swift in Sources */,
+				A65DFD9F278F4C9B00C75E55 /* uiutils.swift in Sources */,
 				A677E898278C7F300067666B /* checkbox.swift in Sources */,
 				A6101E89276B3C7E0092EE75 /* AccountBalance.swift in Sources */,
 				A6DAF12C2753C63300747B14 /* globals.swift in Sources */,
+				A606461A279031E200E246C2 /* transactionslist.swift in Sources */,
 				A6E218742767B667004F9BEC /* RepaymentPlan.swift in Sources */,
 				A6E2186A276794B8004F9BEC /* StudentLoan.swift in Sources */,
 				A66881F02762730C00102E3D /* Holding.swift in Sources */,
@@ -513,6 +540,7 @@
 				A6347741275D1F4B00AF3D6D /* AccountTable.swift in Sources */,
 				A631B081275E41D900D490F7 /* StrUtils.swift in Sources */,
 				A634773C275CF5CE00AF3D6D /* AccountsTableVC.swift in Sources */,
+				A65DFD9C278F475A00C75E55 /* accountview.swift in Sources */,
 				91035E531E3CA7C000A97B26 /* AppDelegate.swift in Sources */,
 				A6EC7250278B381F0009C21F /* swiftuibridge.swift in Sources */,
 				A631B085275E4AC000D490F7 /* OptUtils.swift in Sources */,

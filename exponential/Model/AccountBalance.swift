@@ -10,7 +10,11 @@ import Foundation
 
 struct AccountBalance :  Codable {
     
-    init() {}
+    init() {
+        current = Int.random(in: 1..<20000)
+        limit = Int.random(in: 1..<20000) + current!
+        available = Int.random(in: 1..<15000)
+    }
     
     init(_ balances: NSDictionary) {
         available = balances["available"] as? Int

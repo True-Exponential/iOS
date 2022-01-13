@@ -10,6 +10,12 @@ import Foundation
 
 class Transaction :  Codable {
     
+    init(_ name: String, _ categoryId : String, _ amount : Int) {
+        self.name = name
+        self.category_id = categoryId
+        self.amount = amount
+    }
+    
     init(_ transaction : Transaction) {
         accountId = transaction.getAccountId()
         accountOwner = transaction.getAccountOwner()
@@ -113,31 +119,31 @@ class Transaction :  Codable {
     func getLocation() -> Location {location}
     func getCategories() -> [String] {categories}
     
-    private var accountId  : String?
-    private var accountOwner : String?
-    private var authorizedDate : String?
-    private var authorizedTime : String?
-    private var category_id : String?
-    private var checkNumber : String?
-    private var currencyCode : String?
-    private var date : String?
-    private var time : String?
-    private var dateTime : String?
-    private var name  : String?
-    private var merchantName : String?
-    private var channel : String?
-    private var pendingTransactionId : String?
-    private var personalFinanceCategory : String?
-    private var transactionCode : String?
-    private var transactionId : String?
-    private var transactionType : String?
-    private var unofficialCurrencyCode : String?
+    private var accountId  : String? = nil
+    private var accountOwner : String?  = nil
+    private var authorizedDate : String? = nil
+    private var authorizedTime : String?  = nil
+    private var category_id : String?  = nil
+    private var checkNumber : String?  = nil
+    private var currencyCode : String?  = nil
+    private var date : String?  = nil
+    private var time : String?  = nil
+    private var dateTime : String?  = nil
+    private var name  : String?  = nil
+    private var merchantName : String?  = nil
+    private var channel : String?  = nil
+    private var pendingTransactionId : String?  = nil
+    private var personalFinanceCategory : String?  = nil
+    private var transactionCode : String?  = nil
+    private var transactionId : String?  = nil
+    private var transactionType : String?  = nil
+    private var unofficialCurrencyCode : String?  = nil
     
-    private var amount : Int?
-    private var pending : Bool?
+    private var amount : Int?  = nil
+    private var pending : Bool?  = nil
     
     private var payment = Payment()
     private var location = Location()
     
-    private var categories : [String]    
+    private var categories = [String]()
 }

@@ -13,6 +13,7 @@ import SwiftUI
 enum SwiftUIViews {
     case login
     case signup
+    case accountList
 }
 
 var addedVC : UIViewController?
@@ -27,6 +28,9 @@ extension UIViewController {
             
         case .signup:
             self.addSwiftUIViewInt(UIHostingController(rootView:Signup()))
+        
+        case .accountList:
+            self.addSwiftUIViewInt(UIHostingController(rootView:AccountsList()))
         }
     }
     
