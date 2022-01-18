@@ -18,6 +18,8 @@ struct Signup: View {
     @State var checked = true
     @State var busy = false
     @State var showError = false
+    @State var showTerms = false
+    @State var showPrivacy = false
     
     func shouldDiabled() -> Bool {
         busy || email.isEmpty || !Validations.validate(email :email) || password.isEmpty
@@ -43,114 +45,173 @@ struct Signup: View {
                 }
             }
         }
-}
-
-func switchToLogin() {
-    NotificationCenter.default.post(name: Notification.Name(Messages.SwitchToLogin.rawValue), object: nil)
-}
-
-var body: some View {
-    VStack(alignment: .center) {
-        Image("expoicon")
-            .frame(maxWidth: .infinity, alignment: .leading)
-        HStack {
-            Text("Hello")
-            Text("There,")
-                .fontWeight(.bold)
-        }
-        .foregroundColor(Color.black)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .font(.largeTitle)
-        Text("Enter the information below to be part of something exclusive")
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.top)
-            .foregroundColor(Color.black)
-        Group {
-            TextField("First Name (optional)", text: $firstName)
-                .padding(.top)
-                .textFieldStyle(.roundedBorder)
-            TextField("Last Name (optional)", text: $lastName)
-                .padding(.top)
-                .textFieldStyle(.roundedBorder)
-        }
-        TextField("Email Address", text: $email)
-            .padding(.top)
-            .textFieldStyle(.roundedBorder)
-            .disableAutocorrection(true)
-            .keyboardType(.emailAddress)
-        
-        SecureField("Choose Password", text: $password)
-            .padding(.top)
-            .padding(.bottom)
-            .textFieldStyle(.roundedBorder)
-        
-        /*HStack {
-         CheckBoxView(checked: $checked)
-         Text("Accept Agreement:")
-         }*/
-        
-        
-        HStack {
-            Button(action :
-                    {self.signupToExponential()
-            })
-            {
-                Text("Signup")
-                    .foregroundColor(Color.white)
-                    .frame(maxWidth: .infinity, alignment: .center )
-                    .padding()
-                    .background(self.shouldDiabled() ? Color.gray : Color.blue)
-            }
-            .cornerRadius(40)
-            .disabled(self.shouldDiabled())
-            Button(action :
-                    {self.switchToLogin()
-            })
-            {
-                Text("Already a member?")
-                    .foregroundColor(Color.white)
-                    .frame(maxWidth: .infinity, alignment: .center )
-                    .padding()
-                    .background(busy ? Color.gray : Color.blue)
-            }
-            .cornerRadius(40)
-            .disabled(busy)
-        }
-        .font(Font.system(size:15))
-        Group {
-            ProgressView("Please wait...")
-                .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-                .hidden(!busy)
-                .foregroundColor(.blue)
-            
-            Text("Failed to register your account. Are you already a member?")
-                .fontWeight(.bold)
-                .hidden(!showError)
-                .multilineTextAlignment(.center)
-                .padding()
-                .foregroundColor(Color.red)
-        }
-        
-        Spacer()
-        VStack {
-            Text("By creating an account you agree to our")
-            HStack {
-                Text("Terms & Conditons")
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.blue)
-                Text("and")
-                Text("Privacy Policy")
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.blue)
-            }
-        }
-        .frame(maxWidth: .infinity, alignment: .center )
-        .foregroundColor(Color.black)
     }
     
-    .padding()
-    .background(Color.white)
-}
+    func switchToLogin() {
+        NotificationCenter.default.post(name: Notification.Name(Messages.SwitchToLogin.rawValue), object: nil)
+    }
+    
+    func closePopup() {
+        showTerms = false
+        showPrivacy = false
+    }
+    
+    var body: some View {
+        VStack(alignment: .center) {
+            Image("expoicon")
+                .frame(maxWidth: .infinity, alignment: .leading)
+            HStack {
+                Text("Hello")
+                Text("There,")
+                    .fontWeight(.bold)
+            }
+            .foregroundColor(Color.black)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .font(.largeTitle)
+            Text("Enter the information below to be part of something exclusive")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.top)
+                .foregroundColor(Color.black)
+            Group {
+                TextField("First Name (optional)", text: $firstName)
+                    .padding(.top)
+                    .textFieldStyle(.roundedBorder)
+                TextField("Last Name (optional)", text: $lastName)
+                    .padding(.top)
+                    .textFieldStyle(.roundedBorder)
+            }
+            TextField("Email Address", text: $email)
+                .padding(.top)
+                .textFieldStyle(.roundedBorder)
+                .disableAutocorrection(true)
+                .keyboardType(.emailAddress)
+            
+            SecureField("Choose Password", text: $password)
+                .padding(.top)
+                .padding(.bottom)
+                .textFieldStyle(.roundedBorder)
+            
+            /*HStack {
+             CheckBoxView(checked: $checked)
+             Text("Accept Agreement:")
+             }*/
+            
+            
+            HStack {
+                Button(action :
+                        {self.signupToExponential()
+                })
+                {
+                    Text("Signup")
+                        .foregroundColor(Color.white)
+                        .frame(maxWidth: .infinity, alignment: .center )
+                        .padding()
+                        .background(self.shouldDiabled() ? Color.gray : Color.blue)
+                }
+                .cornerRadius(40)
+                .disabled(self.shouldDiabled())
+                Button(action :
+                        {self.switchToLogin()
+                })
+                {
+                    Text("Already a member?")
+                        .foregroundColor(Color.white)
+                        .frame(maxWidth: .infinity, alignment: .center )
+                        .padding()
+                        .background(busy ? Color.gray : Color.blue)
+                }
+                .cornerRadius(40)
+                .disabled(busy)
+            }
+            .font(Font.system(size:15))
+            Group {
+                ProgressView("Please wait...")
+                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                    .hidden(!busy)
+                    .foregroundColor(.blue)
+                
+                Text("Failed to register your account. Are you already a member?")
+                    .fontWeight(.bold)
+                    .hidden(!showError)
+                    .multilineTextAlignment(.center)
+                    .padding()
+                    .foregroundColor(Color.red)
+            }
+            
+            Spacer()
+            VStack {
+                Text("By creating an account you agree to our")
+                HStack {
+                    Text("Terms & Conditons")
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.blue)
+                        .onTapGesture {
+                            showTerms = true
+                            
+                        }
+                        .popover(isPresented: $showTerms) {
+                            VStack {
+                                Text("Terms and Conditions")
+                                    .font(.title)
+                                    .padding()
+                                Spacer()
+                                HStack {
+                                    Button(action :
+                                            {self.closePopup()
+                                    })
+                                    {
+                                        Text("Close")
+                                            .foregroundColor(Color.white)
+                                            .frame(maxWidth: .infinity, alignment: .center )
+                                            .padding()
+                                            .background(Color.blue)
+                                    }
+                                    .cornerRadius(40)
+                                }
+                                .frame(maxWidth: 200, alignment: .center )
+                            }
+                            
+                        }
+                    
+                    Text("and")
+                    Text("Privacy Policy")
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.blue)
+                        .onTapGesture {
+                            showPrivacy = true
+                        }
+                        .popover(isPresented: $showPrivacy) {
+                            VStack {
+                                Text("Privacy Policy")
+                                    .font(.title)
+                                    .padding()
+                                Spacer()
+                                HStack {
+                                    Button(action :
+                                            {self.closePopup()
+                                    })
+                                    {
+                                        Text("Close")
+                                            .foregroundColor(Color.white)
+                                            .frame(maxWidth: .infinity, alignment: .center )
+                                            .padding()
+                                            .background(Color.blue)
+                                    }
+                                    .cornerRadius(40)
+                                }
+                                .frame(maxWidth: 200, alignment: .center )
+                            }
+                            
+                        }
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .center )
+            .foregroundColor(Color.black)
+        }
+        
+        .padding()
+        .background(Color.white)
+    }
 }
 
 struct signup_Previews: PreviewProvider {
