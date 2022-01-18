@@ -83,7 +83,7 @@ class UserHandler {
             dispatch.leave()
         }
         else {
-            NetworkHandler.sendPostRequest(dispatch, "login", ["email" : email,"password" : password, "token":nil], self.loginCallBack)
+            NetworkHandler.sendPostRequest(dispatch, "login", ["email" : email,"password" : password], self.loginCallBack)
         }        
     }
     

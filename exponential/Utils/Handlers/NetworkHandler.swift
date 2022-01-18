@@ -22,7 +22,11 @@ struct NetworkHandler {
             
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
-            request.addValue("Bearer " + Globals.userHandler.userToken, forHTTPHeaderField: "Authorization")
+            
+            if (!Globals.userHandler.userToken.isEmpty) {
+                request.addValue("Bearer " + Globals.userHandler.userToken, forHTTPHeaderField: "Authorization")
+            }
+            
             request.httpMethod = "POST"
             
             return request

@@ -25,6 +25,7 @@ struct Login: View {
         let dispatch = DispatchGroup()
         dispatch.enter()
         busy = true
+        showError = false
         Globals.userHandler.login(dispatch, email, password)
         dispatch.notify(queue: .main) {
             busy = false

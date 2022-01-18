@@ -9,7 +9,7 @@
 import Foundation
 
 struct Globals {
-    static private let serverAddress = "https://172.31.10.112/"
+    static private let serverAddress = "http://localhost:8080"
     //static private let serverAddress = "http://10.0.0.11:8080"
     
     static let demoMode = false

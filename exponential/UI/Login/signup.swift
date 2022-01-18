@@ -30,6 +30,7 @@ struct Signup: View {
         let dispatch = DispatchGroup()
         dispatch.enter()
         busy = true
+        showError = false
         Globals.userHandler.signup(dispatch, email, password,firstName,lastName)
         dispatch.notify(queue: .main) {
             busy = false
