@@ -22,7 +22,7 @@ struct NetworkHandler {
             
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
-            request.addValue("Bearer " + Globals.userHandler.getUserToken(), forHTTPHeaderField: "Authorization")
+            request.addValue("Bearer " + Globals.userHandler.userToken, forHTTPHeaderField: "Authorization")
             request.httpMethod = "POST"
             
             return request
@@ -58,6 +58,9 @@ struct NetworkHandler {
                         
                         callback(json)
                     }
+                }
+                else {
+                    callback(nil)
                 }
                 
                 dispatch.leave()

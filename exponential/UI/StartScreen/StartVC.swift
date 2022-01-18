@@ -24,13 +24,32 @@ class StartVC: UIViewController, LinkOAuthHandling {
         super.viewDidLoad()
         
         let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(userLoggedIn), name: Notification.Name("UserLoggedIn"), object: nil)
+        nc.addObserver(self, selector: #selector(userLoggedIn), name: Notification.Name(Messages.UserLoggedIn.rawValue), object: nil)
+        nc.addObserver(self, selector: #selector(SwitchToLogin), name: Notification.Name(Messages.SwitchToLogin.rawValue), object: nil)
+        nc.addObserver(self, selector: #selector(SwitchToSignup), name: Notification.Name(Messages.SwitchToSignup.rawValue), object: nil)
         
-        self.addSwiftUIView(SwiftUIViews.signup)
+        if (Globals.userHandler.isRegistered) {
+            self.addSwiftUIView(SwiftUIViews.login)
+        }
+        else {
+            self.addSwiftUIView(SwiftUIViews.signup)
+        }
+        
     }
     
     @objc func userLoggedIn() {
         self.removeSwiftUIView()
         presentPlaidLinkUsingLinkToken()
     }
+    
+    @objc func SwitchToLogin() {
+        self.removeSwiftUIView()
+        self.addSwiftUIView(SwiftUIViews.login)
+    }
+    
+    @objc func SwitchToSignup() {
+        self.removeSwiftUIView()
+        self.addSwiftUIView(SwiftUIViews.signup)
+    }
+    
 }

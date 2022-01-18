@@ -34,6 +34,7 @@
 		A6101EA4276BBEAB0092EE75 /* creditloans.json in Resources */ = {isa = PBXBuildFile; fileRef = A6101EA1276BBEAB0092EE75 /* creditloans.json */; };
 		A6101EA5276BBEAB0092EE75 /* mortgages.json in Resources */ = {isa = PBXBuildFile; fileRef = A6101EA2276BBEAB0092EE75 /* mortgages.json */; };
 		A6101EA6276BBEAB0092EE75 /* studentloans.json in Resources */ = {isa = PBXBuildFile; fileRef = A6101EA3276BBEAB0092EE75 /* studentloans.json */; };
+		A61437612796E3A50041C55C /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A61437602796E3A50041C55C /* Messages.swift */; };
 		A631B07D275E3A7600D490F7 /* location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631B07C275E3A7600D490F7 /* location.swift */; };
 		A631B07F275E3E3200D490F7 /* payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631B07E275E3E3200D490F7 /* payment.swift */; };
 		A631B081275E41D900D490F7 /* StrUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A631B080275E41D900D490F7 /* StrUtils.swift */; };
@@ -43,9 +44,7 @@
 		A634772A275CB9BB00AF3D6D /* LinkKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6347728275CB9BB00AF3D6D /* LinkKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A6347734275CCADF00AF3D6D /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6347733275CCADF00AF3D6D /* StartVC.swift */; };
 		A634773A275CF06800AF3D6D /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6347739275CF06800AF3D6D /* Main.swift */; };
-		A634773C275CF5CE00AF3D6D /* AccountsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A634773B275CF5CE00AF3D6D /* AccountsTableVC.swift */; };
 		A634773F275D17B800AF3D6D /* account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A634773E275D17B800AF3D6D /* account.swift */; };
-		A6347741275D1F4B00AF3D6D /* AccountTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6347740275D1F4B00AF3D6D /* AccountTable.swift */; };
 		A65DFD9C278F475A00C75E55 /* accountview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65DFD9B278F475A00C75E55 /* accountview.swift */; };
 		A65DFD9F278F4C9B00C75E55 /* uiutils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65DFD9E278F4C9B00C75E55 /* uiutils.swift */; };
 		A66881EA2761069B00102E3D /* UserHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66881E92761069B00102E3D /* UserHandler.swift */; };
@@ -54,8 +53,8 @@
 		A66881F02762730C00102E3D /* Holding.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66881EF2762730C00102E3D /* Holding.swift */; };
 		A677E895278C57160067666B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A677E893278C57160067666B /* LaunchScreen.storyboard */; };
 		A677E898278C7F300067666B /* checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A677E897278C7F300067666B /* checkbox.swift */; };
+		A680A196279709C4009C888E /* viewex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A680A195279709C4009C888E /* viewex.swift */; };
 		A68536DB278C296A00E4C1D6 /* signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68536DA278C296A00E4C1D6 /* signup.swift */; };
-		A688F1A4277B65A300621BCB /* TransactionsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A688F1A3277B65A300621BCB /* TransactionsTableVC.swift */; };
 		A68FEB56278DEADF004644E7 /* validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68FEB55278DEADF004644E7 /* validations.swift */; };
 		A6DAF12C2753C63300747B14 /* globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DAF12B2753C63300747B14 /* globals.swift */; };
 		A6DAF1312753C6E600747B14 /* PlaidHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DAF1302753C6E600747B14 /* PlaidHandler.swift */; };
@@ -127,6 +126,7 @@
 		A6101EA1276BBEAB0092EE75 /* creditloans.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = creditloans.json; sourceTree = "<group>"; };
 		A6101EA2276BBEAB0092EE75 /* mortgages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mortgages.json; sourceTree = "<group>"; };
 		A6101EA3276BBEAB0092EE75 /* studentloans.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = studentloans.json; sourceTree = "<group>"; };
+		A61437602796E3A50041C55C /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		A631B07C275E3A7600D490F7 /* location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = location.swift; sourceTree = "<group>"; };
 		A631B07E275E3E3200D490F7 /* payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = payment.swift; sourceTree = "<group>"; };
 		A631B080275E41D900D490F7 /* StrUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrUtils.swift; sourceTree = "<group>"; };
@@ -135,9 +135,7 @@
 		A6347728275CB9BB00AF3D6D /* LinkKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = LinkKit.xcframework; sourceTree = "<group>"; };
 		A6347733275CCADF00AF3D6D /* StartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
 		A6347739275CF06800AF3D6D /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
-		A634773B275CF5CE00AF3D6D /* AccountsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsTableVC.swift; sourceTree = "<group>"; };
 		A634773E275D17B800AF3D6D /* account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = account.swift; sourceTree = "<group>"; };
-		A6347740275D1F4B00AF3D6D /* AccountTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTable.swift; sourceTree = "<group>"; };
 		A65DFD9B278F475A00C75E55 /* accountview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accountview.swift; sourceTree = "<group>"; };
 		A65DFD9E278F4C9B00C75E55 /* uiutils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uiutils.swift; sourceTree = "<group>"; };
 		A66881E92761069B00102E3D /* UserHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHandler.swift; sourceTree = "<group>"; };
@@ -146,8 +144,8 @@
 		A66881EF2762730C00102E3D /* Holding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Holding.swift; sourceTree = "<group>"; };
 		A677E894278C57160067666B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = exponential/exponential/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A677E897278C7F300067666B /* checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = checkbox.swift; sourceTree = "<group>"; };
+		A680A195279709C4009C888E /* viewex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewex.swift; sourceTree = "<group>"; };
 		A68536DA278C296A00E4C1D6 /* signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signup.swift; sourceTree = "<group>"; };
-		A688F1A3277B65A300621BCB /* TransactionsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsTableVC.swift; sourceTree = "<group>"; };
 		A68FEB55278DEADF004644E7 /* validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = validations.swift; sourceTree = "<group>"; };
 		A6DAF12B2753C63300747B14 /* globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globals.swift; sourceTree = "<group>"; };
 		A6DAF1302753C6E600747B14 /* PlaidHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaidHandler.swift; sourceTree = "<group>"; };
@@ -302,6 +300,8 @@
 		A6347730275CC9EE00AF3D6D /* StartScreen */ = {
 			isa = PBXGroup;
 			children = (
+				91035E521E3CA7C000A97B26 /* AppDelegate.swift */,
+				A6347739275CF06800AF3D6D /* Main.swift */,
 				A6EC724F278B381F0009C21F /* swiftuibridge.swift */,
 				91BB7744246D50C800BFD0CE /* ViewController+LinkToken.swift */,
 				A6347733275CCADF00AF3D6D /* StartVC.swift */,
@@ -324,10 +324,6 @@
 		A6347736275CEFB200AF3D6D /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				A6347739275CF06800AF3D6D /* Main.swift */,
-				A634773B275CF5CE00AF3D6D /* AccountsTableVC.swift */,
-				A6347740275D1F4B00AF3D6D /* AccountTable.swift */,
-				A688F1A3277B65A300621BCB /* TransactionsTableVC.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -351,12 +347,13 @@
 			path = UiUtils;
 			sourceTree = "<group>";
 		};
-		A677E896278C7F260067666B /* Ctrl */ = {
+		A677E896278C7F260067666B /* Lib */ = {
 			isa = PBXGroup;
 			children = (
 				A677E897278C7F300067666B /* checkbox.swift */,
+				A680A195279709C4009C888E /* viewex.swift */,
 			);
-			path = Ctrl;
+			path = Lib;
 			sourceTree = "<group>";
 		};
 		A6DAF12A2753C61B00747B14 /* Utils */ = {
@@ -370,6 +367,7 @@
 				A631B080275E41D900D490F7 /* StrUtils.swift */,
 				A631B084275E4AC000D490F7 /* OptUtils.swift */,
 				A68FEB55278DEADF004644E7 /* validations.swift */,
+				A61437602796E3A50041C55C /* Messages.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -378,12 +376,11 @@
 			isa = PBXGroup;
 			children = (
 				A65DFD9A278F474000C75E55 /* Account */,
-				A677E896278C7F260067666B /* Ctrl */,
+				A677E896278C7F260067666B /* Lib */,
 				A60EE976278B30E100B84623 /* Login */,
 				A6347736275CEFB200AF3D6D /* Main */,
 				A6347735275CEFA200AF3D6D /* PlaidUI */,
 				A6347730275CC9EE00AF3D6D /* StartScreen */,
-				91035E521E3CA7C000A97B26 /* AppDelegate.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -489,7 +486,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A688F1A4277B65A300621BCB /* TransactionsTableVC.swift in Sources */,
 				A6101E90276B45080092EE75 /* accounts.swift in Sources */,
 				A6101E92276B719C0092EE75 /* PlaidDemoHandler.swift in Sources */,
 				A6E2185E2765F63B004F9BEC /* CreditAccountSubType.swift in Sources */,
@@ -509,6 +505,7 @@
 				A6ECEC99277CB5CD007F4944 /* category.swift in Sources */,
 				A6ECEC9B277CB7C1007F4944 /* Categories.swift in Sources */,
 				91974B0B246D6D4200182D9B /* AppDelegate+OAuthSupport.swift in Sources */,
+				A61437612796E3A50041C55C /* Messages.swift in Sources */,
 				A6ECEC9F277CC192007F4944 /* TransactionEx.swift in Sources */,
 				A606461827902FEC00E246C2 /* AccountsList.swift in Sources */,
 				7A92F55E25BF40FB00009CFD /* ViewController+SwiftUI.swift in Sources */,
@@ -534,12 +531,11 @@
 				A66881EA2761069B00102E3D /* UserHandler.swift in Sources */,
 				A6E2185C2765F3FD004F9BEC /* accounttype.swift in Sources */,
 				A68FEB56278DEADF004644E7 /* validations.swift in Sources */,
+				A680A196279709C4009C888E /* viewex.swift in Sources */,
 				A6101E9A276BA0040092EE75 /* securities.swift in Sources */,
 				A6347734275CCADF00AF3D6D /* StartVC.swift in Sources */,
 				A631B07D275E3A7600D490F7 /* location.swift in Sources */,
-				A6347741275D1F4B00AF3D6D /* AccountTable.swift in Sources */,
 				A631B081275E41D900D490F7 /* StrUtils.swift in Sources */,
-				A634773C275CF5CE00AF3D6D /* AccountsTableVC.swift in Sources */,
 				A65DFD9C278F475A00C75E55 /* accountview.swift in Sources */,
 				91035E531E3CA7C000A97B26 /* AppDelegate.swift in Sources */,
 				A6EC7250278B381F0009C21F /* swiftuibridge.swift in Sources */,
