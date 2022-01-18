@@ -83,13 +83,18 @@ struct Login: View {
                 {
                     Text("Not a member?")
                         .foregroundColor(Color.white)
-                        .frame(maxWidth: .infinity, alignment: .trailing )
+                        .frame(maxWidth: .infinity, alignment: .center )
                         .padding()
-                        .background(Color.blue)
+                        .background(busy ? Color.gray : Color.blue)
                 }
+                .disabled(busy)
                 .cornerRadius(40)
             }
             .font(Font.system(size:15))
+            ProgressView("Please wait...")
+                .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                .hidden(!busy)
+                .foregroundColor(.blue)
             Text("Failed to login. Please check your email and password")
                 .fontWeight(.bold)
                 .hidden(!showError)

@@ -111,18 +111,25 @@ var body: some View {
                     .foregroundColor(Color.white)
                     .frame(maxWidth: .infinity, alignment: .center )
                     .padding()
-                    .background(Color.blue)
+                    .background(busy ? Color.gray : Color.blue)
             }
             .cornerRadius(40)
+            .disabled(busy)
         }
         .font(Font.system(size:15))
-        
-        Text("Failed to register your account. Are you already a member?")
-            .fontWeight(.bold)
-            .hidden(!showError)
-            .multilineTextAlignment(.center)
-            .padding()
-            .foregroundColor(Color.red)
+        Group {
+            ProgressView("Please wait...")
+                .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+                .hidden(!busy)
+                .foregroundColor(.blue)
+            
+            Text("Failed to register your account. Are you already a member?")
+                .fontWeight(.bold)
+                .hidden(!showError)
+                .multilineTextAlignment(.center)
+                .padding()
+                .foregroundColor(Color.red)
+        }
         
         Spacer()
         VStack {

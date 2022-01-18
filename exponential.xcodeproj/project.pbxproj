@@ -321,13 +321,6 @@
 			path = PlaidUI;
 			sourceTree = "<group>";
 		};
-		A6347736275CEFB200AF3D6D /* Main */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
 		A65DFD9A278F474000C75E55 /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,7 +371,6 @@
 				A65DFD9A278F474000C75E55 /* Account */,
 				A677E896278C7F260067666B /* Lib */,
 				A60EE976278B30E100B84623 /* Login */,
-				A6347736275CEFB200AF3D6D /* Main */,
 				A6347735275CEFA200AF3D6D /* PlaidUI */,
 				A6347730275CC9EE00AF3D6D /* StartScreen */,
 			);
