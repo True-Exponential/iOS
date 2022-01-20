@@ -92,12 +92,6 @@ struct Signup: View {
                 .padding(.bottom)
                 .textFieldStyle(.roundedBorder)
             
-            /*HStack {
-             CheckBoxView(checked: $checked)
-             Text("Accept Agreement:")
-             }*/
-            
-            
             HStack {
                 Button(action :
                         {self.signupToExponential()

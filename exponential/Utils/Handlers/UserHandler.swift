@@ -39,20 +39,38 @@ class UserHandler {
         }
     }
     
+    var userName : String {
+        UserDefaults.standard.string(forKey: UserHandler.USER_NAME) ?? ""
+    }
+    
+    var userPassword : String {
+        UserDefaults.standard.string(forKey: UserHandler.USER_PASSWORD) ?? ""
+    }
+    
+    var isAutoLogin : Bool {
+        UserDefaults.standard.bool(forKey: UserHandler.USER_AUTO_LOGIN)
+    }
+    
+    func setAutoLogin(_ userName: String,_ password: String,_ setAutoLogin: Bool) {
+        UserDefaults.standard.set(userName,forKey: UserHandler.USER_NAME)
+        UserDefaults.standard.set(password,forKey: UserHandler.USER_PASSWORD)
+        UserDefaults.standard.set(setAutoLogin,forKey: UserHandler.USER_AUTO_LOGIN)
+    }
+    
     private func loginCallBack(_ json : [String: Any]?) {
         if let data = json {
             if let expoToken = data["exponentialToken"] as? String {
                 userToken = expoToken
-                self.isLoggedIn = true
-                
+                isLoggedIn = true
+                isRegistered = true
                 Globals.plaidHandler.setLinkToken(data["plaidLinkToken"] as? String ?? "")
             }
             else {
-                self.isLoggedIn = false
+                isLoggedIn = false
             }
         }
         else {
-            self.isLoggedIn = false
+            isLoggedIn = false
         }
     }
     
@@ -103,6 +121,9 @@ class UserHandler {
     static private let USER_TOKEN_KEY_NAME = "UserToken"
     static private let USER_SIGNED_IN = "SignedIn"
     static private let USER_REGISTERED = "Registered"
+    static private let USER_AUTO_LOGIN = "AutoLogin"
+    static private let USER_NAME = "UserName"
+    static private let USER_PASSWORD = "UserPassword"
 }
 
 /*func signup(_ email: String, _ password: String) async {

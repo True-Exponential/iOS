@@ -11,6 +11,7 @@ import SwiftUI
 struct TransactionsList: View {
     
     @State var transactions = [TransactionEx]()
+    @State var busy = true
     
     var account : AccountEx
     
@@ -20,6 +21,10 @@ struct TransactionsList: View {
     }
     
     var body: some View {
+        ProgressView("Please wait...")
+            .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+            .hidden(!busy)
+            .foregroundColor(.blue)
         List(self.transactions) { transaction in
             NavigationLink {
                 TransactionsList(account: account)
@@ -27,10 +32,12 @@ struct TransactionsList: View {
                 TransactionView(transacton: transaction)
             }
         }
+        .hidden(busy)
         .navigationTitle(account.getName())
         .navigationBarTitleDisplayMode(.inline)
         .task {
             if(account.getTransactions().count != 0) {
+                busy = false
                 self.transactions = account.getTransactions()
             }
             else {
@@ -40,6 +47,7 @@ struct TransactionsList: View {
                 Globals.plaidHandler.loadTransactions(dispatch, [account.getId()])
                 
                 dispatch.notify(queue: .main) {
+                    busy = false
                     self.transactions = account.getTransactions()
                 }
             }

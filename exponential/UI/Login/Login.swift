@@ -10,18 +10,18 @@ import SwiftUI
 
 struct Login: View {
     
-    @State var email = ""
-    @State var password = ""
+    @State var email = Globals.userHandler.userName
+    @State var password = Globals.userHandler.userPassword
     @State var checked = true
     @State var busy = false
     @State var showError = false
+    @State var rembererMe = Globals.userHandler.isAutoLogin
     
     func shouldDiabled() -> Bool {
         busy || email.isEmpty || !Validations.validate(email :email) || password.isEmpty
     }
     
     func loginToExponential() {
-        
         let dispatch = DispatchGroup()
         dispatch.enter()
         busy = true
@@ -30,6 +30,13 @@ struct Login: View {
         dispatch.notify(queue: .main) {
             busy = false
             if (Globals.userHandler.isLoggedIn) {
+                if (rembererMe) {
+                    Globals.userHandler.setAutoLogin(email, password,rembererMe)
+                }
+                else {
+                    Globals.userHandler.setAutoLogin("", "",rembererMe)
+                }
+                
                 NotificationCenter.default.post(name: Notification.Name(Messages.UserLoggedIn.rawValue), object: nil)
             }
             else {
@@ -64,6 +71,11 @@ struct Login: View {
                 .padding(.top)
                 .padding(.bottom)
                 .textFieldStyle(.roundedBorder)
+            HStack(alignment: .bottom) {
+             CheckBoxView(checked: $rembererMe)
+             Text("Remember me next time")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+             }
             
             HStack {
                 Button(action :
@@ -92,6 +104,7 @@ struct Login: View {
                 .cornerRadius(40)
             }
             .font(Font.system(size:15))
+            .padding()
             ProgressView("Please wait...")
                 .progressViewStyle(CircularProgressViewStyle(tint: .blue))
                 .hidden(!busy)
@@ -108,9 +121,13 @@ struct Login: View {
                 .frame(maxWidth: .infinity, alignment: .center )
                 .foregroundColor(Color.black)
         }
-        
         .padding()
         .background(Color.white)
+        .task {
+            if (rembererMe) {
+                loginToExponential()
+            }
+        }
     }
 }
 

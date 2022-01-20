@@ -28,13 +28,17 @@ class StartVC: UIViewController, LinkOAuthHandling {
         nc.addObserver(self, selector: #selector(SwitchToLogin), name: Notification.Name(Messages.SwitchToLogin.rawValue), object: nil)
         nc.addObserver(self, selector: #selector(SwitchToSignup), name: Notification.Name(Messages.SwitchToSignup.rawValue), object: nil)
         
-        if (Globals.userHandler.isRegistered) {
-            self.addSwiftUIView(SwiftUIViews.login)
+        if (Globals.demoMode) {
+            self.addSwiftUIView(SwiftUIViews.accountList)
         }
         else {
-            self.addSwiftUIView(SwiftUIViews.signup)
+            if (Globals.userHandler.isRegistered) {
+                self.addSwiftUIView(SwiftUIViews.login)
+            }
+            else {
+                self.addSwiftUIView(SwiftUIViews.signup)
+            }
         }
-        
     }
     
     @objc func userLoggedIn() {
