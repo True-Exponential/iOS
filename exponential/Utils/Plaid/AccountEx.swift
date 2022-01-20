@@ -47,6 +47,25 @@ class AccountEx : Account, Identifiable {
     }
     
     func getTransactions() -> [TransactionEx] {transactions}
+    
+    func getTransactions(_ sortType: SortType) -> [TransactionEx]
+    {
+        switch (sortType) {
+        case .amount :
+            return transactions.sorted(by: { lhs, rhs in
+                return lhs.getAmount() > rhs.getAmount()
+              })
+            
+        case .date:
+            return transactions
+            
+        case .categories:
+            return transactions.sorted(by: { lhs, rhs in
+                return lhs.getCategoryId() > rhs.getCategoryId()
+              })
+        }
+    }
+    
     func getHoldings() -> [Holding] {holdings}
     func getCreditLoans() -> [CreditLoan] {creditLoans}
     func getMortgages() -> [Mortgage] {mortgages}

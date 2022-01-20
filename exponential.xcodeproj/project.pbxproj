@@ -56,6 +56,7 @@
 		A680A196279709C4009C888E /* viewex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A680A195279709C4009C888E /* viewex.swift */; };
 		A68536DB278C296A00E4C1D6 /* signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68536DA278C296A00E4C1D6 /* signup.swift */; };
 		A68FEB56278DEADF004644E7 /* validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68FEB55278DEADF004644E7 /* validations.swift */; };
+		A6BAD30F2799D96A00AB8C08 /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BAD30E2799D96A00AB8C08 /* SortType.swift */; };
 		A6DAF12C2753C63300747B14 /* globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DAF12B2753C63300747B14 /* globals.swift */; };
 		A6DAF1312753C6E600747B14 /* PlaidHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DAF1302753C6E600747B14 /* PlaidHandler.swift */; };
 		A6DAF1332753CA7000747B14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91035E561E3CA7C000A97B26 /* Main.storyboard */; };
@@ -147,6 +148,7 @@
 		A680A195279709C4009C888E /* viewex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewex.swift; sourceTree = "<group>"; };
 		A68536DA278C296A00E4C1D6 /* signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signup.swift; sourceTree = "<group>"; };
 		A68FEB55278DEADF004644E7 /* validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = validations.swift; sourceTree = "<group>"; };
+		A6BAD30E2799D96A00AB8C08 /* SortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
 		A6DAF12B2753C63300747B14 /* globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globals.swift; sourceTree = "<group>"; };
 		A6DAF1302753C6E600747B14 /* PlaidHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaidHandler.swift; sourceTree = "<group>"; };
 		A6E2185B2765F3FD004F9BEC /* accounttype.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accounttype.swift; sourceTree = "<group>"; };
@@ -349,6 +351,14 @@
 			path = Lib;
 			sourceTree = "<group>";
 		};
+		A6BAD30D2799D95A00AB8C08 /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				A6BAD30E2799D96A00AB8C08 /* SortType.swift */,
+			);
+			path = enums;
+			sourceTree = "<group>";
+		};
 		A6DAF12A2753C61B00747B14 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,6 +378,7 @@
 		A6DAF12D2753C66500747B14 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A6BAD30D2799D95A00AB8C08 /* enums */,
 				A65DFD9A278F474000C75E55 /* Account */,
 				A677E896278C7F260067666B /* Lib */,
 				A60EE976278B30E100B84623 /* Login */,
@@ -487,6 +498,7 @@
 				A6101E96276B86FF0092EE75 /* transactions.swift in Sources */,
 				A6E218682767945B004F9BEC /* Mortgage.swift in Sources */,
 				A6DAF1312753C6E600747B14 /* PlaidHandler.swift in Sources */,
+				A6BAD30F2799D96A00AB8C08 /* SortType.swift in Sources */,
 				A634773A275CF06800AF3D6D /* Main.swift in Sources */,
 				A606461C279067B500E246C2 /* TransactionView.swift in Sources */,
 				A6E218642767937C004F9BEC /* Liablities.swift in Sources */,

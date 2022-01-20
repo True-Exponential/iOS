@@ -20,9 +20,17 @@ struct TransactionsList: View {
         self.transactions = account.getTransactions()
     }
     
-    func sortList() {
-        
-    }
+    func sortListDate() {
+        self.transactions = account.getTransactions(SortType.date)
+        }
+    
+    func sortListCategories() {
+        self.transactions = account.getTransactions(SortType.categories)
+        }
+    
+    func sortListAmount() {
+        self.transactions = account.getTransactions(SortType.amount)
+        }
     
     var body: some View {
         ProgressView("Please wait...")
@@ -30,10 +38,11 @@ struct TransactionsList: View {
             .hidden(!busy)
             .foregroundColor(.blue)
         Menu("Sort By") {
-                Button("Date", action: sortList)
-                Button("Categories", action: sortList)
-                Button("Ammount", action: sortList)
+            Button(SortType.date.rawValue, action: sortListDate)
+                Button(SortType.categories.rawValue, action: sortListCategories)
+                Button(SortType.amount.rawValue, action: sortListAmount)
             }
+        .hidden(busy)
         .menuStyle(.borderlessButton)
         List(self.transactions) { transaction in
             NavigationLink {
