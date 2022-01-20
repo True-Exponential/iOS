@@ -34,6 +34,7 @@ struct AccountsList: View {
                 }
             }
             .navigationTitle("Your Accounts")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

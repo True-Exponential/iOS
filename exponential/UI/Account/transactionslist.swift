@@ -20,11 +20,21 @@ struct TransactionsList: View {
         self.transactions = account.getTransactions()
     }
     
+    func sortList() {
+        
+    }
+    
     var body: some View {
         ProgressView("Please wait...")
             .progressViewStyle(CircularProgressViewStyle(tint: .blue))
             .hidden(!busy)
             .foregroundColor(.blue)
+        Menu("Sort By") {
+                Button("Date", action: sortList)
+                Button("Categories", action: sortList)
+                Button("Ammount", action: sortList)
+            }
+        .menuStyle(.borderlessButton)
         List(self.transactions) { transaction in
             NavigationLink {
                 TransactionsList(account: account)

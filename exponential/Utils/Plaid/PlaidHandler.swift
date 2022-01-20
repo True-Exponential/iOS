@@ -26,7 +26,7 @@ class PlaidHandler : Finance {
     }
     
     func loadTransactions(_ dispatch : DispatchGroup,_  accountIds: [String]?) {
-        NetworkHandler.sendPostRequest(dispatch, "GetTransactions",   ["startDate" : "2019-01-01", "endDate" : "2021-05-10", "account_ids": accountIds ],  self.loadTransactionsCallBack)
+        NetworkHandler.sendPostRequest(dispatch, "GetTransactions",   ["startDate" : "2021-01-01", "endDate" : "2022-01-01", "account_ids": accountIds ],  self.loadTransactionsCallBack)
     }
     
     private func loadTransactionsCallBack(_ json : [String: Any]?) {

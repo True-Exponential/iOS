@@ -22,8 +22,10 @@ struct TransactionView: View {
                 Text(transacton.getName())
                     .font(.subheadline)
                     .fontWeight(.bold)
-                Text("Category: " + transacton.categoryDesc)
+                Text("Date: " + transacton.getDate())
                     .font(Font.system(size:15))
+                //Text("Date: " + transacton.categoryDesc)
+                  //  .font(Font.system(size:15))
             }
             Spacer()
             Text(transacton.ammount)

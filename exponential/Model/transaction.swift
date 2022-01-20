@@ -10,7 +10,7 @@ import Foundation
 
 class Transaction :  Codable {
     
-    init(_ name: String, _ categoryId : String, _ amount : Int) {
+    init(_ name: String, _ categoryId : String, _ amount : Double) {
         self.name = name
         self.category_id = categoryId
         self.amount = amount
@@ -66,7 +66,7 @@ class Transaction :  Codable {
         
         categories = transaction["categories"] as? [String] ?? []
         
-        amount = transaction["amount"] as? Int
+        amount = transaction["amount"] as? Double
         pending = transaction["pending"] as? Bool
         
         if let payment = transaction["payment"] as? NSDictionary {
@@ -114,7 +114,7 @@ class Transaction :  Codable {
     func getMerchantName() -> String {OptUtils.unwrap(merchantName)}
     func getChannel() -> String {OptUtils.unwrap(channel)}
     func getIsPending() -> Bool {OptUtils.unwrap(pending)}
-    func getAmount() -> Int {OptUtils.unwrap( amount)}
+    func getAmount() -> Double {OptUtils.unwrap( amount)}
     func getPayment() -> Payment {payment}
     func getLocation() -> Location {location}
     func getCategories() -> [String] {categories}
@@ -139,7 +139,7 @@ class Transaction :  Codable {
     private var transactionType : String?  = nil
     private var unofficialCurrencyCode : String?  = nil
     
-    private var amount : Int?  = nil
+    private var amount : Double?  = nil
     private var pending : Bool?  = nil
     
     private var payment = Payment()
