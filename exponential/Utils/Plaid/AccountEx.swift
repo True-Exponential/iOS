@@ -66,6 +66,20 @@ class AccountEx : Account, Identifiable {
         }
     }
     
+    func totalTransactionsByCategory(_ categoryId : String) -> Int {
+        transactions.filter { $0.getCategoryId() == categoryId }.count
+    }
+    
+    func totalSpendingByCategory(_ categoryId : String) -> String {
+        let tansactions : [TransactionEx] = transactions.filter { $0.getCategoryId() == categoryId }
+        
+        let spendingTotal = tansactions.reduce(0, { x, y in
+            x + y.getAmount()
+        })
+        
+        return StrUtils.showNumberWithCurrency(spendingTotal, tansactions[0].getCurrencyCode())
+    }
+    
     func getHoldings() -> [Holding] {holdings}
     func getCreditLoans() -> [CreditLoan] {creditLoans}
     func getMortgages() -> [Mortgage] {mortgages}

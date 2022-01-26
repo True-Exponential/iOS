@@ -10,10 +10,13 @@ import Foundation
 
 class Transaction :  Codable {
     
-    init(_ name: String, _ categoryId : String, _ amount : Double) {
+    init() {}
+    
+    init(_ name: String, _ categoryId : String, _ amount : Double, _ date: String) {
         self.name = name
         self.category_id = categoryId
         self.amount = amount
+        self.authorizedDate = date
     }
     
     init(_ transaction : Transaction) {

@@ -29,6 +29,16 @@ struct StrUtils {
         return retNumber
     }
     
+    static func getMonth(_ dateStr : String) -> Int {
+        let dateArray = dateStr.components(separatedBy: "-")
+        
+        if (dateArray.count == 3) {
+            return Int(dateArray[1]) ?? 0
+        }
+        
+        return 0
+    }
+    
     static func numberWithCommas(_ number : Double) -> String {
         
         var remainder = number.truncatingRemainder(dividingBy: 1)

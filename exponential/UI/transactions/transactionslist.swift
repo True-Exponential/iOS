@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Charts
 
 struct TransactionsList: View {
     
@@ -37,6 +38,8 @@ struct TransactionsList: View {
             .progressViewStyle(CircularProgressViewStyle(tint: .blue))
             .hidden(!busy)
             .foregroundColor(.blue)
+        TransactionsBarChartView(entries: Globals.transactions.dataEntriesBarChar())
+            .hidden(busy)
         Menu("Sort By") {
             Button(SortType.date.rawValue, action: sortListDate)
                 Button(SortType.categories.rawValue, action: sortListCategories)
@@ -44,9 +47,10 @@ struct TransactionsList: View {
             }
         .hidden(busy)
         .menuStyle(.borderlessButton)
+
         List(self.transactions) { transaction in
             NavigationLink {
-                TransactionsList(account: account)
+                TransactionDetails(transaction: transaction, account : account)
             } label: {
                 TransactionView(transacton: transaction)
             }

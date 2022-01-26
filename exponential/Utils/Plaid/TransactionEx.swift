@@ -11,19 +11,7 @@ import Foundation
 class TransactionEx : Transaction, Identifiable {
     
     var categoryDesc : String {
-        let category = Globals.categories[getCategoryId()]
-        
-        var hierarchy = category.getHierarchy()
-        
-        if hierarchy.isEmpty {
-            hierarchy = getCategories()
-        }
-            
-        if hierarchy.count > 0 {
-            return hierarchy[0]
-        }
-        
-        return ""
+        Globals.categories.getCategoryDesc(getCategoryId(), getCategories())
     }
     
     var ammount : String {StrUtils.showNumberWithCurrency(getAmount() ,getCurrencyCode())}

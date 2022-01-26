@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Charts
 
 struct Transactions {
     
@@ -26,6 +27,10 @@ struct Transactions {
         self.transactions = [TransactionEx]()
         
         if let data = json {
+            if let insights = data["insights"]! as? NSDictionary {
+                self.insights = Insights(insights)
+            }
+            
             let transactions = data["transactions"]! as? [Any] ?? []
             for _transaction in transactions {
                 if let transaction = _transaction as? NSDictionary {
@@ -36,6 +41,39 @@ struct Transactions {
             self.appendTransactinosToAccounts()
         }
     }
+    
+    func dataEntriesBarChar() -> [BarChartDataEntry] {
+        
+        var totalTransPerMonth  = Array<Double>(repeating : 0, count :12)
+        
+        for transaction in transactions {
+            let month = StrUtils.getMonth(transaction.getDate())
+            if (month != 0) {
+                totalTransPerMonth[month-1] += transaction.getAmount()
+            }
+        }
+        
+        let array = totalTransPerMonth.enumerated().map { BarChartDataEntry(x:Double($0), y: $1)}
+        
+        return array
+    }
+    
+    /*func dataEntriesPieChar() -> [PieChartDataEntry] {
+        
+        var totalTransPerMonth  = Array<Double>(repeating : 0, count :12)
+        
+        for transaction in transactions {
+            let month = StrUtils.getMonth(transaction.getDate())
+            if (month != 0) {
+                totalTransPerMonth[month-1] += transaction.getAmount()
+            }
+        }
+        
+        let array = totalTransPerMonth.enumerated().map { PieChartDataEntry(x:Double($0), y: $1)}
+        
+        return array
+    }*/
+     
     
     private func appendTransactinosToAccounts() {
         var accountTransactions = [String: [TransactionEx]]()
@@ -55,6 +93,9 @@ struct Transactions {
         Globals.accounts.appendTransactionsToAccounts(accountTransactions)
     }
     
+    func getInsights() -> Insights {insights}
+    
     private var transactions = [TransactionEx]()
+    private var insights = Insights()
     
 }

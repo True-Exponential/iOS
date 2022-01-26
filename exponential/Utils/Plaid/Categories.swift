@@ -47,6 +47,22 @@ struct Categories {
         }
     }
     
+    func getCategoryDesc(_ id : String,_ altCategories : [String]?) -> String {
+        let category = self[id]
+        
+        var hierarchy = category.getHierarchy()
+        
+        if hierarchy.isEmpty {
+            hierarchy = altCategories ?? []
+        }
+            
+        if hierarchy.count > 0 {
+            return hierarchy[0]
+        }
+        
+        return ""
+    }
+    
     var categories = [String: Category]()
     
 }
