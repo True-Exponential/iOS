@@ -37,6 +37,22 @@ struct Insights {
             self.businessSpentMostOn = PurchaseInsight(businessSpentMostOn)
         }
         
+        if let dayShoppedTheMost = insights["dayShoppedTheMost"] as? NSDictionary {
+            self.dayShoppedTheMost = VisitInsight(dayShoppedTheMost)
+        }
+        
+        if let monthShoppedTheMost = insights["monthShoppedTheMost"] as? NSDictionary {
+            self.monthShoppedTheMost = VisitInsight(monthShoppedTheMost)
+        }
+        
+        if let daySpentTheMost = insights["daySpentTheMost"] as? NSDictionary {
+            self.daySpentTheMost = PurchaseInsight(daySpentTheMost)
+        }
+        
+        if let monthSpentTheMost = insights["monthSpentTheMost"] as? NSDictionary {
+            self.monthSpentTheMost = PurchaseInsight(monthSpentTheMost)
+        }
+        
         let categoryInsights = insights["categoryInsights"]! as? [Any] ?? []
         for _categoryInsight in categoryInsights {
             if let categoryInsight = _categoryInsight as? NSDictionary {
@@ -44,26 +60,42 @@ struct Insights {
             }
         }
         
-        let purchaseInsights = insights["purchaseInsights"]! as? [Any] ?? []
-        for _purchaseInsight in purchaseInsights {
-            if let purchaseInsight = _purchaseInsight as? NSDictionary {
-                self.purchaseInsights.append(PurchaseInsight(purchaseInsight))
+        self.purchaseInsights = populatePurchasesInsight(insights,"purchaseInsights")
+        self.purchaseDayInsights = populatePurchasesInsight(insights,"purchaseDayInsights")
+        self.purchaseMonthInsights = populatePurchasesInsight(insights,"purchaseMonthInsights")
+        
+        self.visitInsights = populateVisitsInsight(insights,"visitsInsights")
+        self.categoryVisitsInsights = populateVisitsInsight(insights,"categoryVisitsInsights")
+        self.dayVisitInsights = populateVisitsInsight(insights,"visitDaysInsights")
+        self.monthVisitInsights = populateVisitsInsight(insights,"visitMonthsInsights")
+    }
+    
+    private func populateVisitsInsight(_ insights : NSDictionary,_ key : String) -> [VisitInsight]{
+        
+        var insightsArray = [VisitInsight]()
+        
+        let _insights = insights[key]! as? [Any] ?? []
+        for insightDic in _insights {
+            if let insight = insightDic as? NSDictionary {
+                insightsArray.append(VisitInsight(insight))
             }
         }
         
-        let visitsInsights = insights["visitsInsights"]! as? [Any] ?? []
-        for _visitsInsight in visitsInsights {
-            if let visitsInsight = _visitsInsight as? NSDictionary {
-                self.visitInsights.append(VisitInsight(visitsInsight))
+        return insightsArray
+    }
+    
+    private func populatePurchasesInsight(_ insights : NSDictionary,_ key : String) -> [PurchaseInsight]{
+        
+        var insightsArray = [PurchaseInsight]()
+        
+        let _insights = insights[key]! as? [Any] ?? []
+        for insightDic in _insights {
+            if let insight = insightDic as? NSDictionary {
+                insightsArray.append(PurchaseInsight(insight))
             }
         }
         
-        let categoryVisitsInsights = insights["categoryVisitsInsights"]! as? [Any] ?? []
-        for _categoryVisitsInsight in categoryVisitsInsights {
-            if let categoryVisitsInsight = _categoryVisitsInsight as? NSDictionary {
-                self.categoryVisitsInsights.append(VisitInsight(categoryVisitsInsight))
-            }
-        }
+        return insightsArray
     }
     
     func getCatNamePurchasedTheMostTimes() -> String {catNamePurchasedTheMostTimes}
@@ -79,6 +111,19 @@ struct Insights {
     func getVisitInsights() -> [VisitInsight] {visitInsights}
     func getCategoryVisitsInsights() -> [VisitInsight] {categoryVisitsInsights}
     
+    func getDayVisitInsights() -> [VisitInsight] {dayVisitInsights}
+    func getMonthVisitInsights() -> [VisitInsight] {monthVisitInsights}
+    
+    func getPurchaseDayInsights() -> [PurchaseInsight] {purchaseDayInsights}
+    func getPurchaseMonthInsights() -> [PurchaseInsight] {purchaseMonthInsights}
+    
+    func getDayShoppedTheMost() -> VisitInsight {dayShoppedTheMost}
+    func getMonthShoppedTheMost() -> VisitInsight {monthShoppedTheMost}
+    
+    func getDaySpentTheMost() -> PurchaseInsight {daySpentTheMost}
+    func getMonthSpentTheMost() -> PurchaseInsight {monthSpentTheMost}
+    
+    
     private var catNamePurchasedTheMostTimes = ""
     
     private var categoryPurchasedTheMostTimes = VisitInsight()
@@ -87,8 +132,20 @@ struct Insights {
     private var largestTransaction = Transaction()
     private var businessSpentMostOn = PurchaseInsight()
     
+    private var daySpentTheMost = PurchaseInsight()
+    private var monthSpentTheMost = PurchaseInsight()
+    
+    private var dayShoppedTheMost = VisitInsight()
+    private var monthShoppedTheMost = VisitInsight()
+        
     private var categoryInsights = [CategoryInsight]()
     private var purchaseInsights = [PurchaseInsight]()
     private var visitInsights = [VisitInsight]()
     private var categoryVisitsInsights = [VisitInsight]()
+    
+    private var dayVisitInsights = [VisitInsight]()
+    private var monthVisitInsights = [VisitInsight]()
+    
+    private var purchaseDayInsights = [PurchaseInsight]()
+    private var purchaseMonthInsights = [PurchaseInsight]()
 }

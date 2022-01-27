@@ -323,11 +323,11 @@
 		A6101E8E276B44F10092EE75 /* Plaid */ = {
 			isa = PBXGroup;
 			children = (
-				A633121427A1AA9200F6D782 /* Insights.swift */,
 				A6101E93276B7E3A0092EE75 /* AccountEx.swift */,
 				A6101E8F276B45080092EE75 /* accounts.swift */,
 				A6ECEC9A277CB7C1007F4944 /* Categories.swift */,
 				A6101E9D276BB2C80092EE75 /* holdings.swift */,
+				A633121427A1AA9200F6D782 /* Insights.swift */,
 				A6E218632767937C004F9BEC /* Liablities.swift */,
 				A6101E91276B719C0092EE75 /* PlaidDemoHandler.swift */,
 				A6DAF1302753C6E600747B14 /* PlaidHandler.swift */,

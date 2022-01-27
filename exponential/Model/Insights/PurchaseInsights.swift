@@ -17,7 +17,7 @@ struct PurchaseInsight {
     init(_ visitInsight : NSDictionary) {
         
         businessName = visitInsight["businessName"] as? String
-        totalSpending = visitInsight["totalVisits"] as? Double
+        totalSpending = visitInsight["totalSpending"] as? Double
     }
     
     func getBusinessName() -> String {OptUtils.unwrap(businessName)}

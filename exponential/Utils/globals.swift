@@ -12,7 +12,7 @@ struct Globals {
     static private let serverAddress = "http://localhost:8080"
     //static private let serverAddress = "http://10.0.0.11:8080"
     
-    static let demoMode = true
+    static let demoMode = false
     
     static let plaidHandler : Finance = demoMode ? PlaidDemoHandler() : PlaidHandler()
     
